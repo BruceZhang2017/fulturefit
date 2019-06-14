@@ -17,6 +17,7 @@
 		9A3FEFD322B3C81C008D9D0F /* FultureFitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FEFD222B3C81C008D9D0F /* FultureFitUITests.swift */; };
 		9A3FEFE422B3DA10008D9D0F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FEFE322B3DA10008D9D0F /* RegisterViewController.swift */; };
 		9A3FEFE722B3DB42008D9D0F /* Tab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A3FEFE622B3DB42008D9D0F /* Tab.storyboard */; };
+		BD36CF17795E3C5749D93A59 /* libPods-FultureFit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CF0EA8BD717F1515884FF17 /* libPods-FultureFit.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		37D34FC31F458EB6EA3833EA /* Pods-FultureFit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FultureFit.debug.xcconfig"; path = "Target Support Files/Pods-FultureFit/Pods-FultureFit.debug.xcconfig"; sourceTree = "<group>"; };
+		7CF0EA8BD717F1515884FF17 /* libPods-FultureFit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FultureFit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A3FEFAC22B3C81B008D9D0F /* FultureFit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FultureFit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A3FEFAF22B3C81B008D9D0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A3FEFB122B3C81B008D9D0F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -53,6 +56,7 @@
 		9A3FEFD422B3C81C008D9D0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A3FEFE322B3DA10008D9D0F /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		9A3FEFE622B3DB42008D9D0F /* Tab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tab.storyboard; sourceTree = "<group>"; };
+		ADFD948BE9AD1CEE6D49D280 /* Pods-FultureFit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FultureFit.release.xcconfig"; path = "Target Support Files/Pods-FultureFit/Pods-FultureFit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD36CF17795E3C5749D93A59 /* libPods-FultureFit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +85,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D01DC29D226134575FCEDA9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				37D34FC31F458EB6EA3833EA /* Pods-FultureFit.debug.xcconfig */,
+				ADFD948BE9AD1CEE6D49D280 /* Pods-FultureFit.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		9A3FEFA322B3C81B008D9D0F = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +102,8 @@
 				9A3FEFC622B3C81C008D9D0F /* FultureFitTests */,
 				9A3FEFD122B3C81C008D9D0F /* FultureFitUITests */,
 				9A3FEFAD22B3C81B008D9D0F /* Products */,
+				0D01DC29D226134575FCEDA9 /* Pods */,
+				D2706442A42033DDC6543961 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -166,6 +183,14 @@
 			path = Tab;
 			sourceTree = "<group>";
 		};
+		D2706442A42033DDC6543961 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7CF0EA8BD717F1515884FF17 /* libPods-FultureFit.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -173,6 +198,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9A3FEFD722B3C81C008D9D0F /* Build configuration list for PBXNativeTarget "FultureFit" */;
 			buildPhases = (
+				10A2BE93E28DCDF50DF6C6B8 /* [CP] Check Pods Manifest.lock */,
 				9A3FEFA822B3C81B008D9D0F /* Sources */,
 				9A3FEFA922B3C81B008D9D0F /* Frameworks */,
 				9A3FEFAA22B3C81B008D9D0F /* Resources */,
@@ -292,6 +318,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		10A2BE93E28DCDF50DF6C6B8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FultureFit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9A3FEFA822B3C81B008D9D0F /* Sources */ = {
@@ -474,6 +525,7 @@
 		};
 		9A3FEFD822B3C81C008D9D0F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37D34FC31F458EB6EA3833EA /* Pods-FultureFit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -492,6 +544,7 @@
 		};
 		9A3FEFD922B3C81C008D9D0F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ADFD948BE9AD1CEE6D49D280 /* Pods-FultureFit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

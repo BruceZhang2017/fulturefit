@@ -1,0 +1,8 @@
+platform:ios,"10.0"
+
+target "FultureFit" do
+
+pod 'Toast-Swift'
+pod 'Alamofire'
+
+end
