@@ -8,13 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		9A3FEFB022B3C81B008D9D0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FEFAF22B3C81B008D9D0F /* AppDelegate.swift */; };
-		9A3FEFB222B3C81B008D9D0F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FEFB122B3C81B008D9D0F /* ViewController.swift */; };
-		9A3FEFB522B3C81B008D9D0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A3FEFB322B3C81B008D9D0F /* Main.storyboard */; };
+		9A3FEFB222B3C81B008D9D0F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FEFB122B3C81B008D9D0F /* LoginViewController.swift */; };
+		9A3FEFB522B3C81B008D9D0F /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A3FEFB322B3C81B008D9D0F /* User.storyboard */; };
 		9A3FEFB822B3C81B008D9D0F /* FultureFit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FEFB622B3C81B008D9D0F /* FultureFit.xcdatamodeld */; };
 		9A3FEFBA22B3C81C008D9D0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A3FEFB922B3C81C008D9D0F /* Assets.xcassets */; };
 		9A3FEFBD22B3C81C008D9D0F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A3FEFBB22B3C81C008D9D0F /* LaunchScreen.storyboard */; };
 		9A3FEFC822B3C81C008D9D0F /* FultureFitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FEFC722B3C81C008D9D0F /* FultureFitTests.swift */; };
 		9A3FEFD322B3C81C008D9D0F /* FultureFitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FEFD222B3C81C008D9D0F /* FultureFitUITests.swift */; };
+		9A3FEFE422B3DA10008D9D0F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FEFE322B3DA10008D9D0F /* RegisterViewController.swift */; };
+		9A3FEFE722B3DB42008D9D0F /* Tab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A3FEFE622B3DB42008D9D0F /* Tab.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,8 +39,8 @@
 /* Begin PBXFileReference section */
 		9A3FEFAC22B3C81B008D9D0F /* FultureFit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FultureFit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A3FEFAF22B3C81B008D9D0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9A3FEFB122B3C81B008D9D0F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		9A3FEFB422B3C81B008D9D0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9A3FEFB122B3C81B008D9D0F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		9A3FEFB422B3C81B008D9D0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/User.storyboard; sourceTree = "<group>"; };
 		9A3FEFB722B3C81B008D9D0F /* FultureFit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FultureFit.xcdatamodel; sourceTree = "<group>"; };
 		9A3FEFB922B3C81C008D9D0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A3FEFBC22B3C81C008D9D0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +51,8 @@
 		9A3FEFCE22B3C81C008D9D0F /* FultureFitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FultureFitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A3FEFD222B3C81C008D9D0F /* FultureFitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FultureFitUITests.swift; sourceTree = "<group>"; };
 		9A3FEFD422B3C81C008D9D0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A3FEFE322B3DA10008D9D0F /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		9A3FEFE622B3DB42008D9D0F /* Tab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tab.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +103,9 @@
 		9A3FEFAE22B3C81B008D9D0F /* FultureFit */ = {
 			isa = PBXGroup;
 			children = (
+				9A3FEFE122B3D9E7008D9D0F /* View */,
+				9A3FEFE022B3D5FB008D9D0F /* Storyboard */,
 				9A3FEFAF22B3C81B008D9D0F /* AppDelegate.swift */,
-				9A3FEFB122B3C81B008D9D0F /* ViewController.swift */,
-				9A3FEFB322B3C81B008D9D0F /* Main.storyboard */,
 				9A3FEFB922B3C81C008D9D0F /* Assets.xcassets */,
 				9A3FEFBB22B3C81C008D9D0F /* LaunchScreen.storyboard */,
 				9A3FEFBE22B3C81C008D9D0F /* Info.plist */,
@@ -126,6 +130,40 @@
 				9A3FEFD422B3C81C008D9D0F /* Info.plist */,
 			);
 			path = FultureFitUITests;
+			sourceTree = "<group>";
+		};
+		9A3FEFE022B3D5FB008D9D0F /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				9A3FEFB322B3C81B008D9D0F /* User.storyboard */,
+				9A3FEFE622B3DB42008D9D0F /* Tab.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		9A3FEFE122B3D9E7008D9D0F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9A3FEFE222B3D9F7008D9D0F /* User */,
+				9A3FEFE522B3DB09008D9D0F /* Tab */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9A3FEFE222B3D9F7008D9D0F /* User */ = {
+			isa = PBXGroup;
+			children = (
+				9A3FEFB122B3C81B008D9D0F /* LoginViewController.swift */,
+				9A3FEFE322B3DA10008D9D0F /* RegisterViewController.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		9A3FEFE522B3DB09008D9D0F /* Tab */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tab;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,9 +270,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A3FEFE722B3DB42008D9D0F /* Tab.storyboard in Resources */,
 				9A3FEFBD22B3C81C008D9D0F /* LaunchScreen.storyboard in Resources */,
 				9A3FEFBA22B3C81C008D9D0F /* Assets.xcassets in Resources */,
-				9A3FEFB522B3C81B008D9D0F /* Main.storyboard in Resources */,
+				9A3FEFB522B3C81B008D9D0F /* User.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,9 +298,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A3FEFB222B3C81B008D9D0F /* ViewController.swift in Sources */,
+				9A3FEFB222B3C81B008D9D0F /* LoginViewController.swift in Sources */,
 				9A3FEFB822B3C81B008D9D0F /* FultureFit.xcdatamodeld in Sources */,
 				9A3FEFB022B3C81B008D9D0F /* AppDelegate.swift in Sources */,
+				9A3FEFE422B3DA10008D9D0F /* RegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,12 +337,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		9A3FEFB322B3C81B008D9D0F /* Main.storyboard */ = {
+		9A3FEFB322B3C81B008D9D0F /* User.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				9A3FEFB422B3C81B008D9D0F /* Base */,
 			);
-			name = Main.storyboard;
+			name = User.storyboard;
 			sourceTree = "<group>";
 		};
 		9A3FEFBB22B3C81C008D9D0F /* LaunchScreen.storyboard */ = {
