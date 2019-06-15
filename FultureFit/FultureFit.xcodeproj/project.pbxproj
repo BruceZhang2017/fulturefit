@@ -17,6 +17,17 @@
 		9A3FEFD322B3C81C008D9D0F /* FultureFitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FEFD222B3C81C008D9D0F /* FultureFitUITests.swift */; };
 		9A3FEFE422B3DA10008D9D0F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FEFE322B3DA10008D9D0F /* RegisterViewController.swift */; };
 		9A3FEFE722B3DB42008D9D0F /* Tab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A3FEFE622B3DB42008D9D0F /* Tab.storyboard */; };
+		9A3FEFEA22B3E37C008D9D0F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FEFE922B3E37C008D9D0F /* BaseViewController.swift */; };
+		9A3FEFEC22B3E42F008D9D0F /* FFTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FEFEB22B3E42F008D9D0F /* FFTabBarController.swift */; };
+		9A3FEFEF22B3E8FD008D9D0F /* UIKitExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FEFEE22B3E8FD008D9D0F /* UIKitExtension.swift */; };
+		9A3FEFF122B3E911008D9D0F /* FoundationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FEFF022B3E911008D9D0F /* FoundationExtension.swift */; };
+		9A3FEFF422B3FC1A008D9D0F /* FFExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FEFF322B3FC1A008D9D0F /* FFExerciseViewController.swift */; };
+		9A3FEFF722B3FC51008D9D0F /* FFItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FEFF622B3FC51008D9D0F /* FFItemsViewController.swift */; };
+		9A3FEFFA22B3FC62008D9D0F /* FFMineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FEFF922B3FC62008D9D0F /* FFMineViewController.swift */; };
+		9A3FEFFE22B47CE7008D9D0F /* FFBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FEFFD22B47CE7008D9D0F /* FFBaseModel.swift */; };
+		9A3FF00122B47D41008D9D0F /* FFMineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FF00022B47D41008D9D0F /* FFMineModel.swift */; };
+		9A3FF00322B47D70008D9D0F /* FFMineModelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FF00222B47D70008D9D0F /* FFMineModelService.swift */; };
+		9A3FF00622B48249008D9D0F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9A3FF00822B48249008D9D0F /* Localizable.strings */; };
 		BD36CF17795E3C5749D93A59 /* libPods-FultureFit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CF0EA8BD717F1515884FF17 /* libPods-FultureFit.a */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +67,17 @@
 		9A3FEFD422B3C81C008D9D0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A3FEFE322B3DA10008D9D0F /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		9A3FEFE622B3DB42008D9D0F /* Tab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tab.storyboard; sourceTree = "<group>"; };
+		9A3FEFE922B3E37C008D9D0F /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		9A3FEFEB22B3E42F008D9D0F /* FFTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFTabBarController.swift; sourceTree = "<group>"; };
+		9A3FEFEE22B3E8FD008D9D0F /* UIKitExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitExtension.swift; sourceTree = "<group>"; };
+		9A3FEFF022B3E911008D9D0F /* FoundationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationExtension.swift; sourceTree = "<group>"; };
+		9A3FEFF322B3FC1A008D9D0F /* FFExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFExerciseViewController.swift; sourceTree = "<group>"; };
+		9A3FEFF622B3FC51008D9D0F /* FFItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFItemsViewController.swift; sourceTree = "<group>"; };
+		9A3FEFF922B3FC62008D9D0F /* FFMineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFMineViewController.swift; sourceTree = "<group>"; };
+		9A3FEFFD22B47CE7008D9D0F /* FFBaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFBaseModel.swift; sourceTree = "<group>"; };
+		9A3FF00022B47D41008D9D0F /* FFMineModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFMineModel.swift; sourceTree = "<group>"; };
+		9A3FF00222B47D70008D9D0F /* FFMineModelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFMineModelService.swift; sourceTree = "<group>"; };
+		9A3FF00922B48256008D9D0F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		ADFD948BE9AD1CEE6D49D280 /* Pods-FultureFit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FultureFit.release.xcconfig"; path = "Target Support Files/Pods-FultureFit/Pods-FultureFit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,7 +113,6 @@
 				37D34FC31F458EB6EA3833EA /* Pods-FultureFit.debug.xcconfig */,
 				ADFD948BE9AD1CEE6D49D280 /* Pods-FultureFit.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -120,12 +141,15 @@
 		9A3FEFAE22B3C81B008D9D0F /* FultureFit */ = {
 			isa = PBXGroup;
 			children = (
-				9A3FEFE122B3D9E7008D9D0F /* View */,
+				9A3FEFED22B3E817008D9D0F /* Kit */,
+				9A3FEFFB22B47CA1008D9D0F /* Model */,
+				9A3FEFE122B3D9E7008D9D0F /* ViewController */,
 				9A3FEFE022B3D5FB008D9D0F /* Storyboard */,
 				9A3FEFAF22B3C81B008D9D0F /* AppDelegate.swift */,
 				9A3FEFB922B3C81C008D9D0F /* Assets.xcassets */,
 				9A3FEFBB22B3C81C008D9D0F /* LaunchScreen.storyboard */,
 				9A3FEFBE22B3C81C008D9D0F /* Info.plist */,
+				9A3FF00822B48249008D9D0F /* Localizable.strings */,
 				9A3FEFB622B3C81B008D9D0F /* FultureFit.xcdatamodeld */,
 			);
 			path = FultureFit;
@@ -158,13 +182,17 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
-		9A3FEFE122B3D9E7008D9D0F /* View */ = {
+		9A3FEFE122B3D9E7008D9D0F /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				9A3FEFF822B3FC57008D9D0F /* Mine */,
+				9A3FEFF522B3FC39008D9D0F /* Items */,
+				9A3FEFF222B3EE72008D9D0F /* Exercise */,
+				9A3FEFE822B3E369008D9D0F /* Base */,
 				9A3FEFE222B3D9F7008D9D0F /* User */,
 				9A3FEFE522B3DB09008D9D0F /* Tab */,
 			);
-			path = View;
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		9A3FEFE222B3D9F7008D9D0F /* User */ = {
@@ -179,8 +207,76 @@
 		9A3FEFE522B3DB09008D9D0F /* Tab */ = {
 			isa = PBXGroup;
 			children = (
+				9A3FEFEB22B3E42F008D9D0F /* FFTabBarController.swift */,
 			);
 			path = Tab;
+			sourceTree = "<group>";
+		};
+		9A3FEFE822B3E369008D9D0F /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				9A3FEFE922B3E37C008D9D0F /* BaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		9A3FEFED22B3E817008D9D0F /* Kit */ = {
+			isa = PBXGroup;
+			children = (
+				9A3FEFEE22B3E8FD008D9D0F /* UIKitExtension.swift */,
+				9A3FEFF022B3E911008D9D0F /* FoundationExtension.swift */,
+			);
+			path = Kit;
+			sourceTree = "<group>";
+		};
+		9A3FEFF222B3EE72008D9D0F /* Exercise */ = {
+			isa = PBXGroup;
+			children = (
+				9A3FEFF322B3FC1A008D9D0F /* FFExerciseViewController.swift */,
+			);
+			path = Exercise;
+			sourceTree = "<group>";
+		};
+		9A3FEFF522B3FC39008D9D0F /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				9A3FEFF622B3FC51008D9D0F /* FFItemsViewController.swift */,
+			);
+			path = Items;
+			sourceTree = "<group>";
+		};
+		9A3FEFF822B3FC57008D9D0F /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				9A3FEFF922B3FC62008D9D0F /* FFMineViewController.swift */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		9A3FEFFB22B47CA1008D9D0F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9A3FEFFF22B47D17008D9D0F /* Mine */,
+				9A3FEFFC22B47CD5008D9D0F /* Base */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9A3FEFFC22B47CD5008D9D0F /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				9A3FEFFD22B47CE7008D9D0F /* FFBaseModel.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		9A3FEFFF22B47D17008D9D0F /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				9A3FF00022B47D41008D9D0F /* FFMineModel.swift */,
+				9A3FF00222B47D70008D9D0F /* FFMineModelService.swift */,
+			);
+			path = Mine;
 			sourceTree = "<group>";
 		};
 		D2706442A42033DDC6543961 /* Frameworks */ = {
@@ -254,12 +350,18 @@
 		9A3FEFA422B3C81B008D9D0F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = FF;
 				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "PDP-ACC";
 				TargetAttributes = {
 					9A3FEFAB22B3C81B008D9D0F = {
 						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					9A3FEFC222B3C81C008D9D0F = {
 						CreatedOnToolsVersion = 10.2.1;
@@ -276,8 +378,8 @@
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 9A3FEFA322B3C81B008D9D0F;
 			productRefGroup = 9A3FEFAD22B3C81B008D9D0F /* Products */;
@@ -296,6 +398,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A3FF00622B48249008D9D0F /* Localizable.strings in Resources */,
 				9A3FEFE722B3DB42008D9D0F /* Tab.storyboard in Resources */,
 				9A3FEFBD22B3C81C008D9D0F /* LaunchScreen.storyboard in Resources */,
 				9A3FEFBA22B3C81C008D9D0F /* Assets.xcassets in Resources */,
@@ -349,10 +452,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A3FF00322B47D70008D9D0F /* FFMineModelService.swift in Sources */,
+				9A3FEFF122B3E911008D9D0F /* FoundationExtension.swift in Sources */,
+				9A3FF00122B47D41008D9D0F /* FFMineModel.swift in Sources */,
+				9A3FEFEA22B3E37C008D9D0F /* BaseViewController.swift in Sources */,
+				9A3FEFEC22B3E42F008D9D0F /* FFTabBarController.swift in Sources */,
 				9A3FEFB222B3C81B008D9D0F /* LoginViewController.swift in Sources */,
+				9A3FEFF422B3FC1A008D9D0F /* FFExerciseViewController.swift in Sources */,
 				9A3FEFB822B3C81B008D9D0F /* FultureFit.xcdatamodeld in Sources */,
+				9A3FEFEF22B3E8FD008D9D0F /* UIKitExtension.swift in Sources */,
+				9A3FEFFA22B3FC62008D9D0F /* FFMineViewController.swift in Sources */,
+				9A3FEFFE22B47CE7008D9D0F /* FFBaseModel.swift in Sources */,
 				9A3FEFB022B3C81B008D9D0F /* AppDelegate.swift in Sources */,
 				9A3FEFE422B3DA10008D9D0F /* RegisterViewController.swift in Sources */,
+				9A3FEFF722B3FC51008D9D0F /* FFItemsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,6 +517,14 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		9A3FF00822B48249008D9D0F /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9A3FF00922B48256008D9D0F /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -411,6 +532,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -458,7 +580,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -472,6 +594,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -513,7 +636,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -531,6 +654,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BVL93LPC7F;
 				INFOPLIST_FILE = FultureFit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -538,7 +662,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.anker.FultureFit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -550,6 +674,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BVL93LPC7F;
 				INFOPLIST_FILE = FultureFit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -557,7 +682,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.anker.FultureFit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

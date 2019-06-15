@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  FultureFit
+
+  Created by ANKER on 2019/6/15.
+  Copyright © 2019 PDP-ACC. All rights reserved.
+*/
+
+"mine_exit_alert_message" = "您确定退出吗？";
+"OK" = "确认";
+"CANCEL" = "取消";

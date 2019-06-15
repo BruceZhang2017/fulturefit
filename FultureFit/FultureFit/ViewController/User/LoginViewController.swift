@@ -12,7 +12,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: BaseViewController {
 
     @IBOutlet weak var loginButton: UIButton! // 登录按钮
     @IBOutlet weak var phoneTextField: UITextField! // 手机号输入框
@@ -39,6 +39,11 @@ class LoginViewController: UIViewController {
     
     // 登录账户
     @IBAction func loginUser(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Tab", bundle: nil)
+        if let viewController = storyboard.instantiateViewController(withIdentifier: "FFTabBarController") as? FFTabBarController {
+            viewController.modalTransitionStyle = .crossDissolve
+            self.present(viewController, animated: true, completion: nil)
+        }
         
     }
 }

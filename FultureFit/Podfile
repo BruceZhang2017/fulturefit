@@ -4,5 +4,6 @@ target "FultureFit" do
 
 pod 'Toast-Swift'
 pod 'Alamofire'
+pod 'R.swift'
 
 end
