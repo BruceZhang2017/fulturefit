@@ -11,6 +11,7 @@
 	
 
 import UIKit
+import Toast_Swift
 
 class FFMineViewController: BaseViewController {
 
@@ -31,11 +32,11 @@ class FFMineViewController: BaseViewController {
     private func handleMineItem(_ item: MineItem) {
         switch item {
         case .bleConnection:
-            print("ble")
+            performSegue(withIdentifier: "toBLEScan", sender: self)
         case .registerSave:
             print("save")
         case .versionInfo:
-            print("info")
+            showVersionInfo()
         case .exit:
             handleMineItemExit()
         }
@@ -43,8 +44,19 @@ class FFMineViewController: BaseViewController {
     
     /// 处理退出项
     private func handleMineItemExit() {
-        let alert = UIAlertController(title: nil, message: "您确定退出吗？", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: <#T##String?#>, style: <#T##UIAlertAction.Style#>, handler: <#T##((UIAlertAction) -> Void)?##((UIAlertAction) -> Void)?##(UIAlertAction) -> Void#>))
+        let alert = UIAlertController(title: nil, message: R.string.localizable.mine_exit_alert_message(), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: R.string.localizable.oK(), style: .default, handler: { (action) in
+            
+        }))
+        alert.addAction(UIAlertAction(title: R.string.localizable.canceL(), style: .default, handler: { (action) in
+            
+        }))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func showVersionInfo() {
+        let currentVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
+        view.makeToast("当前版本号：V\(currentVersion)")
     }
 }
 

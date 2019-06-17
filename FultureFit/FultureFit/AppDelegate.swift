@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        let _ = FFBLEManager.sharedInstall
         // 设置Tab bar选中字体颜色
         UITabBarItem.appearance().setTitleTextAttributes([.foregroundColor: "a0dc2f".ColorHex()!], for: .selected)
         return true

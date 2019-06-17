@@ -2,7 +2,7 @@
 // Copyright © 2015-2018 Anker Innovations Technology Limited All Rights Reserved.
 // The program and materials is not free. Without our permission, any use, including but not limited to reproduction, retransmission, communication, display, mirror, download, modification, is expressly prohibited. Otherwise, it will be pursued for legal liability.
 // 
-//  FFBaseModel.swift
+//  FFItemsModel.swift
 //  FultureFit
 //
 //  Created by ANKER on 2019/6/15.
@@ -10,14 +10,8 @@
 //
 	
 
-import UIKit
-import CoreBluetooth
+import Foundation
 
-class FFBaseModel: NSObject {
-    
-    static let sharedInstall = FFBaseModel()
-    
-    var blePowerStatus: CBManagerState = .poweredOff
-    var bleConnectStatus = 0
-    
+struct FitItem {
+    var name: String
 }

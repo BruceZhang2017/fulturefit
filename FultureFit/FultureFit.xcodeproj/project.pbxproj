@@ -28,6 +28,17 @@
 		9A3FF00122B47D41008D9D0F /* FFMineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FF00022B47D41008D9D0F /* FFMineModel.swift */; };
 		9A3FF00322B47D70008D9D0F /* FFMineModelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FF00222B47D70008D9D0F /* FFMineModelService.swift */; };
 		9A3FF00622B48249008D9D0F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9A3FF00822B48249008D9D0F /* Localizable.strings */; };
+		9A3FF01022B48E7F008D9D0F /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FF00F22B48E7F008D9D0F /* R.generated.swift */; };
+		9A3FF01322B49479008D9D0F /* FFItemsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FF01222B49479008D9D0F /* FFItemsModel.swift */; };
+		9A3FF01522B4DFF4008D9D0F /* FFItemsModelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FF01422B4DFF4008D9D0F /* FFItemsModelService.swift */; };
+		9A3FF01722B4E318008D9D0F /* FFNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FF01622B4E318008D9D0F /* FFNavigationController.swift */; };
+		9A3FF01B22B4E585008D9D0F /* FFBLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FF01A22B4E585008D9D0F /* FFBLEManager.swift */; };
+		9A3FF01D22B5C355008D9D0F /* FFBLEConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FF01C22B5C355008D9D0F /* FFBLEConfig.swift */; };
+		9A3FF01F22B5CBF8008D9D0F /* FFBLEDiscoveredManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FF01E22B5CBF8008D9D0F /* FFBLEDiscoveredManager.swift */; };
+		9A3FF02122B5D729008D9D0F /* BLE.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A3FF02022B5D729008D9D0F /* BLE.storyboard */; };
+		9A3FF02322B5D7B2008D9D0F /* FFBLEScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FF02222B5D7B2008D9D0F /* FFBLEScanViewController.swift */; };
+		9A3FF02622B66B45008D9D0F /* FFBLEScanModelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FF02522B66B45008D9D0F /* FFBLEScanModelService.swift */; };
+		9A3FF02822B697FB008D9D0F /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FF02722B697FB008D9D0F /* Constant.swift */; };
 		BD36CF17795E3C5749D93A59 /* libPods-FultureFit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CF0EA8BD717F1515884FF17 /* libPods-FultureFit.a */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +89,17 @@
 		9A3FF00022B47D41008D9D0F /* FFMineModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFMineModel.swift; sourceTree = "<group>"; };
 		9A3FF00222B47D70008D9D0F /* FFMineModelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFMineModelService.swift; sourceTree = "<group>"; };
 		9A3FF00922B48256008D9D0F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		9A3FF00F22B48E7F008D9D0F /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		9A3FF01222B49479008D9D0F /* FFItemsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFItemsModel.swift; sourceTree = "<group>"; };
+		9A3FF01422B4DFF4008D9D0F /* FFItemsModelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFItemsModelService.swift; sourceTree = "<group>"; };
+		9A3FF01622B4E318008D9D0F /* FFNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFNavigationController.swift; sourceTree = "<group>"; };
+		9A3FF01A22B4E585008D9D0F /* FFBLEManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFBLEManager.swift; sourceTree = "<group>"; };
+		9A3FF01C22B5C355008D9D0F /* FFBLEConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFBLEConfig.swift; sourceTree = "<group>"; };
+		9A3FF01E22B5CBF8008D9D0F /* FFBLEDiscoveredManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFBLEDiscoveredManager.swift; sourceTree = "<group>"; };
+		9A3FF02022B5D729008D9D0F /* BLE.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BLE.storyboard; sourceTree = "<group>"; };
+		9A3FF02222B5D7B2008D9D0F /* FFBLEScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFBLEScanViewController.swift; sourceTree = "<group>"; };
+		9A3FF02522B66B45008D9D0F /* FFBLEScanModelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFBLEScanModelService.swift; sourceTree = "<group>"; };
+		9A3FF02722B697FB008D9D0F /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		ADFD948BE9AD1CEE6D49D280 /* Pods-FultureFit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FultureFit.release.xcconfig"; path = "Target Support Files/Pods-FultureFit/Pods-FultureFit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,6 +173,7 @@
 				9A3FEFBE22B3C81C008D9D0F /* Info.plist */,
 				9A3FF00822B48249008D9D0F /* Localizable.strings */,
 				9A3FEFB622B3C81B008D9D0F /* FultureFit.xcdatamodeld */,
+				9A3FF00F22B48E7F008D9D0F /* R.generated.swift */,
 			);
 			path = FultureFit;
 			sourceTree = "<group>";
@@ -178,6 +201,7 @@
 			children = (
 				9A3FEFB322B3C81B008D9D0F /* User.storyboard */,
 				9A3FEFE622B3DB42008D9D0F /* Tab.storyboard */,
+				9A3FF02022B5D729008D9D0F /* BLE.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -216,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				9A3FEFE922B3E37C008D9D0F /* BaseViewController.swift */,
+				9A3FF01622B4E318008D9D0F /* FFNavigationController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -223,8 +248,8 @@
 		9A3FEFED22B3E817008D9D0F /* Kit */ = {
 			isa = PBXGroup;
 			children = (
-				9A3FEFEE22B3E8FD008D9D0F /* UIKitExtension.swift */,
-				9A3FEFF022B3E911008D9D0F /* FoundationExtension.swift */,
+				9A3FF01922B4E56F008D9D0F /* Extension */,
+				9A3FF01822B4E567008D9D0F /* BlueTooth */,
 			);
 			path = Kit;
 			sourceTree = "<group>";
@@ -249,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				9A3FEFF922B3FC62008D9D0F /* FFMineViewController.swift */,
+				9A3FF02222B5D7B2008D9D0F /* FFBLEScanViewController.swift */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -256,6 +282,7 @@
 		9A3FEFFB22B47CA1008D9D0F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9A3FF01122B4945D008D9D0F /* Items */,
 				9A3FEFFF22B47D17008D9D0F /* Mine */,
 				9A3FEFFC22B47CD5008D9D0F /* Base */,
 			);
@@ -275,8 +302,38 @@
 			children = (
 				9A3FF00022B47D41008D9D0F /* FFMineModel.swift */,
 				9A3FF00222B47D70008D9D0F /* FFMineModelService.swift */,
+				9A3FF02522B66B45008D9D0F /* FFBLEScanModelService.swift */,
 			);
 			path = Mine;
+			sourceTree = "<group>";
+		};
+		9A3FF01122B4945D008D9D0F /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				9A3FF01222B49479008D9D0F /* FFItemsModel.swift */,
+				9A3FF01422B4DFF4008D9D0F /* FFItemsModelService.swift */,
+			);
+			path = Items;
+			sourceTree = "<group>";
+		};
+		9A3FF01822B4E567008D9D0F /* BlueTooth */ = {
+			isa = PBXGroup;
+			children = (
+				9A3FF01A22B4E585008D9D0F /* FFBLEManager.swift */,
+				9A3FF01C22B5C355008D9D0F /* FFBLEConfig.swift */,
+				9A3FF01E22B5CBF8008D9D0F /* FFBLEDiscoveredManager.swift */,
+			);
+			path = BlueTooth;
+			sourceTree = "<group>";
+		};
+		9A3FF01922B4E56F008D9D0F /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				9A3FEFEE22B3E8FD008D9D0F /* UIKitExtension.swift */,
+				9A3FEFF022B3E911008D9D0F /* FoundationExtension.swift */,
+				9A3FF02722B697FB008D9D0F /* Constant.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		D2706442A42033DDC6543961 /* Frameworks */ = {
@@ -295,6 +352,7 @@
 			buildConfigurationList = 9A3FEFD722B3C81C008D9D0F /* Build configuration list for PBXNativeTarget "FultureFit" */;
 			buildPhases = (
 				10A2BE93E28DCDF50DF6C6B8 /* [CP] Check Pods Manifest.lock */,
+				9A3FF00C22B48A19008D9D0F /* ShellScript */,
 				9A3FEFA822B3C81B008D9D0F /* Sources */,
 				9A3FEFA922B3C81B008D9D0F /* Frameworks */,
 				9A3FEFAA22B3C81B008D9D0F /* Resources */,
@@ -378,6 +436,7 @@
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				en,
 				Base,
 				"zh-Hans",
 			);
@@ -398,6 +457,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A3FF02122B5D729008D9D0F /* BLE.storyboard in Resources */,
 				9A3FF00622B48249008D9D0F /* Localizable.strings in Resources */,
 				9A3FEFE722B3DB42008D9D0F /* Tab.storyboard in Resources */,
 				9A3FEFBD22B3C81C008D9D0F /* LaunchScreen.storyboard in Resources */,
@@ -445,6 +505,25 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		9A3FF00C22B48A19008D9D0F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -452,20 +531,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A3FF01F22B5CBF8008D9D0F /* FFBLEDiscoveredManager.swift in Sources */,
 				9A3FF00322B47D70008D9D0F /* FFMineModelService.swift in Sources */,
 				9A3FEFF122B3E911008D9D0F /* FoundationExtension.swift in Sources */,
+				9A3FF01022B48E7F008D9D0F /* R.generated.swift in Sources */,
 				9A3FF00122B47D41008D9D0F /* FFMineModel.swift in Sources */,
 				9A3FEFEA22B3E37C008D9D0F /* BaseViewController.swift in Sources */,
+				9A3FF01D22B5C355008D9D0F /* FFBLEConfig.swift in Sources */,
+				9A3FF01B22B4E585008D9D0F /* FFBLEManager.swift in Sources */,
 				9A3FEFEC22B3E42F008D9D0F /* FFTabBarController.swift in Sources */,
 				9A3FEFB222B3C81B008D9D0F /* LoginViewController.swift in Sources */,
 				9A3FEFF422B3FC1A008D9D0F /* FFExerciseViewController.swift in Sources */,
+				9A3FF02822B697FB008D9D0F /* Constant.swift in Sources */,
+				9A3FF01522B4DFF4008D9D0F /* FFItemsModelService.swift in Sources */,
 				9A3FEFB822B3C81B008D9D0F /* FultureFit.xcdatamodeld in Sources */,
 				9A3FEFEF22B3E8FD008D9D0F /* UIKitExtension.swift in Sources */,
 				9A3FEFFA22B3FC62008D9D0F /* FFMineViewController.swift in Sources */,
 				9A3FEFFE22B47CE7008D9D0F /* FFBaseModel.swift in Sources */,
+				9A3FF01322B49479008D9D0F /* FFItemsModel.swift in Sources */,
 				9A3FEFB022B3C81B008D9D0F /* AppDelegate.swift in Sources */,
 				9A3FEFE422B3DA10008D9D0F /* RegisterViewController.swift in Sources */,
+				9A3FF02622B66B45008D9D0F /* FFBLEScanModelService.swift in Sources */,
 				9A3FEFF722B3FC51008D9D0F /* FFItemsViewController.swift in Sources */,
+				9A3FF01722B4E318008D9D0F /* FFNavigationController.swift in Sources */,
+				9A3FF02322B5D7B2008D9D0F /* FFBLEScanViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

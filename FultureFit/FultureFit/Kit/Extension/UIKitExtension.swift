@@ -35,3 +35,13 @@ extension String {
         return hexColor
     }
 }
+
+extension UIViewController {
+    func showBLENeedOpenAlert() {
+        let alert = UIAlertController(title: nil, message: R.string.localizable.mine_ble_scan_need_ble_open_tip(), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: R.string.localizable.oK(), style: .default, handler: { (action) in
+            
+        }))
+        present(alert, animated: true, completion: nil)
+    }
+}

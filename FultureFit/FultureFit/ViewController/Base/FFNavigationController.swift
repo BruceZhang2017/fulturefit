@@ -2,23 +2,26 @@
 // Copyright © 2015-2018 Anker Innovations Technology Limited All Rights Reserved.
 // The program and materials is not free. Without our permission, any use, including but not limited to reproduction, retransmission, communication, display, mirror, download, modification, is expressly prohibited. Otherwise, it will be pursued for legal liability.
 // 
-//  FFTabBarController.swift
+//  FFNavigationController.swift
 //  FultureFit
 //
-//  Created by ANKER on 2019/6/14.
+//  Created by ANKER on 2019/6/15.
 //  Copyright © 2019 PDP-ACC. All rights reserved.
 //
 	
 
 import UIKit
 
-class FFTabBarController: UITabBarController {
+class FFNavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if FFBaseModel.sharedInstall.blePowerStatus != .poweredOn {
-            showBLENeedOpenAlert()
-        }
+
+        // Do any additional setup after loading the view.
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
 

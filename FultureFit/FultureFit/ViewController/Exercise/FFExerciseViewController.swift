@@ -14,21 +14,30 @@ import UIKit
 
 class FFExerciseViewController: BaseViewController {
 
+    @IBOutlet weak var progressView: UIView!
+    @IBOutlet weak var fitSettingsButton: UIButton!
+    @IBOutlet weak var playOrPauseButton: UIButton!
+    @IBOutlet weak var bleStatusLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var durationLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        progressView.layer.cornerRadius = 35.0 / 2
+        let layer = CAGradientLayer()
+        layer.colors = ["00FF00".ColorHex()!, "FFFF00".ColorHex()!, "FF0000".ColorHex()!]
+        layer.startPoint = CGPoint(x: 0.5, y: 0)
+        layer.endPoint = CGPoint(x: 0.5, y: 1)
+        layer.locations = [0, 0.5, 1]
+        
+        layer.bounds = CGRect(x: 50, y: 0, width: screenWidth - 100, height: 35)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    
+    @IBAction func fitSettings(_ sender: Any) {
     }
-    */
-
+    
+    @IBAction func playOrPause(_ sender: Any) {
+    }
 }

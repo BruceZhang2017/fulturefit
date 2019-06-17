@@ -9,3 +9,4 @@
 "mine_exit_alert_message" = "您确定退出吗？";
 "OK" = "确认";
 "CANCEL" = "取消";
+"mine_ble_scan_need_ble_open_tip" = "请在设置里，打开蓝牙";
