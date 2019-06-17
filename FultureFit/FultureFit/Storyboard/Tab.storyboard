@@ -229,6 +229,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wGK-XM-kCR">
                                 <rect key="frame" x="50" y="630" width="314" height="35"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="FpY-OS-r94"/>
+                                </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00 （0/0）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZIB-YK-gcN">
                                 <rect key="frame" x="125" y="181" width="164.5" height="30"/>
@@ -240,6 +243,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="bft-dN-NtH" firstAttribute="top" secondItem="dei-TX-iNb" secondAttribute="top" constant="40" id="0fZ-Fz-dXx"/>
+                            <constraint firstItem="wGK-XM-kCR" firstAttribute="centerY" secondItem="Jaw-UX-UD2" secondAttribute="centerY" id="0r0-Gk-muO"/>
                             <constraint firstItem="Yey-yP-SzB" firstAttribute="centerX" secondItem="712-a0-VWh" secondAttribute="centerX" id="6x9-5q-4rv"/>
                             <constraint firstItem="wGK-XM-kCR" firstAttribute="leading" secondItem="Jaw-UX-UD2" secondAttribute="leading" id="7kI-VL-I0X"/>
                             <constraint firstItem="ZET-7i-sQJ" firstAttribute="centerX" secondItem="5NG-iG-2Un" secondAttribute="centerX" id="Chc-QN-5vX"/>
@@ -254,9 +258,7 @@
                             <constraint firstItem="5NG-iG-2Un" firstAttribute="top" secondItem="09g-gC-KAS" secondAttribute="top" id="fpH-ir-0cF"/>
                             <constraint firstItem="wGK-XM-kCR" firstAttribute="trailing" secondItem="Jaw-UX-UD2" secondAttribute="trailing" id="hBS-92-9Rh"/>
                             <constraint firstItem="dei-TX-iNb" firstAttribute="bottom" secondItem="Jaw-UX-UD2" secondAttribute="bottom" constant="60" id="hPc-NL-KuC"/>
-                            <constraint firstItem="wGK-XM-kCR" firstAttribute="top" secondItem="Jaw-UX-UD2" secondAttribute="top" id="iok-Vj-o7x"/>
                             <constraint firstItem="ZIB-YK-gcN" firstAttribute="top" secondItem="ZET-7i-sQJ" secondAttribute="bottom" id="mPd-7N-a2p"/>
-                            <constraint firstItem="wGK-XM-kCR" firstAttribute="bottom" secondItem="Jaw-UX-UD2" secondAttribute="bottom" id="ptm-t1-eDO"/>
                             <constraint firstItem="bft-dN-NtH" firstAttribute="leading" secondItem="6Qf-J2-aof" secondAttribute="trailing" constant="10" id="t7g-1J-S2W"/>
                             <constraint firstItem="Jaw-UX-UD2" firstAttribute="leading" secondItem="dei-TX-iNb" secondAttribute="leading" constant="50" id="tg0-Lx-Ap4"/>
                             <constraint firstItem="ZET-7i-sQJ" firstAttribute="top" secondItem="bft-dN-NtH" secondAttribute="bottom" constant="60" id="xkU-63-xdC"/>
@@ -272,6 +274,8 @@
                         <outlet property="fitSettingsButton" destination="Yey-yP-SzB" id="SO4-NG-U4O"/>
                         <outlet property="playOrPauseButton" destination="712-a0-VWh" id="S5w-t5-XG2"/>
                         <outlet property="progressView" destination="wGK-XM-kCR" id="J6o-tL-BvX"/>
+                        <outlet property="progressViewHeightLConstraint" destination="FpY-OS-r94" id="yt0-Qj-xjf"/>
+                        <outlet property="progressViewRightLConstraint" destination="hBS-92-9Rh" id="7Rm-8j-7US"/>
                         <outlet property="timeLabel" destination="ZET-7i-sQJ" id="TQY-jb-IXs"/>
                     </connections>
                 </viewController>

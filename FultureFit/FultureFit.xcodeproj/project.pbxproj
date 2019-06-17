@@ -39,6 +39,8 @@
 		9A3FF02322B5D7B2008D9D0F /* FFBLEScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FF02222B5D7B2008D9D0F /* FFBLEScanViewController.swift */; };
 		9A3FF02622B66B45008D9D0F /* FFBLEScanModelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FF02522B66B45008D9D0F /* FFBLEScanModelService.swift */; };
 		9A3FF02822B697FB008D9D0F /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FF02722B697FB008D9D0F /* Constant.swift */; };
+		9A3FF02A22B7C50A008D9D0F /* Sport.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A3FF02922B7C50A008D9D0F /* Sport.storyboard */; };
+		9A3FF02D22B7C5F3008D9D0F /* FFCommandHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FF02C22B7C5F3008D9D0F /* FFCommandHandle.swift */; };
 		BD36CF17795E3C5749D93A59 /* libPods-FultureFit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CF0EA8BD717F1515884FF17 /* libPods-FultureFit.a */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +102,8 @@
 		9A3FF02222B5D7B2008D9D0F /* FFBLEScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFBLEScanViewController.swift; sourceTree = "<group>"; };
 		9A3FF02522B66B45008D9D0F /* FFBLEScanModelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFBLEScanModelService.swift; sourceTree = "<group>"; };
 		9A3FF02722B697FB008D9D0F /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		9A3FF02922B7C50A008D9D0F /* Sport.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sport.storyboard; sourceTree = "<group>"; };
+		9A3FF02C22B7C5F3008D9D0F /* FFCommandHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFCommandHandle.swift; sourceTree = "<group>"; };
 		ADFD948BE9AD1CEE6D49D280 /* Pods-FultureFit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FultureFit.release.xcconfig"; path = "Target Support Files/Pods-FultureFit/Pods-FultureFit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -202,6 +206,7 @@
 				9A3FEFB322B3C81B008D9D0F /* User.storyboard */,
 				9A3FEFE622B3DB42008D9D0F /* Tab.storyboard */,
 				9A3FF02022B5D729008D9D0F /* BLE.storyboard */,
+				9A3FF02922B7C50A008D9D0F /* Sport.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -248,6 +253,7 @@
 		9A3FEFED22B3E817008D9D0F /* Kit */ = {
 			isa = PBXGroup;
 			children = (
+				9A3FF02B22B7C5CA008D9D0F /* Command */,
 				9A3FF01922B4E56F008D9D0F /* Extension */,
 				9A3FF01822B4E567008D9D0F /* BlueTooth */,
 			);
@@ -334,6 +340,14 @@
 				9A3FF02722B697FB008D9D0F /* Constant.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		9A3FF02B22B7C5CA008D9D0F /* Command */ = {
+			isa = PBXGroup;
+			children = (
+				9A3FF02C22B7C5F3008D9D0F /* FFCommandHandle.swift */,
+			);
+			path = Command;
 			sourceTree = "<group>";
 		};
 		D2706442A42033DDC6543961 /* Frameworks */ = {
@@ -462,6 +476,7 @@
 				9A3FEFE722B3DB42008D9D0F /* Tab.storyboard in Resources */,
 				9A3FEFBD22B3C81C008D9D0F /* LaunchScreen.storyboard in Resources */,
 				9A3FEFBA22B3C81C008D9D0F /* Assets.xcassets in Resources */,
+				9A3FF02A22B7C50A008D9D0F /* Sport.storyboard in Resources */,
 				9A3FEFB522B3C81B008D9D0F /* User.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -544,6 +559,7 @@
 				9A3FEFF422B3FC1A008D9D0F /* FFExerciseViewController.swift in Sources */,
 				9A3FF02822B697FB008D9D0F /* Constant.swift in Sources */,
 				9A3FF01522B4DFF4008D9D0F /* FFItemsModelService.swift in Sources */,
+				9A3FF02D22B7C5F3008D9D0F /* FFCommandHandle.swift in Sources */,
 				9A3FEFB822B3C81B008D9D0F /* FultureFit.xcdatamodeld in Sources */,
 				9A3FEFEF22B3E8FD008D9D0F /* UIKitExtension.swift in Sources */,
 				9A3FEFFA22B3FC62008D9D0F /* FFMineViewController.swift in Sources */,

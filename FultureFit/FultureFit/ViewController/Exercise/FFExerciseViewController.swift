@@ -20,24 +20,50 @@ class FFExerciseViewController: BaseViewController {
     @IBOutlet weak var bleStatusLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
+    @IBOutlet weak var progressViewRightLConstraint: NSLayoutConstraint! // 进度右边约束
+    @IBOutlet weak var progressViewHeightLConstraint: NSLayoutConstraint! // 进度高度约束
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        progressView.layer.cornerRadius = 35.0 / 2
-        let layer = CAGradientLayer()
-        layer.colors = ["00FF00".ColorHex()!, "FFFF00".ColorHex()!, "FF0000".ColorHex()!]
-        layer.startPoint = CGPoint(x: 0.5, y: 0)
-        layer.endPoint = CGPoint(x: 0.5, y: 1)
-        layer.locations = [0, 0.5, 1]
-        
-        layer.bounds = CGRect(x: 50, y: 0, width: screenWidth - 100, height: 35)
+        addGradient() // 添加渐变图片
     }
     
+    // MARK: - PRIVATE
     
+    /// 添加渐变色
+    private func addGradient() {
+        //progressView.layer.cornerRadius = 35.0 / 2 // 736 * 71
+        let height = (screenWidth - 100) * 71 / 736
+        progressView.clipsToBounds = true
+        let layer = CAGradientLayer()
+        layer.colors = ["00FF00".ColorHex()!.cgColor, "FFFF00".ColorHex()!.cgColor, "FF0000".ColorHex()!.cgColor]
+        layer.startPoint = CGPoint(x: 0, y: 0.5)
+        layer.endPoint = CGPoint(x: 1, y: 0.5)
+        layer.locations = [0, 0.5, 1]
+        layer.anchorPoint = CGPoint(x: 0, y: 0)
+        let rect = CGRect(x: 0, y: 0, width: screenWidth - 100, height: height)
+        layer.bounds = rect
+        progressView.layer.addSublayer(layer)
+        
+        let fieldPath = UIBezierPath(roundedRect: rect, byRoundingCorners: [.topLeft, .bottomLeft], cornerRadii: CGSize(width: height / 2, height: height / 2))
+        let fieldLayer = CAShapeLayer()
+        fieldLayer.frame = rect
+        fieldLayer.path = fieldPath.cgPath
+        progressView.layer.mask = fieldLayer
+        
+        progressViewRightLConstraint.constant = -(screenWidth - 101)
+    }
+    
+    // MARK: - Action
     
     @IBAction func fitSettings(_ sender: Any) {
+        
     }
     
+    /// 启动或者停止
+    ///
+    /// - Parameter sender: 按钮
     @IBAction func playOrPause(_ sender: Any) {
+        
     }
 }
