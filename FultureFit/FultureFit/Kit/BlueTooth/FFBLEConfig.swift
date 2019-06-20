@@ -11,6 +11,7 @@
 	
 
 import UIKit
+import CoreBluetooth
 
 class FFBLEConfig: NSObject {
     
@@ -28,5 +29,8 @@ class FFBLEConfig: NSObject {
 //    // Sample Characteristics.
 //    attributes.put(HEART_RATE_MEASUREMENT, "Heart Rate Measurement");
 //    attributes.put("00002a29-0000-1000-8000-00805f9b34fb", "Manufacturer Name String");
+    
+    public static var services : [String : CBService] = [:]
+    public static var characteristics : [String : CBCharacteristic] = [:]
 
 }

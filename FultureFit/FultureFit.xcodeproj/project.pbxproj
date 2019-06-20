@@ -41,6 +41,7 @@
 		9A3FF02822B697FB008D9D0F /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FF02722B697FB008D9D0F /* Constant.swift */; };
 		9A3FF02A22B7C50A008D9D0F /* Sport.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A3FF02922B7C50A008D9D0F /* Sport.storyboard */; };
 		9A3FF02D22B7C5F3008D9D0F /* FFCommandHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FF02C22B7C5F3008D9D0F /* FFCommandHandle.swift */; };
+		9A3FF04622BA6D63008D9D0F /* FFPeripheralHandleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FF04522BA6D63008D9D0F /* FFPeripheralHandleData.swift */; };
 		BD36CF17795E3C5749D93A59 /* libPods-FultureFit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CF0EA8BD717F1515884FF17 /* libPods-FultureFit.a */; };
 /* End PBXBuildFile section */
 
@@ -104,6 +105,7 @@
 		9A3FF02722B697FB008D9D0F /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		9A3FF02922B7C50A008D9D0F /* Sport.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sport.storyboard; sourceTree = "<group>"; };
 		9A3FF02C22B7C5F3008D9D0F /* FFCommandHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFCommandHandle.swift; sourceTree = "<group>"; };
+		9A3FF04522BA6D63008D9D0F /* FFPeripheralHandleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFPeripheralHandleData.swift; sourceTree = "<group>"; };
 		ADFD948BE9AD1CEE6D49D280 /* Pods-FultureFit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FultureFit.release.xcconfig"; path = "Target Support Files/Pods-FultureFit/Pods-FultureFit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -326,6 +328,7 @@
 			isa = PBXGroup;
 			children = (
 				9A3FF01A22B4E585008D9D0F /* FFBLEManager.swift */,
+				9A3FF04522BA6D63008D9D0F /* FFPeripheralHandleData.swift */,
 				9A3FF01C22B5C355008D9D0F /* FFBLEConfig.swift */,
 				9A3FF01E22B5CBF8008D9D0F /* FFBLEDiscoveredManager.swift */,
 			);
@@ -551,6 +554,7 @@
 				9A3FEFF122B3E911008D9D0F /* FoundationExtension.swift in Sources */,
 				9A3FF01022B48E7F008D9D0F /* R.generated.swift in Sources */,
 				9A3FF00122B47D41008D9D0F /* FFMineModel.swift in Sources */,
+				9A3FF04622BA6D63008D9D0F /* FFPeripheralHandleData.swift in Sources */,
 				9A3FEFEA22B3E37C008D9D0F /* BaseViewController.swift in Sources */,
 				9A3FF01D22B5C355008D9D0F /* FFBLEConfig.swift in Sources */,
 				9A3FF01B22B4E585008D9D0F /* FFBLEManager.swift in Sources */,

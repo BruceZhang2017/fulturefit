@@ -302,12 +302,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 4 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 5 storyboards.
   struct storyboard {
     /// Storyboard `BLE`.
     static let blE = _R.storyboard.blE()
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
+    /// Storyboard `Sport`.
+    static let sport = _R.storyboard.sport()
     /// Storyboard `Tab`.
     static let tab = _R.storyboard.tab()
     /// Storyboard `User`.
@@ -321,6 +323,11 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "LaunchScreen", bundle: ...)`
     static func launchScreen(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.launchScreen)
+    }
+    
+    /// `UIStoryboard(name: "Sport", bundle: ...)`
+    static func sport(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.sport)
     }
     
     /// `UIStoryboard(name: "Tab", bundle: ...)`
@@ -413,6 +420,7 @@ struct _R: Rswift.Validatable {
     static func validate() throws {
       try blE.validate()
       try launchScreen.validate()
+      try sport.validate()
       try tab.validate()
       try user.validate()
     }
@@ -443,6 +451,18 @@ struct _R: Rswift.Validatable {
       
       let bundle = R.hostingBundle
       let name = "LaunchScreen"
+      
+      static func validate() throws {
+        if #available(iOS 11.0, *) {
+        }
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct sport: Rswift.StoryboardResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "Sport"
       
       static func validate() throws {
         if #available(iOS 11.0, *) {

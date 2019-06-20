@@ -40,6 +40,28 @@ class FFBLEManager: NSObject {
         let per = discoveredManager.peripheral(index: index)
         centralManager.connect(per.beripheral, options: nil)
     }
+    
+    /// 写数据
+    ///
+    /// - Parameters:
+    ///   - data: 数据
+    ///   - uuidString: 特征UUID
+    func write(data: Data, uuidString: String? = nil) {
+        var uuid = ""
+        if uuidString == nil {
+            uuid = FFBLEConfig.Characteristic_uuid_TX
+        } else {
+            uuid = uuidString!
+        }
+        guard let characteristic = FFBLEConfig.characteristics[uuid] else {
+            return
+        }
+        var type: CBCharacteristicWriteType = .withResponse
+        if ((characteristic.properties.rawValue & CBCharacteristicProperties.writeWithoutResponse.rawValue) != 0 ) {
+            type = .withoutResponse
+        }
+        activePeripheral.writeValue(data, for: characteristic, type: type)
+    }
 }
 
 extension FFBLEManager: CBCentralManagerDelegate {
