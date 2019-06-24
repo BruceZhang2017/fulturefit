@@ -23,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let _ = FFBLEManager.sharedInstall
         // 设置Tab bar选中字体颜色
         UITabBarItem.appearance().setTitleTextAttributes([.foregroundColor: "a0dc2f".ColorHex()!], for: .selected)
+        //UIBarButtonItem.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
+        UINavigationBar.appearance().tintColor = UIColor.white
         return true
     }
 

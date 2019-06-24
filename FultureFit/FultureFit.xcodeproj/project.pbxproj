@@ -38,10 +38,14 @@
 		9A3FF02122B5D729008D9D0F /* BLE.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A3FF02022B5D729008D9D0F /* BLE.storyboard */; };
 		9A3FF02322B5D7B2008D9D0F /* FFBLEScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FF02222B5D7B2008D9D0F /* FFBLEScanViewController.swift */; };
 		9A3FF02622B66B45008D9D0F /* FFBLEScanModelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FF02522B66B45008D9D0F /* FFBLEScanModelService.swift */; };
-		9A3FF02822B697FB008D9D0F /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FF02722B697FB008D9D0F /* Constant.swift */; };
 		9A3FF02A22B7C50A008D9D0F /* Sport.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A3FF02922B7C50A008D9D0F /* Sport.storyboard */; };
 		9A3FF02D22B7C5F3008D9D0F /* FFCommandHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FF02C22B7C5F3008D9D0F /* FFCommandHandle.swift */; };
 		9A3FF04622BA6D63008D9D0F /* FFPeripheralHandleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FF04522BA6D63008D9D0F /* FFPeripheralHandleData.swift */; };
+		9AEB80AF22BCE9CC0090FAC3 /* FFSetPowerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEB80AE22BCE9CC0090FAC3 /* FFSetPowerViewController.swift */; };
+		9AEB80B122BD11DF0090FAC3 /* FFSetPowerBackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEB80B022BD11DF0090FAC3 /* FFSetPowerBackViewController.swift */; };
+		9AEB80B322BD12090090FAC3 /* FFPowerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEB80B222BD12090090FAC3 /* FFPowerViewController.swift */; };
+		9AEB80B622BDFBEA0090FAC3 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEB80B522BDFBEA0090FAC3 /* Constant.swift */; };
+		9AEB80B922BE0EEB0090FAC3 /* FFExerciseModelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEB80B822BE0EEB0090FAC3 /* FFExerciseModelService.swift */; };
 		BD36CF17795E3C5749D93A59 /* libPods-FultureFit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CF0EA8BD717F1515884FF17 /* libPods-FultureFit.a */; };
 /* End PBXBuildFile section */
 
@@ -102,10 +106,14 @@
 		9A3FF02022B5D729008D9D0F /* BLE.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BLE.storyboard; sourceTree = "<group>"; };
 		9A3FF02222B5D7B2008D9D0F /* FFBLEScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFBLEScanViewController.swift; sourceTree = "<group>"; };
 		9A3FF02522B66B45008D9D0F /* FFBLEScanModelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFBLEScanModelService.swift; sourceTree = "<group>"; };
-		9A3FF02722B697FB008D9D0F /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		9A3FF02922B7C50A008D9D0F /* Sport.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sport.storyboard; sourceTree = "<group>"; };
 		9A3FF02C22B7C5F3008D9D0F /* FFCommandHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFCommandHandle.swift; sourceTree = "<group>"; };
 		9A3FF04522BA6D63008D9D0F /* FFPeripheralHandleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFPeripheralHandleData.swift; sourceTree = "<group>"; };
+		9AEB80AE22BCE9CC0090FAC3 /* FFSetPowerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFSetPowerViewController.swift; sourceTree = "<group>"; };
+		9AEB80B022BD11DF0090FAC3 /* FFSetPowerBackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFSetPowerBackViewController.swift; sourceTree = "<group>"; };
+		9AEB80B222BD12090090FAC3 /* FFPowerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFPowerViewController.swift; sourceTree = "<group>"; };
+		9AEB80B522BDFBEA0090FAC3 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		9AEB80B822BE0EEB0090FAC3 /* FFExerciseModelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFExerciseModelService.swift; sourceTree = "<group>"; };
 		ADFD948BE9AD1CEE6D49D280 /* Pods-FultureFit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FultureFit.release.xcconfig"; path = "Target Support Files/Pods-FultureFit/Pods-FultureFit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -255,6 +263,7 @@
 		9A3FEFED22B3E817008D9D0F /* Kit */ = {
 			isa = PBXGroup;
 			children = (
+				9AEB80B422BDFBD80090FAC3 /* Constant */,
 				9A3FF02B22B7C5CA008D9D0F /* Command */,
 				9A3FF01922B4E56F008D9D0F /* Extension */,
 				9A3FF01822B4E567008D9D0F /* BlueTooth */,
@@ -266,6 +275,9 @@
 			isa = PBXGroup;
 			children = (
 				9A3FEFF322B3FC1A008D9D0F /* FFExerciseViewController.swift */,
+				9AEB80B222BD12090090FAC3 /* FFPowerViewController.swift */,
+				9AEB80AE22BCE9CC0090FAC3 /* FFSetPowerViewController.swift */,
+				9AEB80B022BD11DF0090FAC3 /* FFSetPowerBackViewController.swift */,
 			);
 			path = Exercise;
 			sourceTree = "<group>";
@@ -290,6 +302,7 @@
 		9A3FEFFB22B47CA1008D9D0F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9AEB80B722BE0EC90090FAC3 /* Exericise */,
 				9A3FF01122B4945D008D9D0F /* Items */,
 				9A3FEFFF22B47D17008D9D0F /* Mine */,
 				9A3FEFFC22B47CD5008D9D0F /* Base */,
@@ -340,7 +353,6 @@
 			children = (
 				9A3FEFEE22B3E8FD008D9D0F /* UIKitExtension.swift */,
 				9A3FEFF022B3E911008D9D0F /* FoundationExtension.swift */,
-				9A3FF02722B697FB008D9D0F /* Constant.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -351,6 +363,22 @@
 				9A3FF02C22B7C5F3008D9D0F /* FFCommandHandle.swift */,
 			);
 			path = Command;
+			sourceTree = "<group>";
+		};
+		9AEB80B422BDFBD80090FAC3 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				9AEB80B522BDFBEA0090FAC3 /* Constant.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		9AEB80B722BE0EC90090FAC3 /* Exericise */ = {
+			isa = PBXGroup;
+			children = (
+				9AEB80B822BE0EEB0090FAC3 /* FFExerciseModelService.swift */,
+			);
+			path = Exericise;
 			sourceTree = "<group>";
 		};
 		D2706442A42033DDC6543961 /* Frameworks */ = {
@@ -555,22 +583,26 @@
 				9A3FF01022B48E7F008D9D0F /* R.generated.swift in Sources */,
 				9A3FF00122B47D41008D9D0F /* FFMineModel.swift in Sources */,
 				9A3FF04622BA6D63008D9D0F /* FFPeripheralHandleData.swift in Sources */,
+				9AEB80B122BD11DF0090FAC3 /* FFSetPowerBackViewController.swift in Sources */,
 				9A3FEFEA22B3E37C008D9D0F /* BaseViewController.swift in Sources */,
 				9A3FF01D22B5C355008D9D0F /* FFBLEConfig.swift in Sources */,
 				9A3FF01B22B4E585008D9D0F /* FFBLEManager.swift in Sources */,
 				9A3FEFEC22B3E42F008D9D0F /* FFTabBarController.swift in Sources */,
 				9A3FEFB222B3C81B008D9D0F /* LoginViewController.swift in Sources */,
 				9A3FEFF422B3FC1A008D9D0F /* FFExerciseViewController.swift in Sources */,
-				9A3FF02822B697FB008D9D0F /* Constant.swift in Sources */,
 				9A3FF01522B4DFF4008D9D0F /* FFItemsModelService.swift in Sources */,
 				9A3FF02D22B7C5F3008D9D0F /* FFCommandHandle.swift in Sources */,
 				9A3FEFB822B3C81B008D9D0F /* FultureFit.xcdatamodeld in Sources */,
+				9AEB80B622BDFBEA0090FAC3 /* Constant.swift in Sources */,
 				9A3FEFEF22B3E8FD008D9D0F /* UIKitExtension.swift in Sources */,
 				9A3FEFFA22B3FC62008D9D0F /* FFMineViewController.swift in Sources */,
+				9AEB80B922BE0EEB0090FAC3 /* FFExerciseModelService.swift in Sources */,
 				9A3FEFFE22B47CE7008D9D0F /* FFBaseModel.swift in Sources */,
 				9A3FF01322B49479008D9D0F /* FFItemsModel.swift in Sources */,
 				9A3FEFB022B3C81B008D9D0F /* AppDelegate.swift in Sources */,
 				9A3FEFE422B3DA10008D9D0F /* RegisterViewController.swift in Sources */,
+				9AEB80AF22BCE9CC0090FAC3 /* FFSetPowerViewController.swift in Sources */,
+				9AEB80B322BD12090090FAC3 /* FFPowerViewController.swift in Sources */,
 				9A3FF02622B66B45008D9D0F /* FFBLEScanModelService.swift in Sources */,
 				9A3FEFF722B3FC51008D9D0F /* FFItemsViewController.swift in Sources */,
 				9A3FF01722B4E318008D9D0F /* FFNavigationController.swift in Sources */,

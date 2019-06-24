@@ -15,11 +15,6 @@ import UIKit
 class FFItemsModelService: NSObject {
     
     private var fitItems : [FitItem] = []
-    private let itemNames = ["力量训练*性感",
-                             "耐力训练*年轻",
-                             "肌肉增长*马甲线翘臀",
-                             "全身燃烧脂肪*消耗卡路里",
-                             "身体放松*柔软"]
     
     override init() {
         super.init()

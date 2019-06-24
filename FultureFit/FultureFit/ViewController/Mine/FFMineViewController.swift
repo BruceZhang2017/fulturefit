@@ -44,9 +44,13 @@ class FFMineViewController: BaseViewController {
     
     /// 处理退出项
     private func handleMineItemExit() {
+        if FFBaseModel.sharedInstall.mCountDownTimeState != 0 {
+            view.makeToast("您当前正在训练中，请先停止当前项目")
+            return
+        }
         let alert = UIAlertController(title: nil, message: R.string.localizable.mine_exit_alert_message(), preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: R.string.localizable.oK(), style: .default, handler: { (action) in
-            
+            exit(0)
         }))
         alert.addAction(UIAlertAction(title: R.string.localizable.canceL(), style: .default, handler: { (action) in
             

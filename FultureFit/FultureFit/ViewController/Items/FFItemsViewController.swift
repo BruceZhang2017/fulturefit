@@ -11,6 +11,7 @@
 	
 
 import UIKit
+import Toast_Swift
 
 class FFItemsViewController: BaseViewController {
     
@@ -42,6 +43,12 @@ extension FFItemsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
- 
+        if FFBaseModel.sharedInstall.mCountDownTimeState != 0 {
+            view.makeToast("您当前正在训练中，请先停止当前项目")
+            return
+        }
+        let name = service.fitItem(index: indexPath.row).name
+        view.makeToast("您选择了 \(name) 项目")
+        FFBaseModel.sharedInstall.mJsType = 80 + indexPath.row
     }
 }

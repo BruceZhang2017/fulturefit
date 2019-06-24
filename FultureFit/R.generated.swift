@@ -16,7 +16,7 @@ struct R: Rswift.Validatable {
     try intern.validate()
   }
   
-  /// This `R.image` struct is generated, and contains static references to 36 images.
+  /// This `R.image` struct is generated, and contains static references to 37 images.
   struct image {
     /// Image `22红`.
     static let 红 = Rswift.ImageResource(bundle: R.hostingBundle, name: "22红")
@@ -82,6 +82,8 @@ struct R: Rswift.Validatable {
     static let 背景色 = Rswift.ImageResource(bundle: R.hostingBundle, name: "背景色")
     /// Image `蓝牙`.
     static let 蓝牙 = Rswift.ImageResource(bundle: R.hostingBundle, name: "蓝牙")
+    /// Image `蓝牙已连接`.
+    static let 蓝牙已连接 = Rswift.ImageResource(bundle: R.hostingBundle, name: "蓝牙已连接")
     /// Image `蓝牙未连接`.
     static let 蓝牙未连接 = Rswift.ImageResource(bundle: R.hostingBundle, name: "蓝牙未连接")
     /// Image `设置`.
@@ -249,6 +251,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "蓝牙", bundle: ..., traitCollection: ...)`
     static func 蓝牙(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.蓝牙, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "蓝牙已连接", bundle: ..., traitCollection: ...)`
+    static func 蓝牙已连接(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.蓝牙已连接, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "蓝牙未连接", bundle: ..., traitCollection: ...)`
@@ -462,11 +469,39 @@ struct _R: Rswift.Validatable {
     
     struct sport: Rswift.StoryboardResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
+      let ffSetPowerBackViewController = StoryboardViewControllerResource<FFSetPowerBackViewController>(identifier: "FFSetPowerBackViewController")
+      let ffSetPowerViewController = StoryboardViewControllerResource<FFSetPowerViewController>(identifier: "FFSetPowerViewController")
       let name = "Sport"
       
+      func ffSetPowerBackViewController(_: Void = ()) -> FFSetPowerBackViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: ffSetPowerBackViewController)
+      }
+      
+      func ffSetPowerViewController(_: Void = ()) -> FFSetPowerViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: ffSetPowerViewController)
+      }
+      
       static func validate() throws {
+        if UIKit.UIImage(named: "101010", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named '101010' is used in storyboard 'Sport', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "1111", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named '1111' is used in storyboard 'Sport', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "2222", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named '2222' is used in storyboard 'Sport', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "4444", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named '4444' is used in storyboard 'Sport', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "5555", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named '5555' is used in storyboard 'Sport', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "6666", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named '6666' is used in storyboard 'Sport', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "7777", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named '7777' is used in storyboard 'Sport', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "9999", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named '9999' is used in storyboard 'Sport', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "中间", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named '中间' is used in storyboard 'Sport', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "减", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named '减' is used in storyboard 'Sport', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "减1", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named '减1' is used in storyboard 'Sport', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "前面", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named '前面' is used in storyboard 'Sport', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "加", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named '加' is used in storyboard 'Sport', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "加1", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named '加1' is used in storyboard 'Sport', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "后面", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named '后面' is used in storyboard 'Sport', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "身前身后底色", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named '身前身后底色' is used in storyboard 'Sport', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
+        if _R.storyboard.sport().ffSetPowerBackViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'ffSetPowerBackViewController' could not be loaded from storyboard 'Sport' as 'FFSetPowerBackViewController'.") }
+        if _R.storyboard.sport().ffSetPowerViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'ffSetPowerViewController' could not be loaded from storyboard 'Sport' as 'FFSetPowerViewController'.") }
       }
       
       fileprivate init() {}
@@ -479,6 +514,7 @@ struct _R: Rswift.Validatable {
       let ffExerciseViewController = StoryboardViewControllerResource<FFExerciseViewController>(identifier: "FFExerciseViewController")
       let ffItemsViewController = StoryboardViewControllerResource<FFItemsViewController>(identifier: "FFItemsViewController")
       let ffMineViewController = StoryboardViewControllerResource<FFMineViewController>(identifier: "FFMineViewController")
+      let ffPowerViewController = StoryboardViewControllerResource<FFPowerViewController>(identifier: "FFPowerViewController")
       let ffTabBarController = StoryboardViewControllerResource<FFTabBarController>(identifier: "FFTabBarController")
       let name = "Tab"
       
@@ -494,11 +530,20 @@ struct _R: Rswift.Validatable {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: ffMineViewController)
       }
       
+      func ffPowerViewController(_: Void = ()) -> FFPowerViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: ffPowerViewController)
+      }
+      
       func ffTabBarController(_: Void = ()) -> FFTabBarController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: ffTabBarController)
       }
       
       static func validate() throws {
+        if UIKit.UIImage(named: "+", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named '+' is used in storyboard 'Tab', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "+点击", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named '+点击' is used in storyboard 'Tab', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "-", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named '-' is used in storyboard 'Tab', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "-点击", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named '-点击' is used in storyboard 'Tab', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "11黄", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named '11黄' is used in storyboard 'Tab', but couldn't be loaded.") }
         if UIKit.UIImage(named: "duanlian", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'duanlian' is used in storyboard 'Tab', but couldn't be loaded.") }
         if UIKit.UIImage(named: "duanlian1", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'duanlian1' is used in storyboard 'Tab', but couldn't be loaded.") }
         if UIKit.UIImage(named: "logo", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'logo' is used in storyboard 'Tab', but couldn't be loaded.") }
@@ -517,6 +562,7 @@ struct _R: Rswift.Validatable {
         if _R.storyboard.tab().ffExerciseViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'ffExerciseViewController' could not be loaded from storyboard 'Tab' as 'FFExerciseViewController'.") }
         if _R.storyboard.tab().ffItemsViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'ffItemsViewController' could not be loaded from storyboard 'Tab' as 'FFItemsViewController'.") }
         if _R.storyboard.tab().ffMineViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'ffMineViewController' could not be loaded from storyboard 'Tab' as 'FFMineViewController'.") }
+        if _R.storyboard.tab().ffPowerViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'ffPowerViewController' could not be loaded from storyboard 'Tab' as 'FFPowerViewController'.") }
         if _R.storyboard.tab().ffTabBarController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'ffTabBarController' could not be loaded from storyboard 'Tab' as 'FFTabBarController'.") }
       }
       

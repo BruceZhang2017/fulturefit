@@ -35,6 +35,7 @@ class FFPeripheralHandleData: NSObject {
             let end = data.count
             let subData = data.subdata(in: start..<end)
             FFBLEManager.sharedInstall.write(data: subData)
+            sleep(20)
         }
     }
     
