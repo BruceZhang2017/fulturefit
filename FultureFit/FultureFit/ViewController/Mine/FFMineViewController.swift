@@ -20,8 +20,6 @@ class FFMineViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     // MARK: - Private
@@ -48,11 +46,11 @@ class FFMineViewController: BaseViewController {
             view.makeToast("您当前正在训练中，请先停止当前项目")
             return
         }
-        let alert = UIAlertController(title: nil, message: R.string.localizable.mine_exit_alert_message(), preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: R.string.localizable.oK(), style: .default, handler: { (action) in
+        let alert = UIAlertController(title: nil, message: "mine_exit_alert_message".localizable(), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK".localizable(), style: .default, handler: { (action) in
             exit(0)
         }))
-        alert.addAction(UIAlertAction(title: R.string.localizable.canceL(), style: .default, handler: { (action) in
+        alert.addAction(UIAlertAction(title: "CANCEL".localizable(), style: .default, handler: { (action) in
             
         }))
         present(alert, animated: true, completion: nil)

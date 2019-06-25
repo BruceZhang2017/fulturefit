@@ -28,7 +28,6 @@
 		9A3FF00122B47D41008D9D0F /* FFMineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FF00022B47D41008D9D0F /* FFMineModel.swift */; };
 		9A3FF00322B47D70008D9D0F /* FFMineModelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FF00222B47D70008D9D0F /* FFMineModelService.swift */; };
 		9A3FF00622B48249008D9D0F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9A3FF00822B48249008D9D0F /* Localizable.strings */; };
-		9A3FF01022B48E7F008D9D0F /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FF00F22B48E7F008D9D0F /* R.generated.swift */; };
 		9A3FF01322B49479008D9D0F /* FFItemsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FF01222B49479008D9D0F /* FFItemsModel.swift */; };
 		9A3FF01522B4DFF4008D9D0F /* FFItemsModelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FF01422B4DFF4008D9D0F /* FFItemsModelService.swift */; };
 		9A3FF01722B4E318008D9D0F /* FFNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FF01622B4E318008D9D0F /* FFNavigationController.swift */; };
@@ -96,7 +95,6 @@
 		9A3FF00022B47D41008D9D0F /* FFMineModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFMineModel.swift; sourceTree = "<group>"; };
 		9A3FF00222B47D70008D9D0F /* FFMineModelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFMineModelService.swift; sourceTree = "<group>"; };
 		9A3FF00922B48256008D9D0F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		9A3FF00F22B48E7F008D9D0F /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		9A3FF01222B49479008D9D0F /* FFItemsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFItemsModel.swift; sourceTree = "<group>"; };
 		9A3FF01422B4DFF4008D9D0F /* FFItemsModelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFItemsModelService.swift; sourceTree = "<group>"; };
 		9A3FF01622B4E318008D9D0F /* FFNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFNavigationController.swift; sourceTree = "<group>"; };
@@ -187,7 +185,6 @@
 				9A3FEFBE22B3C81C008D9D0F /* Info.plist */,
 				9A3FF00822B48249008D9D0F /* Localizable.strings */,
 				9A3FEFB622B3C81B008D9D0F /* FultureFit.xcdatamodeld */,
-				9A3FF00F22B48E7F008D9D0F /* R.generated.swift */,
 			);
 			path = FultureFit;
 			sourceTree = "<group>";
@@ -397,7 +394,6 @@
 			buildConfigurationList = 9A3FEFD722B3C81C008D9D0F /* Build configuration list for PBXNativeTarget "FultureFit" */;
 			buildPhases = (
 				10A2BE93E28DCDF50DF6C6B8 /* [CP] Check Pods Manifest.lock */,
-				9A3FF00C22B48A19008D9D0F /* ShellScript */,
 				9A3FEFA822B3C81B008D9D0F /* Sources */,
 				9A3FEFA922B3C81B008D9D0F /* Frameworks */,
 				9A3FEFAA22B3C81B008D9D0F /* Resources */,
@@ -551,25 +547,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9A3FF00C22B48A19008D9D0F /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$TEMP_DIR/rswift-lastrun",
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				$SRCROOT/R.generated.swift,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -580,7 +557,6 @@
 				9A3FF01F22B5CBF8008D9D0F /* FFBLEDiscoveredManager.swift in Sources */,
 				9A3FF00322B47D70008D9D0F /* FFMineModelService.swift in Sources */,
 				9A3FEFF122B3E911008D9D0F /* FoundationExtension.swift in Sources */,
-				9A3FF01022B48E7F008D9D0F /* R.generated.swift in Sources */,
 				9A3FF00122B47D41008D9D0F /* FFMineModel.swift in Sources */,
 				9A3FF04622BA6D63008D9D0F /* FFPeripheralHandleData.swift in Sources */,
 				9AEB80B122BD11DF0090FAC3 /* FFSetPowerBackViewController.swift in Sources */,

@@ -80,6 +80,8 @@ class FFExerciseViewController: BaseViewController {
     private func initializeUI() {
         fitSettingsButton.layer.borderWidth = 1
         fitSettingsButton.layer.borderColor = "a0dc2f".ColorHex()!.cgColor
+        let longTap = UILongPressGestureRecognizer(target: self, action: #selector(handleLongTap(_:)))
+        playOrPauseButton.addGestureRecognizer(longTap)
     }
     
     // MARK: - Action
@@ -92,36 +94,61 @@ class FFExerciseViewController: BaseViewController {
     ///
     /// - Parameter sender: 按钮
     @IBAction func playOrPause(_ sender: Any) {
-        if (FFBaseModel.sharedInstall.mCountDownTimeState == 0) {
-            // 当前处于倒计时未启动状态，点击按键若满足条件则进入运行状态
-            if (FFBaseModel.sharedInstall.bleConnectStatus == 3 && FFBaseModel.sharedInstall.commandReady) {
-                if (FFBaseModel.sharedInstall.mJsType == 0) {
-                    view.makeToast("请选择健身内容！")
-                } else {
-                    FFBaseModel.sharedInstall.mCountDownTimeState = 1
-                    service.mStartTime = Int(Date().timeIntervalSince1970)
-                    service.mSpendTime = 0
-                    playOrPauseButton.setImage(UIImage(named: "暂停"), for: .normal)
-                    playOrPauseButton.setImage(UIImage(named: "暂停点击"), for: .highlighted)
-                    service.startSport()
-                }
-            } else {
-                view.makeToast("请连接设备！")
-            }
-            
-        }
+        service.onTimeStart()
     }
     
     @IBAction func addPower(_ sender: Any) {
-        service.vibrator()
+        service.addPower()
     }
     
     @IBAction func reducePower(_ sender: Any) {
-        service.vibrator()
+        service.reducePower()
+    }
+    
+    @objc private func handleLongTap(_ sender: Any) {
+        if let longTap = sender as? UILongPressGestureRecognizer {
+            if longTap.state == UILongPressGestureRecognizer.State.ended {
+                service.onTimeStartLong()
+            }
+        }
     }
 }
 
 extension FFExerciseViewController: FFExerciseModelServiceDelegate {
+    
+    func callbackForProgress(_ value: CGFloat) {
+        
+    }
+    
+    func callbackForStartOrPause(_ value: Bool) {
+        if value {
+            playOrPauseButton.setImage(UIImage(named: "暂停"), for: .normal)
+            playOrPauseButton.setImage(UIImage(named: "暂停点击"), for: .highlighted)
+        } else {
+            playOrPauseButton.setImage(UIImage(named: "播放"), for: .normal)
+            playOrPauseButton.setImage(UIImage(named: "播放点击"), for: .highlighted)
+        }
+    }
+    
+    func callbackForShowOrHidenProgress(_ value: Bool) {
+        progressView.isHidden = !value
+        progressBackgroundImageView.isHidden = !value
+        addPowerButton.isHidden = !value
+        reducePowerButton.isHidden = !value
+    }
+    
+    func callbackForShowOrHidenYellow(_ imageName: String?, time: String) {
+        if imageName == nil {
+            yellowImageView.isHidden = true
+            yellowLabel.isHidden = true
+        } else {
+            yellowImageView.isHidden = false
+            yellowLabel.isHidden = false
+            yellowImageView.image = UIImage(named: imageName!)
+            yellowLabel.text = time
+        }
+    }
+    
     
     func callbackForBLEState(_ value: Bool) {
         bleSatusImageView.image = UIImage(named: value ? "蓝牙已连接" : "蓝牙未连接")
@@ -134,7 +161,10 @@ extension FFExerciseViewController: FFExerciseModelServiceDelegate {
     
     func callbackForShowFinishDialog(_ message: String) {
         let alert = UIAlertController(title: "健身完成", message: message, preferredStyle: .alert)
-        //alert.addAction()
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action) in
+            
+        }))
+        present(alert, animated: true, completion: nil)
     }
     
 }

@@ -38,8 +38,8 @@ extension String {
 
 extension UIViewController {
     func showBLENeedOpenAlert() {
-        let alert = UIAlertController(title: nil, message: R.string.localizable.mine_ble_scan_need_ble_open_tip(), preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: R.string.localizable.oK(), style: .default, handler: { (action) in
+        let alert = UIAlertController(title: nil, message: "mine_ble_scan_need_ble_open_tip".localizable(), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK".localizable(), style: .default, handler: { (action) in
             
         }))
         present(alert, animated: true, completion: nil)

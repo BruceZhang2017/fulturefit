@@ -1,15 +1,11 @@
 PODS:
   - Alamofire (4.8.2)
-  - R.swift (5.0.3):
-    - R.swift.Library (~> 5.0.0)
-  - R.swift.Library (5.0.1)
   - SnapKit (5.0.0)
-  - Then (2.4.0)
+  - Then (2.5.0)
   - Toast-Swift (5.0.0)
 
 DEPENDENCIES:
   - Alamofire
-  - R.swift
   - SnapKit
   - Then
   - Toast-Swift
@@ -17,20 +13,16 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
-    - R.swift
-    - R.swift.Library
     - SnapKit
     - Then
     - Toast-Swift
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
-  R.swift: f5a87643b91ea569d23d6afb3eee9c743edde239
-  R.swift.Library: cfe85d569d9bae6cb262922db130e7c3a7a5fad1
   SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
-  Then: 71866660c7af35a7343831f7668e7cd2b62ee0f2
+  Then: 0157115e883545c77967b452fe74a1d25fb796e1
   Toast-Swift: 36f4720243c8582c2be243a60a51e193c761f541
 
-PODFILE CHECKSUM: ecbb16b10a781f9242dcf7bfb6fd567d23e27929
+PODFILE CHECKSUM: 304f9b4002e1b2bff35ce2f7271fda3a530474fc
 
-COCOAPODS: 1.7.1
+COCOAPODS: 1.7.2
