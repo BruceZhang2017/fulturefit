@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A2971F322C310D80096BA9B /* FFExerciseModelService2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2971F222C310D80096BA9B /* FFExerciseModelService2.swift */; };
+		9A2971F522C310E60096BA9B /* FFExercisemodelServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2971F422C310E60096BA9B /* FFExercisemodelServiceDelegate.swift */; };
 		9A3FEFB022B3C81B008D9D0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FEFAF22B3C81B008D9D0F /* AppDelegate.swift */; };
 		9A3FEFB222B3C81B008D9D0F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FEFB122B3C81B008D9D0F /* LoginViewController.swift */; };
 		9A3FEFB522B3C81B008D9D0F /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A3FEFB322B3C81B008D9D0F /* User.storyboard */; };
@@ -68,6 +70,8 @@
 /* Begin PBXFileReference section */
 		37D34FC31F458EB6EA3833EA /* Pods-FultureFit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FultureFit.debug.xcconfig"; path = "Target Support Files/Pods-FultureFit/Pods-FultureFit.debug.xcconfig"; sourceTree = "<group>"; };
 		7CF0EA8BD717F1515884FF17 /* libPods-FultureFit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FultureFit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A2971F222C310D80096BA9B /* FFExerciseModelService2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFExerciseModelService2.swift; sourceTree = "<group>"; };
+		9A2971F422C310E60096BA9B /* FFExercisemodelServiceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFExercisemodelServiceDelegate.swift; sourceTree = "<group>"; };
 		9A3FEFAC22B3C81B008D9D0F /* FultureFit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FultureFit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A3FEFAF22B3C81B008D9D0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A3FEFB122B3C81B008D9D0F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -374,6 +378,8 @@
 			isa = PBXGroup;
 			children = (
 				9AEB80B822BE0EEB0090FAC3 /* FFExerciseModelService.swift */,
+				9A2971F222C310D80096BA9B /* FFExerciseModelService2.swift */,
+				9A2971F422C310E60096BA9B /* FFExercisemodelServiceDelegate.swift */,
 			);
 			path = Exericise;
 			sourceTree = "<group>";
@@ -558,6 +564,8 @@
 				9A3FF00322B47D70008D9D0F /* FFMineModelService.swift in Sources */,
 				9A3FEFF122B3E911008D9D0F /* FoundationExtension.swift in Sources */,
 				9A3FF00122B47D41008D9D0F /* FFMineModel.swift in Sources */,
+				9A2971F322C310D80096BA9B /* FFExerciseModelService2.swift in Sources */,
+				9A2971F522C310E60096BA9B /* FFExercisemodelServiceDelegate.swift in Sources */,
 				9A3FF04622BA6D63008D9D0F /* FFPeripheralHandleData.swift in Sources */,
 				9AEB80B122BD11DF0090FAC3 /* FFSetPowerBackViewController.swift in Sources */,
 				9A3FEFEA22B3E37C008D9D0F /* BaseViewController.swift in Sources */,

@@ -24,6 +24,7 @@ class FFExerciseViewController: BaseViewController {
     @IBOutlet weak var bleStatusLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
+    @IBOutlet weak var countNumLabel: UILabel!
     @IBOutlet weak var reducePowerButton: UIButton!
     @IBOutlet weak var addPowerButton: UIButton!
     @IBOutlet weak var yellowImageView: UIImageView!
@@ -44,7 +45,7 @@ class FFExerciseViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if FFBaseModel.sharedInstall.mJsType >= 80 {
+        if FFBaseModel.sharedInstall.mJsType >= 80 { // 刷新标题
             if FFBaseModel.sharedInstall.mJsType - 80 < itemNames.count {
                 title = itemNames[FFBaseModel.sharedInstall.mJsType - 80]
             }
@@ -116,8 +117,8 @@ class FFExerciseViewController: BaseViewController {
 
 extension FFExerciseViewController: FFExerciseModelServiceDelegate {
     
-    func callbackForProgress(_ value: CGFloat) {
-        
+    func callbackForProgress(_ value: CGFloat) { // 最大630
+        progressViewRightLConstraint.constant = screenWidth - 50 - (value / 630 * (screenWidth - 100))
     }
     
     func callbackForStartOrPause(_ value: Bool) {
@@ -165,6 +166,18 @@ extension FFExerciseViewController: FFExerciseModelServiceDelegate {
             
         }))
         present(alert, animated: true, completion: nil)
+    }
+    
+    func callbackForRefreshTimeLabel(_ value: String) {
+        timeLabel.text = value
+    }
+    
+    func callbackForRefreshDurationLabel(_ value: String) {
+        durationLabel.text = value
+    }
+    
+    func callbackForCountNumLabel(_ value: String) {
+        countNumLabel.text = value
     }
     
 }
