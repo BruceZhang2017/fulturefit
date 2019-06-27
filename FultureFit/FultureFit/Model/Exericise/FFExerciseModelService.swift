@@ -30,8 +30,7 @@ class FFExerciseModelService: NSObject {
     var mFlagShowPowerSeekBar = false
     var mFlagStop = true // 启动了开始指令还是停止指令，方便给暂停和回复操作时做出判断
     var mFlagPauseDone = false
-    let mMinPowerValue = 1
-    let mMaxPowerValue = 63
+    
     
     let TIME_FOR_2K = 9500
     let MSG_SHOW_TIME = 8001 // 倒计时刷新
@@ -53,17 +52,14 @@ class FFExerciseModelService: NSObject {
     
     // Command
     
-    var mCtrlPowerValueArray: [UInt8] = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+    
     let mInit = Data([0x74, 0x65, 0x00, 0x75]) // 健身设备启动指令
     let mDeInit = Data([0x74, 0x66, 0x00, 0x75]) // 健身设备结束指令
     let mInitExtend = Data([0x74, 0x67, 0x00, 0x75]) // 健身设备启动并发送完各种参数之后的通知指令
     let mDeInitExtend = Data([0x74, 0x68, 0x00, 0x75]) // 健身设备结束指令2，和通知指令对应
     let mAllPowerAddOne = Data([0x74, 0x51, 0x00, 0x75]) // 10组电压整体加1发送到设备端的指令
     let mAllPowerDecOne = Data([0x74, 0x52, 0x00, 0x75]) // 10组电压整体减1发送到设备端的指令
-    // 左侧5组和右侧5组开关状态 发送到设备端的指令
-    // 注意：由于设备端限制，更改任何一组开关状态后都要发送2条指令，不要只发送其中1条指令
-    let mCtrlArray1 = Data([0x74, 0x69, 0x1f, 0x75])
-    let mCtrlArray2 = Data([0x74, 0x6a, 0x1f, 0x75])
+    
     // 10组电压单独调节发送到设备端的指令
     var mPowerValueArray: [Data] = [Data([0x74, 0x2d, 0x01, 0x75]),
                                     Data([0x74, 0x2e, 0x01, 0x75]),
@@ -1111,10 +1107,12 @@ class FFExerciseModelService: NSObject {
         self.delegate = delegate
         super.init()
         startKVO()
+        registerNotification()
     }
     
     deinit {
         endKVO()
+        unregisterNotification()
     }
     
     /// 开始KVO监听BLE连接状态
@@ -1132,6 +1130,41 @@ class FFExerciseModelService: NSObject {
             delegate?.callbackForBLEState(FFBaseModel.sharedInstall.bleConnectStatus >= 2)
         } else {
             super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
+        }
+    }
+    
+    private func registerNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(handleNotification(notification:)), name: FFExerciseModelServiceNotification, object: nil)
+    }
+    
+    private func unregisterNotification() {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func handleNotification(notification: Notification) {
+        guard let obj = notification.object as? String else {
+            return
+        }
+        if obj == ACTION_CHANGE_SINGLE_POWER {
+            guard let userInfo = notification.userInfo as? [String : Any] else {
+                return
+            }
+            let value = userInfo[ACTION_SINGLE_INDEX_EXTRA] as? Int ?? -1
+            if FFBaseModel.sharedInstall.bleConnectStatus == 3 &&
+                FFBaseModel.sharedInstall.commandReady &&
+                FFBaseModel.sharedInstall.mCountDownTimeState != 0 &&
+                value != -1 {
+                mPowerValueArray[value][2] = mCtrlPowerValueArray[value]
+                handle.writeData(mPowerValueArray[value])
+            }
+        } else if obj == ACTION_CHANGE_CTRL_ARRAY {
+            if FFBaseModel.sharedInstall.bleConnectStatus == 3 &&
+                FFBaseModel.sharedInstall.commandReady &&
+                FFBaseModel.sharedInstall.mCountDownTimeState != 0 {
+                handle.writeData(mCtrlArray1)
+                NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(handleMessage2(what:)), object: MSG_SET_CTRL2_EXTTEND)
+                perform(#selector(handleMessage2(what:)), with: MSG_SET_CTRL2_EXTTEND, afterDelay: 0.05)
+            }
         }
     }
 }

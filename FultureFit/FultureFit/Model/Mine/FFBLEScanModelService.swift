@@ -15,20 +15,54 @@ import UIKit
 class FFBLEScanModelService: NSObject {
     
     var scanedBLECallback: (() -> ())?
+    var scanedBLEFinished: (() -> ())?
+    var scanedBLEShowAlert: (() -> ())?
+    var scanedBLEHideAlert: (() -> ())?
+    var timer: Timer?
+    let blePowerStatusKeyPath = "blePowerStatus"
  
     override init() {
         super.init()
         startKVO()
         if FFBaseModel.sharedInstall.blePowerStatus == .poweredOn {
             FFBLEManager.sharedInstall.scan()
+            endTimer()
+            startTimer()
         }
     }
     
     deinit {
         endKVO()
+        endTimer()
         if FFBaseModel.sharedInstall.blePowerStatus == .poweredOn {
             FFBLEManager.sharedInstall.stopScan()
         }
+    }
+    
+    /// 监听扫描时间定时器
+    private func startTimer() {
+        print("启动定时器")
+        if timer == nil {
+            timer = Timer.scheduledTimer(timeInterval: 20, target: self, selector: #selector(handleTimer), userInfo: nil, repeats: false)
+            RunLoop.current.add(timer!, forMode: .common)
+        }
+    }
+    
+    /// 结束定时器
+    private func endTimer() {
+        print("取消定时器")
+        timer?.invalidate()
+        timer = nil
+    }
+    
+    /// 处理定时器
+    @objc private func handleTimer() {
+        print("定时器被激活")
+        endTimer()
+        if FFBaseModel.sharedInstall.blePowerStatus == .poweredOn {
+            FFBLEManager.sharedInstall.stopScan()
+        }
+        scanedBLEFinished?()
     }
     
     // MARK: - Public
@@ -49,8 +83,19 @@ class FFBLEScanModelService: NSObject {
     }
     
     public func refreshScan() {
-        FFBLEManager.sharedInstall.stopScan()
-        FFBLEManager.sharedInstall.scan()
+        FFBLEManager.sharedInstall.discoveredManager.removePeriphrals()
+        if FFBaseModel.sharedInstall.blePowerStatus == .poweredOn {
+            endTimer()
+            startTimer()
+            FFBLEManager.sharedInstall.stopScan()
+            FFBLEManager.sharedInstall.scan()
+        } else {
+            scanedBLEShowAlert?()
+        }
+    }
+    
+    public func connectPer(index: Int) {
+        FFBLEManager.sharedInstall.connect(index: index)
     }
     
     // MARK: - Private
@@ -58,11 +103,33 @@ class FFBLEScanModelService: NSObject {
     /// 监听扫描到的设备数组
     private func startKVO() {
         FFBLEManager.sharedInstall.discoveredManager.addObserve(key: NSStringFromClass(self.classForCoder), pro: self)
+        FFBaseModel.sharedInstall.addObserver(self, forKeyPath: blePowerStatusKeyPath, options: .new, context: nil)
     }
     
     /// 取消监听扫描到的设备数组
     private func endKVO() {
         FFBLEManager.sharedInstall.discoveredManager.removeObserve(key: NSStringFromClass(self.classForCoder))
+        FFBaseModel.sharedInstall.removeObserver(self, forKeyPath: blePowerStatusKeyPath)
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == blePowerStatusKeyPath {
+            DispatchQueue.main.async {
+                [weak self] in
+                if FFBaseModel.sharedInstall.blePowerStatus == .poweredOn {
+                    self?.startTimer()
+                    self?.scanedBLEHideAlert?()
+                    FFBLEManager.sharedInstall.scan()
+                } else {
+                    self?.scanedBLEShowAlert?()
+                    self?.endTimer()
+                    FFBLEManager.sharedInstall.stopScan()
+                }
+            }
+            
+        } else {
+            super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
+        }
     }
     
 }

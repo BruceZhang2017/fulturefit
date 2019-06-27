@@ -134,7 +134,7 @@ extension FFExerciseModelService {
         mFlagEnd2K = false
         mFlagShowPowerSeekBar = true
         delegate?.callbackForShowOrHidenYellow(nil, time: "")
-        delegaet?.callbackForProgress(10)
+        delegate?.callbackForProgress(10)
         delegate?.callbackForShowOrHidenProgress(true)
         mCurIndex = -1
         mCurSlowlyOnIndex = -1

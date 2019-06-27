@@ -28,7 +28,7 @@
                                     <constraint firstAttribute="width" secondItem="gmH-9F-3fe" secondAttribute="height" multiplier="903:1430" id="fJi-VY-7Bx"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nhc-rb-nMn">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nhc-rb-nMn">
                                 <rect key="frame" x="71.5" y="339.5" width="271" height="112"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="271" id="ZQD-mv-msK"/>
@@ -55,7 +55,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TsZ-ag-A3r">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TsZ-ag-A3r">
                                 <rect key="frame" x="143.5" y="365.5" width="127" height="54"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="127" id="6V2-KC-8R0"/>
@@ -82,7 +82,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yOJ-yM-iIG">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yOJ-yM-iIG">
                                 <rect key="frame" x="162" y="479.5" width="90" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="Fhk-X9-qwR"/>
@@ -109,7 +109,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fpy-jJ-bST">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fpy-jJ-bST">
                                 <rect key="frame" x="162" y="519.5" width="90" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="Ve7-6U-Axr"/>
@@ -136,7 +136,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yab-eh-zUa">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yab-eh-zUa">
                                 <rect key="frame" x="120" y="599.5" width="174" height="47"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="174" id="fJF-MA-02f"/>
@@ -291,7 +291,7 @@
                                     <constraint firstAttribute="width" secondItem="5md-ky-76W" secondAttribute="height" multiplier="903:1430" id="hYy-dV-eYi"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6iI-g8-Ptl">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6iI-g8-Ptl">
                                 <rect key="frame" x="145" y="329.5" width="124" height="95"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="124" id="6lO-zv-NRT"/>
@@ -318,7 +318,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Mi-eL-qbi">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Mi-eL-qbi">
                                 <rect key="frame" x="131.5" y="409.5" width="151" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="151" id="o69-yz-E34"/>
@@ -345,7 +345,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SqP-BT-s03">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SqP-BT-s03">
                                 <rect key="frame" x="135" y="454.5" width="144" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="2XK-VI-AxE"/>
@@ -372,13 +372,13 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8B8-hR-Jbz">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8B8-hR-Jbz">
                                 <rect key="frame" x="161.5" y="504.5" width="91" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="vdb-ix-wL9"/>
                                     <constraint firstAttribute="width" constant="91" id="wqO-3Q-nOs"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="2222"/>
+                                <state key="normal" backgroundImage="8888"/>
                                 <connections>
                                     <action selector="tap:" destination="sYv-XP-wyw" eventType="touchUpInside" id="mKW-jw-lhU"/>
                                 </connections>
@@ -399,7 +399,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O3G-JY-NhT">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O3G-JY-NhT">
                                 <rect key="frame" x="154.5" y="559.5" width="105" height="73"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="105" id="P5j-RQ-IKb"/>
@@ -545,6 +545,7 @@
         <image name="5555" width="261" height="71"/>
         <image name="6666" width="225.5" height="96"/>
         <image name="7777" width="216" height="53.5"/>
+        <image name="8888" width="136" height="50.5"/>
         <image name="9999" width="157" height="109"/>
         <image name="中间" width="82" height="67"/>
         <image name="减" width="39" height="38.5"/>

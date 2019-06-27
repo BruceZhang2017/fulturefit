@@ -63,14 +63,16 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mid-r7-7e3">
-                                <rect key="frame" x="157" y="808" width="100" height="44"/>
+                                <rect key="frame" x="30" y="808" width="354" height="44"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="XT8-UQ-E2M"/>
                                     <constraint firstAttribute="height" constant="44" id="anN-KI-hDf"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" title="刷新"/>
+                                <state key="disabled">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="22"/>
@@ -87,16 +89,19 @@
                             <constraint firstItem="dgq-PL-DHp" firstAttribute="bottom" secondItem="Mid-r7-7e3" secondAttribute="bottom" constant="10" id="907-h5-6bF"/>
                             <constraint firstItem="bjO-7D-QUk" firstAttribute="top" secondItem="fWk-ny-jyq" secondAttribute="top" id="AEm-mH-cyP"/>
                             <constraint firstAttribute="trailing" secondItem="CFF-eO-YgM" secondAttribute="trailing" id="CpP-BU-Rso"/>
+                            <constraint firstItem="Mid-r7-7e3" firstAttribute="leading" secondItem="dgq-PL-DHp" secondAttribute="leading" constant="30" id="Fqz-tk-v2P"/>
                             <constraint firstItem="CFF-eO-YgM" firstAttribute="top" secondItem="fWk-ny-jyq" secondAttribute="top" id="PzU-aH-VJg"/>
                             <constraint firstItem="Mid-r7-7e3" firstAttribute="top" secondItem="bjO-7D-QUk" secondAttribute="bottom" constant="10" id="SRN-nv-QpR"/>
                             <constraint firstItem="bjO-7D-QUk" firstAttribute="trailing" secondItem="dgq-PL-DHp" secondAttribute="trailing" id="Uur-r1-E1P"/>
                             <constraint firstItem="bjO-7D-QUk" firstAttribute="leading" secondItem="dgq-PL-DHp" secondAttribute="leading" id="VNa-QR-wxO"/>
+                            <constraint firstItem="dgq-PL-DHp" firstAttribute="trailing" secondItem="Mid-r7-7e3" secondAttribute="trailing" constant="30" id="aj9-79-KVq"/>
                             <constraint firstItem="CFF-eO-YgM" firstAttribute="leading" secondItem="fWk-ny-jyq" secondAttribute="leading" id="k4Q-yn-ltT"/>
                             <constraint firstItem="Mid-r7-7e3" firstAttribute="centerX" secondItem="CFF-eO-YgM" secondAttribute="centerX" id="kL2-ZO-xJJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dgq-PL-DHp"/>
                     </view>
                     <connections>
+                        <outlet property="refreshButton" destination="Mid-r7-7e3" id="u7b-RI-JtT"/>
                         <outlet property="tableView" destination="bjO-7D-QUk" id="ix2-7O-tpj"/>
                     </connections>
                 </viewController>

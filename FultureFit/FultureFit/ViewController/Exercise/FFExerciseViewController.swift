@@ -118,66 +118,97 @@ class FFExerciseViewController: BaseViewController {
 extension FFExerciseViewController: FFExerciseModelServiceDelegate {
     
     func callbackForProgress(_ value: CGFloat) { // 最大630
-        progressViewRightLConstraint.constant = screenWidth - 50 - (value / 630 * (screenWidth - 100))
+        DispatchQueue.main.async {
+            [weak self] in
+            self?.progressViewRightLConstraint.constant = screenWidth - 50 - (value / 630 * (screenWidth - 100))
+        }
+        
     }
     
     func callbackForStartOrPause(_ value: Bool) {
-        if value {
-            playOrPauseButton.setImage(UIImage(named: "暂停"), for: .normal)
-            playOrPauseButton.setImage(UIImage(named: "暂停点击"), for: .highlighted)
-        } else {
-            playOrPauseButton.setImage(UIImage(named: "播放"), for: .normal)
-            playOrPauseButton.setImage(UIImage(named: "播放点击"), for: .highlighted)
+        DispatchQueue.main.async {
+            [weak self] in
+            if value {
+                self?.playOrPauseButton.setImage(UIImage(named: "暂停"), for: .normal)
+                self?.playOrPauseButton.setImage(UIImage(named: "暂停点击"), for: .highlighted)
+            } else {
+                self?.playOrPauseButton.setImage(UIImage(named: "播放"), for: .normal)
+                self?.playOrPauseButton.setImage(UIImage(named: "播放点击"), for: .highlighted)
+            }
         }
     }
     
     func callbackForShowOrHidenProgress(_ value: Bool) {
-        progressView.isHidden = !value
-        progressBackgroundImageView.isHidden = !value
-        addPowerButton.isHidden = !value
-        reducePowerButton.isHidden = !value
+        DispatchQueue.main.async {
+            [weak self] in
+            self?.progressView.isHidden = !value
+            self?.progressBackgroundImageView.isHidden = !value
+            self?.addPowerButton.isHidden = !value
+            self?.reducePowerButton.isHidden = !value
+        }
     }
     
     func callbackForShowOrHidenYellow(_ imageName: String?, time: String) {
-        if imageName == nil {
-            yellowImageView.isHidden = true
-            yellowLabel.isHidden = true
-        } else {
-            yellowImageView.isHidden = false
-            yellowLabel.isHidden = false
-            yellowImageView.image = UIImage(named: imageName!)
-            yellowLabel.text = time
+        DispatchQueue.main.async {
+            [weak self] in
+            if imageName == nil {
+                self?.yellowImageView.isHidden = true
+                self?.yellowLabel.isHidden = true
+            } else {
+                self?.yellowImageView.isHidden = false
+                self?.yellowLabel.isHidden = false
+                self?.yellowImageView.image = UIImage(named: imageName!)
+                self?.yellowLabel.text = time
+            }
         }
     }
     
     
     func callbackForBLEState(_ value: Bool) {
-        bleSatusImageView.image = UIImage(named: value ? "蓝牙已连接" : "蓝牙未连接")
-        bleStatusLabel.text = value ? "蓝牙已连接" : "蓝牙已断开"
+        DispatchQueue.main.async {
+            [weak self] in
+            self?.bleSatusImageView.image = UIImage(named: value ? "蓝牙已连接" : "蓝牙未连接")
+            self?.bleStatusLabel.text = value ? "蓝牙已连接" : "蓝牙已断开"
+        }
     }
     
     func callbackForShowMessage(_ message: String) {
-        view.makeToast(message)
+        DispatchQueue.main.async {
+            [weak self] in
+            self?.view.makeToast(message)
+        }
     }
     
     func callbackForShowFinishDialog(_ message: String) {
-        let alert = UIAlertController(title: "健身完成", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action) in
-            
-        }))
-        present(alert, animated: true, completion: nil)
+        DispatchQueue.main.async {
+            [weak self] in
+            let alert = UIAlertController(title: "健身完成", message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action) in
+                
+            }))
+            self?.present(alert, animated: true, completion: nil)
+        }
     }
     
     func callbackForRefreshTimeLabel(_ value: String) {
-        timeLabel.text = value
+        DispatchQueue.main.async {
+            [weak self] in
+            self?.timeLabel.text = value
+        }
     }
     
     func callbackForRefreshDurationLabel(_ value: String) {
-        durationLabel.text = value
+        DispatchQueue.main.async {
+            [weak self] in
+            self?.durationLabel.text = value
+        }
     }
     
     func callbackForCountNumLabel(_ value: String) {
-        countNumLabel.text = value
+        DispatchQueue.main.async {
+            [weak self] in
+            self?.countNumLabel.text = value
+        }
     }
     
 }

@@ -13,11 +13,11 @@
 import UIKit
 import CoreBluetooth
 
-class FFBaseModel: NSObject {
+@objcMembers class FFBaseModel: NSObject {
     
     static let sharedInstall = FFBaseModel()
     
-    var blePowerStatus: CBManagerState = .poweredOff
+    dynamic var blePowerStatus: CBManagerState = .poweredOff
     // 蓝牙连接状态
     // 0 未连接
     // 1 连接中

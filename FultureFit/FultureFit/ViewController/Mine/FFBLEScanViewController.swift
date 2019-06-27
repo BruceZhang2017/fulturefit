@@ -16,11 +16,15 @@ class FFBLEScanViewController: BaseViewController {
     
     private let service = FFBLEScanModelService()
 
+    @IBOutlet weak var refreshButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    
+    var alert: UIAlertController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "蓝牙列表"
+        refreshButton.isEnabled = false
         tableView.tableFooterView = UIView()
         service.scanedBLECallback = {
             DispatchQueue.main.async {
@@ -28,11 +32,52 @@ class FFBLEScanViewController: BaseViewController {
                 self?.tableView.reloadData()
             }
         }
+        service.scanedBLEFinished = {
+            DispatchQueue.main.async {
+                [weak self] in
+                self?.refreshButton.isEnabled = true
+            }
+        }
+        service.scanedBLEShowAlert = {
+            DispatchQueue.main.async {
+                [weak self] in
+                self?.showAlert()
+            }
+        }
+        service.scanedBLEHideAlert = {
+            DispatchQueue.main.async {
+                [weak self] in
+                self?.alert?.dismiss(animated: false, completion: nil)
+                self?.alert = nil 
+            }
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if FFBaseModel.sharedInstall.blePowerStatus != .poweredOn { // 如果蓝牙未开启
+            showAlert()
+        }
+    }
+    
+    private func showAlert() {
+        if alert == nil {
+            alert = UIAlertController(title: "提示", message: "请开启蓝牙", preferredStyle: .alert)
+            alert?.addAction(UIAlertAction(title: "OK", style: .cancel, handler: {[weak self] (action) in
+                self?.alert = nil
+            }))
+            present(alert!, animated: true, completion: nil)
+        }
     }
 
     /// 刷新TableView
     @IBAction func refresh(_ sender: Any) {
-        
+        if FFBaseModel.sharedInstall.blePowerStatus != .poweredOn { // 如果蓝牙未开启
+            showAlert()
+            refreshButton.isHidden = false
+            return
+        }
+        service.refreshScan()
     }
 }
 
@@ -57,6 +102,11 @@ extension FFBLEScanViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
+        if FFBaseModel.sharedInstall.blePowerStatus != .poweredOn { // 如果蓝牙未开启
+            showAlert()
+            return
+        }
+        service.connectPer(index: indexPath.row)
+        self.navigationController?.popViewController(animated: true)
     }
 }

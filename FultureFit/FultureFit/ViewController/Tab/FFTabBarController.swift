@@ -11,6 +11,7 @@
 	
 
 import UIKit
+import Toast_Swift
 
 class FFTabBarController: UITabBarController {
 
@@ -19,17 +20,24 @@ class FFTabBarController: UITabBarController {
         if FFBaseModel.sharedInstall.blePowerStatus != .poweredOn {
             showBLENeedOpenAlert()
         }
+        regresiterNotification()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    deinit {
+        unregresiterNotification()
     }
-    */
-
+    
+    func regresiterNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(showMassage(notification:)), name: TabNotification, object: nil)
+    }
+    
+    func unregresiterNotification() {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc private func showMassage(notification: Notification) {
+        if let obj = notification.object as? String {
+            view.makeToast(obj)
+        }
+    }
 }
