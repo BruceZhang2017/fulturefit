@@ -39,6 +39,9 @@ class FFBLEManager: NSObject {
         }
     }
     
+    /// 连接指定设备
+    ///
+    /// - Parameter index: 数据列表中的index
     func connect(index: Int) {
         startConnectTimer()
         FFBaseModel.sharedInstall.bleConnectStatus = 1
@@ -47,16 +50,19 @@ class FFBLEManager: NSObject {
         centralManager.connect(per.beripheral, options: nil)
     }
     
+    /// 初始化连接定时器
     func startConnectTimer() {
         timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(handleTimer), userInfo: nil, repeats: false)
         RunLoop.main.add(timer!, forMode: .common)
     }
     
+    /// 销毁连接定时器
     func endConnectTimer() {
         timer?.invalidate()
         timer = nil
     }
     
+    /// 处理定时器事件
     @objc func handleTimer() {
         endConnectTimer()
         if centralManager.state == .poweredOn && activePeripheral != nil {
@@ -83,6 +89,7 @@ class FFBLEManager: NSObject {
         if ((characteristic.properties.rawValue & CBCharacteristicProperties.writeWithoutResponse.rawValue) != 0 ) {
             type = .withoutResponse
         }
+        print("向设备端写指令：\(data.hexEncodedString())")
         activePeripheral.writeValue(data, for: characteristic, type: type)
     }
 }
@@ -118,6 +125,8 @@ extension FFBLEManager: CBCentralManagerDelegate {
     ///   - central: 中心
     ///   - peripheral: 附件
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
+        print("蓝牙连接成功: \(peripheral.name ?? "no name")")
+        endConnectTimer()
         FFBaseModel.sharedInstall.bleConnectStatus = 2
         activePeripheral = peripheral
         activePeripheral.delegate = self
@@ -131,6 +140,7 @@ extension FFBLEManager: CBCentralManagerDelegate {
     ///   - peripheral: 附件
     ///   - error: 报错信息
     func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
+        print("蓝牙连接失败: \(error?.localizedDescription ?? "no error")")
         FFBaseModel.sharedInstall.bleConnectStatus = 0
         endConnectTimer()
         activePeripheral.delegate = nil
@@ -144,13 +154,15 @@ extension FFBLEManager: CBCentralManagerDelegate {
     ///   - peripheral: 附件
     ///   - error: 错误信息
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
+        print("蓝牙断开连接: \(error?.localizedDescription ?? "no error")")
         FFBaseModel.sharedInstall.bleConnectStatus = 0
         FFBaseModel.sharedInstall.commandReady = false
         endConnectTimer()
         activePeripheral.delegate = nil
         activePeripheral = nil
+        FFBLEConfig.services.removeAll()
+        FFBLEConfig.characteristics.removeAll()
     }
-    
     
 }
 
@@ -161,7 +173,7 @@ extension FFBLEManager: CBPeripheralDelegate {
             print("Found Services count = \(services.count)")
             for service in services {
                 print("service: \(service)")
-                if service.uuid.uuidString == FFBLEConfig.Service_uuid {
+                if service.uuid.uuidString.lowercased() == FFBLEConfig.Service_uuid.lowercased() {
                     FFBLEConfig.services[service.uuid.uuidString] = service
                     peripheral.discoverCharacteristics(nil, for: service)
                 }
@@ -180,8 +192,9 @@ extension FFBLEManager: CBPeripheralDelegate {
         }
         for characteristic in service.characteristics! as [CBCharacteristic] {
             // only care supported
-            if characteristic.uuid.uuidString != FFBLEConfig.Characteristic_uuid_TX || characteristic.uuid.uuidString != FFBLEConfig.Characteristic_uuid_FUNCTION {
-                print("not support  \(service.uuid.uuidString) ")
+            if characteristic.uuid.uuidString != FFBLEConfig.Characteristic_uuid_TX &&
+                characteristic.uuid.uuidString != FFBLEConfig.Characteristic_uuid_FUNCTION {
+                print("not support  [\(characteristic.uuid.uuidString)]")
                 continue
             }
             FFBLEConfig.characteristics[characteristic.uuid.uuidString] = characteristic
@@ -214,6 +227,7 @@ extension FFBLEManager: CBPeripheralDelegate {
             write(data: Data([0xE7, 0xF6]), uuidString: FFBLEConfig.Characteristic_uuid_FUNCTION)
         } else if FFBLEConfig.characteristics.count >= 1 {
             FFBaseModel.sharedInstall.commandReady = true
+            //peripheral.discoverDescriptors(for: FFBLEConfig.characteristics.values.first!)
         } else {
             FFBaseModel.sharedInstall.commandReady = true
             DispatchQueue.main.async {
@@ -223,10 +237,26 @@ extension FFBLEManager: CBPeripheralDelegate {
     }
     
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
-        print("上报上来的数据为：\(characteristic.value)")
+        print("上报上来的数据为：\(String(describing: characteristic.value))")
     }
     
     func setNotificationValue(enabled:Bool, characteristic:CBCharacteristic) {
         activePeripheral?.setNotifyValue(enabled, for: characteristic)
+    }
+    
+    func peripheral(_ peripheral: CBPeripheral, didDiscoverDescriptorsFor characteristic: CBCharacteristic, error: Error?) {
+        guard let descriptors = characteristic.descriptors else {
+            return
+        }
+        for descriptor in descriptors {
+            print("descriptor: \(descriptor.uuid.uuidString)")
+            if descriptor.uuid.uuidString.lowercased() == "2902" {
+                activePeripheral?.writeValue(Data([0x01, 0x00]), for: descriptor)
+            }
+        }
+    }
+    
+    func peripheral(_ peripheral: CBPeripheral, didWriteValueFor descriptor: CBDescriptor, error: Error?) {
+        print("write descriptor error: \(error?.localizedDescription ?? "no error")")
     }
 }

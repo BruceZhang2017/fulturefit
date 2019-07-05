@@ -1103,11 +1103,51 @@ class FFExerciseModelService: NSObject {
     
     let handle = FFCommandHandle()
     
+    var V_MSG_SET_SEEKBAR : V!
+    var V_MSG_SET_POWER1 : V!
+    var V_MSG_SET_POWER2 : V!
+    var V_MSG_SET_POWER3 : V!
+    var V_MSG_SET_POWER4 : V!
+    var V_MSG_SET_POWER5 : V!
+    var V_MSG_SET_POWER6 : V!
+    var V_MSG_SET_POWER7 : V!
+    var V_MSG_SET_POWER8 : V!
+    var V_MSG_SET_POWER9 : V!
+    var V_MSG_SET_POWER10 : V!
+    var V_MSG_SET_CTRL1 : V!
+    var V_MSG_SET_CTRL2 : V!
+    var V_MSG_SHOW_TIME : V!
+    var V_MSG_SET_PROGRESS_UP : V!
+    var V_MSG_SET_PROGRESS_DOWN : V!
+    var V_MSG_DEINIT_EXTEND : V!
+    var V_MSG_INIT_EXTEND: V!
+    var V_MSG_STOP : V!
+    
+    
     init(delegate: FFExerciseModelServiceDelegate) {
         self.delegate = delegate
         super.init()
         startKVO()
         registerNotification()
+        V_MSG_SET_POWER1 = V(MSG_SET_POWER1)
+        V_MSG_SET_POWER2 = V(MSG_SET_POWER2)
+        V_MSG_SET_POWER3 = V(MSG_SET_POWER3)
+        V_MSG_SET_POWER4 = V(MSG_SET_POWER4)
+        V_MSG_SET_POWER5 = V(MSG_SET_POWER5)
+        V_MSG_SET_POWER6 = V(MSG_SET_POWER6)
+        V_MSG_SET_POWER7 = V(MSG_SET_POWER7)
+        V_MSG_SET_POWER8 = V(MSG_SET_POWER8)
+        V_MSG_SET_POWER9 = V(MSG_SET_POWER9)
+        V_MSG_SET_POWER10 = V(MSG_SET_POWER10)
+        V_MSG_SET_CTRL1 = V(MSG_SET_CTRL1)
+        V_MSG_SHOW_TIME = V(MSG_SHOW_TIME)
+        V_MSG_SET_PROGRESS_UP = V(MSG_SET_PROGRESS_UP)
+        V_MSG_SET_PROGRESS_DOWN = V(MSG_SET_PROGRESS_DOWN)
+        V_MSG_DEINIT_EXTEND = V(MSG_DEINIT_EXTEND)
+        V_MSG_SET_SEEKBAR = V(MSG_SET_SEEKBAR)
+        V_MSG_STOP = V(MSG_STOP)
+        V_MSG_SET_CTRL2 = V(MSG_SET_CTRL2)
+        V_MSG_INIT_EXTEND = V(MSG_INIT_EXTEND)
     }
     
     deinit {
@@ -1150,7 +1190,7 @@ class FFExerciseModelService: NSObject {
                 return
             }
             let value = userInfo[ACTION_SINGLE_INDEX_EXTRA] as? Int ?? -1
-            if FFBaseModel.sharedInstall.bleConnectStatus == 3 &&
+            if FFBaseModel.sharedInstall.bleConnectStatus == 2 &&
                 FFBaseModel.sharedInstall.commandReady &&
                 FFBaseModel.sharedInstall.mCountDownTimeState != 0 &&
                 value != -1 {
@@ -1158,7 +1198,7 @@ class FFExerciseModelService: NSObject {
                 handle.writeData(mPowerValueArray[value])
             }
         } else if obj == ACTION_CHANGE_CTRL_ARRAY {
-            if FFBaseModel.sharedInstall.bleConnectStatus == 3 &&
+            if FFBaseModel.sharedInstall.bleConnectStatus == 2 &&
                 FFBaseModel.sharedInstall.commandReady &&
                 FFBaseModel.sharedInstall.mCountDownTimeState != 0 {
                 handle.writeData(mCtrlArray1)

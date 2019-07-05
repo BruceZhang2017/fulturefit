@@ -60,6 +60,10 @@ class FFBLEScanViewController: BaseViewController {
         }
     }
     
+    deinit {
+        print("deinit \(NSStringFromClass(self.classForCoder))")
+    }
+    
     private func showAlert() {
         if alert == nil {
             alert = UIAlertController(title: "提示", message: "请开启蓝牙", preferredStyle: .alert)
@@ -106,6 +110,7 @@ extension FFBLEScanViewController: UITableViewDataSource, UITableViewDelegate {
             showAlert()
             return
         }
+        service.stopScan()
         service.connectPer(index: indexPath.row)
         self.navigationController?.popViewController(animated: true)
     }

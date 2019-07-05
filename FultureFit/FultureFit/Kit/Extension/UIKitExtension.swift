@@ -45,3 +45,11 @@ extension UIViewController {
         present(alert, animated: true, completion: nil)
     }
 }
+
+extension Date {
+    func toString() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss SSS"
+        return formatter.string(from: self)
+    }
+}

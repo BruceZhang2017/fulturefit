@@ -18,10 +18,10 @@ class FFBLEConfig: NSObject {
     public static var HEART_RATE_MEASUREMENT = "00002a37-0000-1000-8000-00805f9b34fb";
     public static var CLIENT_CHARACTERISTIC_CONFIG = "00002902-0000-1000-8000-00805f9b34fb";
     
-    public static var Service_uuid = "0000ffe0-0000-1000-8000-00805f9b34fb";
-    public static var Characteristic_uuid_TX = "0000ffe1-0000-1000-8000-00805f9b34fb";
-    public static var Characteristic_uuid_RX = "0000ffe1-0000-1000-8000-00805f9b34fb";
-    public static var Characteristic_uuid_FUNCTION = "0000ffe2-0000-1000-8000-00805f9b34fb"
+    public static var Service_uuid = "FFE0";
+    public static var Characteristic_uuid_TX = "FFE1";
+    public static var Characteristic_uuid_RX = "FFE1";
+    public static var Characteristic_uuid_FUNCTION = "FFE2"
     
     public static var services : [String : CBService] = [:]
     public static var characteristics : [String : CBCharacteristic] = [:]

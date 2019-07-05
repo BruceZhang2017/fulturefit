@@ -25,15 +25,17 @@ extension FFExerciseModelService {
     func onTimeStart() {
         if FFBaseModel.sharedInstall.mCountDownTimeState == 0 {
             // 当前处于倒计时未启动状态，点击按键若满足条件则进入运行状态
-            if (FFBaseModel.sharedInstall.bleConnectStatus == 3 && FFBaseModel.sharedInstall.commandReady) {
+            if (FFBaseModel.sharedInstall.bleConnectStatus == 2 && FFBaseModel.sharedInstall.commandReady) {
                 if (FFBaseModel.sharedInstall.mJsType == 0) {
                     delegate?.callbackForShowMessage("请选择健身内容！")
                 } else {
                     FFBaseModel.sharedInstall.mCountDownTimeState = 1
+                    mFlagShowPowerSeekBar = false
                     mStartTime = Int(Date().timeIntervalSince1970 * 1000)
                     mSpendTime = 0
                     delegate?.callbackForStartOrPause(true)
                     handle.writeData(mInit)
+                    perform(#selector(handleMessage(what:)), with: V_MSG_SET_POWER1, afterDelay: 0.05)
                 }
             } else {
                 delegate?.callbackForShowMessage("请连接设备！")
@@ -41,14 +43,14 @@ extension FFExerciseModelService {
             
         } else if FFBaseModel.sharedInstall.mCountDownTimeState == 1 {
             // 当前处于倒计时运行状态，点击按键则进入暂停状态
-            NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(handleMessage(what:)), object: MSG_SHOW_TIME)
+            NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(handleMessage(what:)), object: V_MSG_SHOW_TIME)
             FFBaseModel.sharedInstall.mCountDownTimeState = 2
             mSpendTime += Int(Date().timeIntervalSince1970 * 1000) - mStartTime
             delegate?.callbackForStartOrPause(false)
             
             if (mFlagEnd2K) {
                 // 2K已结束状态下
-                if FFBaseModel.sharedInstall.bleConnectStatus == 3 && FFBaseModel.sharedInstall.commandReady {
+                if FFBaseModel.sharedInstall.bleConnectStatus == 2 && FFBaseModel.sharedInstall.commandReady {
                     if (FFBaseModel.sharedInstall.mJsType == 80) {
                         // 力量训练
                         doStrengthCmdPause(mCurIndex, true)
@@ -68,7 +70,7 @@ extension FFExerciseModelService {
                 }
             } else {
                 // 2K状态
-                if FFBaseModel.sharedInstall.bleConnectStatus == 3 && FFBaseModel.sharedInstall.commandReady {
+                if FFBaseModel.sharedInstall.bleConnectStatus == 2 && FFBaseModel.sharedInstall.commandReady {
                     handle.writeData(mPause2K)
                 }
             }
@@ -76,7 +78,7 @@ extension FFExerciseModelService {
             // 当前处于倒计时暂停状态，点击按键后倒计时恢复运行
             if (mFlagEnd2K) {
                 // 2K已结束状态下
-                if FFBaseModel.sharedInstall.bleConnectStatus == 3 && FFBaseModel.sharedInstall.commandReady {
+                if FFBaseModel.sharedInstall.bleConnectStatus == 2 && FFBaseModel.sharedInstall.commandReady {
                     if (FFBaseModel.sharedInstall.mJsType == 80) {
                         // 力量训练
                         doStrengthCmdPause(mCurIndex, false)
@@ -96,14 +98,14 @@ extension FFExerciseModelService {
                 }
             } else {
                 // 2K状态
-                if FFBaseModel.sharedInstall.bleConnectStatus == 3 && FFBaseModel.sharedInstall.commandReady {
+                if FFBaseModel.sharedInstall.bleConnectStatus == 2 && FFBaseModel.sharedInstall.commandReady {
                     handle.writeData(mResume2K)
                 }
             }
             
             mStartTime = Int(Date().timeIntervalSince1970 * 1000)
             FFBaseModel.sharedInstall.mCountDownTimeState = 1
-            handleMessage(what: MSG_SHOW_TIME)
+            handleMessage(what: V_MSG_SHOW_TIME)
             delegate?.callbackForStartOrPause(true)
         }
         
@@ -122,12 +124,12 @@ extension FFExerciseModelService {
     }
     
     func onTimeStop() {
-        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(handleMessage(what:)), object: MSG_SHOW_TIME)
-        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(handleMessage2(what:)), object: MSG_SET_PROGRESS_UP)
-        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(handleMessage2(what:)), object: MSG_SET_PROGRESS_DOWN)
-        if FFBaseModel.sharedInstall.bleConnectStatus == 3 && FFBaseModel.sharedInstall.commandReady {
+        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(handleMessage(what:)), object: V_MSG_SHOW_TIME)
+        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(handleMessage2(what:)), object: V_MSG_SET_PROGRESS_UP)
+        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(handleMessage2(what:)), object: V_MSG_SET_PROGRESS_DOWN)
+        if FFBaseModel.sharedInstall.bleConnectStatus == 2 && FFBaseModel.sharedInstall.commandReady {
             handle.writeData(mDeInit)
-            perform(#selector(handleMessage2(what:)), with: MSG_DEINIT_EXTEND, afterDelay: 0.05)
+            perform(#selector(handleMessage2(what:)), with: V_MSG_DEINIT_EXTEND, afterDelay: 0.05)
         }
         
         FFBaseModel.sharedInstall.mCountDownTimeState = 0
@@ -169,16 +171,16 @@ extension FFExerciseModelService {
             for i in 0..<mCtrlPowerValueArray.count {
                 curTotalPowerValue += Int(mCtrlPowerValueArray[i])
             }
-            NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(handleMessage2(what:)), object: MSG_SET_SEEKBAR)
+            NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(handleMessage2(what:)), object: V_MSG_SET_SEEKBAR)
             mFlagShowPowerSeekBar = true
             delegate?.callbackForShowOrHidenYellow(nil, time: "")
             delegate?.callbackForProgress(CGFloat(curTotalPowerValue))
             delegate?.callbackForShowOrHidenProgress(true)
             if (FFBaseModel.sharedInstall.mCountDownTimeState != 0) {
-                perform(#selector(handleMessage2(what:)), with: MSG_SET_SEEKBAR, afterDelay: 1)
+                perform(#selector(handleMessage2(what:)), with: V_MSG_SET_SEEKBAR, afterDelay: 1)
             }
             vibrator()
-            if FFBaseModel.sharedInstall.bleConnectStatus == 3 &&
+            if FFBaseModel.sharedInstall.bleConnectStatus == 2 &&
                 FFBaseModel.sharedInstall.commandReady &&
                 FFBaseModel.sharedInstall.mCountDownTimeState != 0 {
                 handle.writeData(mAllPowerAddOne)
@@ -201,18 +203,18 @@ extension FFExerciseModelService {
             for i in 0..<mCtrlPowerValueArray.count {
                 curTotalPowerValue += Int(mCtrlPowerValueArray[i])
             }
-            NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(handleMessage2(what:)), object: MSG_SET_SEEKBAR)
+            NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(handleMessage2(what:)), object: V_MSG_SET_SEEKBAR)
             mFlagShowPowerSeekBar = true
             delegate?.callbackForShowOrHidenYellow(nil, time: "")
             delegate?.callbackForProgress(CGFloat(curTotalPowerValue))
             delegate?.callbackForShowOrHidenProgress(true)
             if (FFBaseModel.sharedInstall.mCountDownTimeState != 0) {
-                perform(#selector(handleMessage2(what:)), with: MSG_SET_SEEKBAR, afterDelay: 1)
+                perform(#selector(handleMessage2(what:)), with: V_MSG_SET_SEEKBAR, afterDelay: 1)
             }
             
             vibrator()
             
-            if FFBaseModel.sharedInstall.bleConnectStatus == 3 &&
+            if FFBaseModel.sharedInstall.bleConnectStatus == 2 &&
                 FFBaseModel.sharedInstall.commandReady &&
                 FFBaseModel.sharedInstall.mCountDownTimeState != 0 {
                 handle.writeData(mAllPowerDecOne)
@@ -221,6 +223,7 @@ extension FFExerciseModelService {
     }
     
     func showVideoPic(_ index: Int, _ curSpendTime: Int) {
+        print("[\(Date().toString())] showVideoPic: \(index) \(curSpendTime)")
         var temptime = 0
         let offtime = 650
         
@@ -319,12 +322,14 @@ extension FFExerciseModelService {
     
     /// 是handleMessage中一部分
     private func showTime() {
+        print("[\(Date().toString())] showTime")
+        
         let totalSpendTime = mSpendTime + Int(Date().timeIntervalSince1970 * 1000) - mStartTime
         let totalLeftTime = 1200000 - totalSpendTime
         
         // 10秒钟之时执行停止2K的指令
         if !mFlagEnd2K && totalSpendTime >= TIME_FOR_2K {
-            if FFBaseModel.sharedInstall.bleConnectStatus == 3 &&
+            if FFBaseModel.sharedInstall.bleConnectStatus == 2 &&
                 FFBaseModel.sharedInstall.commandReady &&
                 FFBaseModel.sharedInstall.mCountDownTimeState != 0 {
                 handle.writeData(mEnd2K)
@@ -428,12 +433,12 @@ extension FFExerciseModelService {
             delegate?.callbackForRefreshTimeLabel("00:00")
             delegate?.callbackForRefreshDurationLabel("00:00")
             FFBaseModel.sharedInstall.mCountDownTimeState = 3
-            perform(#selector(handleMessage(what:)), with: MSG_STOP, afterDelay: 1)
+            perform(#selector(handleMessage(what:)), with: V_MSG_STOP, afterDelay: 1)
         } else {
             // 倒计时进行中
             let minute = totalLeftTime / 60000
             let second = (totalLeftTime / 1000) % 60
-            let formatTime = String(format: "%.2f:%.2f", Float(minute), Float(second))
+            let formatTime = String(format: "%02.0f:%02.0f", Float(minute), Float(second))
             //总倒计时时间显示
             delegate?.callbackForRefreshTimeLabel(formatTime)
             
@@ -475,7 +480,7 @@ extension FFExerciseModelService {
                         let subLeftTime = subTotalTime - subSpendTime
                         let min = subLeftTime / 60000
                         let sec = (subLeftTime / 1000) % 60
-                        let subformatTime = String(format: "%.2f:%.2f", Float(min), Float(sec))
+                        let subformatTime = String(format: "%02.0f:%02.0f", Float(min), Float(sec))
                         // 子倒计时时间显示
                         delegate?.callbackForRefreshDurationLabel(subformatTime)
                         // 子倒计时当前步骤显示
@@ -498,7 +503,7 @@ extension FFExerciseModelService {
                         let subLeftTime = subTotalTime - subSpendTime
                         let min = subLeftTime / 60000
                         let sec = (subLeftTime / 1000) % 60
-                        let subformatTime = String(format: "%.2f:%.2f", Float(min), Float(sec))
+                        let subformatTime = String(format: "%02.0f:%02.0f", Float(min), Float(sec))
                         // 子倒计时时间显示
                         delegate?.callbackForRefreshDurationLabel(subformatTime)
                         // 子倒计时当前步骤显示
@@ -521,7 +526,7 @@ extension FFExerciseModelService {
                         let subLeftTime = subTotalTime - subSpendTime
                         let min = subLeftTime / 60000
                         let sec = (subLeftTime / 1000) % 60
-                        let subformatTime = String(format: "%.2f:%.2f", Float(min), Float(sec))
+                        let subformatTime = String(format: "%02.0f:%02.0f", Float(min), Float(sec))
                         // 子倒计时时间显示
                         delegate?.callbackForRefreshDurationLabel(subformatTime)
                         // 子倒计时当前步骤显示
@@ -545,7 +550,7 @@ extension FFExerciseModelService {
                         let subLeftTime = subTotalTime - subSpendTime
                         let min = subLeftTime / 60000
                         let sec = (subLeftTime / 1000) % 60
-                        let subformatTime = String(format: "%.2f:%.2f", Float(min), Float(sec))
+                        let subformatTime = String(format: "%02.0f:%02.0f", Float(min), Float(sec))
                         // 子倒计时时间显示
                         delegate?.callbackForRefreshDurationLabel(subformatTime)
                         // 子倒计时当前步骤显示
@@ -560,118 +565,120 @@ extension FFExerciseModelService {
                 showVideoPic(mCurIndex, totalSpendTime)
             }
             
-            perform(#selector(handleMessage(what:)), with: MSG_SHOW_TIME, afterDelay: 0.1)
+            perform(#selector(handleMessage(what:)), with: V_MSG_SHOW_TIME, afterDelay: 0.1)
         }
     }
     
-    @objc func handleMessage(what: Int) {
+    @objc func handleMessage(what: V) {
+        print("[\(Date().toString())] 处理信息：\(what.value)")
+        let what: Int = what.value
         if what == MSG_SHOW_TIME {
             showTime()
         } else if what == MSG_SET_POWER1 {
-            if FFBaseModel.sharedInstall.bleConnectStatus == 3 &&
+            if FFBaseModel.sharedInstall.bleConnectStatus == 2 &&
                 FFBaseModel.sharedInstall.commandReady &&
                 FFBaseModel.sharedInstall.mCountDownTimeState != 0 {
                 mPowerValueArray[0][2] = mCtrlPowerValueArray[0]
                 handle.writeData(mPowerValueArray[0])
             }
-            perform(#selector(handleMessage(what:)), with: MSG_SET_POWER2, afterDelay: 0.05)
+            perform(#selector(handleMessage(what:)), with: V_MSG_SET_POWER2, afterDelay: 0.05)
         } else if what == MSG_SET_POWER2 {
-            if FFBaseModel.sharedInstall.bleConnectStatus == 3 &&
+            if FFBaseModel.sharedInstall.bleConnectStatus == 2 &&
                 FFBaseModel.sharedInstall.commandReady &&
                 FFBaseModel.sharedInstall.mCountDownTimeState != 0 {
                 mPowerValueArray[1][2] = mCtrlPowerValueArray[1]
                 handle.writeData(mPowerValueArray[1])
             }
-            perform(#selector(handleMessage(what:)), with: MSG_SET_POWER3, afterDelay: 0.05)
+            perform(#selector(handleMessage(what:)), with: V_MSG_SET_POWER3, afterDelay: 0.05)
         } else if what == MSG_SET_POWER3 {
-            if FFBaseModel.sharedInstall.bleConnectStatus == 3 &&
+            if FFBaseModel.sharedInstall.bleConnectStatus == 2 &&
                 FFBaseModel.sharedInstall.commandReady &&
                 FFBaseModel.sharedInstall.mCountDownTimeState != 0 {
                 mPowerValueArray[2][2] = mCtrlPowerValueArray[2]
                 handle.writeData(mPowerValueArray[2])
             }
-            perform(#selector(handleMessage(what:)), with: MSG_SET_POWER4, afterDelay: 0.05)
+            perform(#selector(handleMessage(what:)), with: V_MSG_SET_POWER4, afterDelay: 0.05)
         } else if what == MSG_SET_POWER4 {
-            if FFBaseModel.sharedInstall.bleConnectStatus == 3 &&
+            if FFBaseModel.sharedInstall.bleConnectStatus == 2 &&
                 FFBaseModel.sharedInstall.commandReady &&
                 FFBaseModel.sharedInstall.mCountDownTimeState != 0 {
                 mPowerValueArray[3][2] = mCtrlPowerValueArray[3]
                 handle.writeData(mPowerValueArray[3])
             }
-            perform(#selector(handleMessage(what:)), with: MSG_SET_POWER5, afterDelay: 0.05)
+            perform(#selector(handleMessage(what:)), with: V_MSG_SET_POWER5, afterDelay: 0.05)
         } else if what == MSG_SET_POWER5 {
-            if FFBaseModel.sharedInstall.bleConnectStatus == 3 &&
+            if FFBaseModel.sharedInstall.bleConnectStatus == 2 &&
                 FFBaseModel.sharedInstall.commandReady &&
                 FFBaseModel.sharedInstall.mCountDownTimeState != 0 {
                 mPowerValueArray[4][2] = mCtrlPowerValueArray[4]
                 handle.writeData(mPowerValueArray[4])
             }
-            perform(#selector(handleMessage(what:)), with: MSG_SET_POWER6, afterDelay: 0.05)
+            perform(#selector(handleMessage(what:)), with: V_MSG_SET_POWER6, afterDelay: 0.05)
         } else if what == MSG_SET_POWER6 {
-            if FFBaseModel.sharedInstall.bleConnectStatus == 3 &&
+            if FFBaseModel.sharedInstall.bleConnectStatus == 2 &&
                 FFBaseModel.sharedInstall.commandReady &&
                 FFBaseModel.sharedInstall.mCountDownTimeState != 0 {
                 mPowerValueArray[5][2] = mCtrlPowerValueArray[5]
                 handle.writeData(mPowerValueArray[5])
             }
-            perform(#selector(handleMessage(what:)), with: MSG_SET_POWER7, afterDelay: 0.05)
+            perform(#selector(handleMessage(what:)), with: V_MSG_SET_POWER7, afterDelay: 0.05)
         } else if what == MSG_SET_POWER7 {
-            if FFBaseModel.sharedInstall.bleConnectStatus == 3 &&
+            if FFBaseModel.sharedInstall.bleConnectStatus == 2 &&
                 FFBaseModel.sharedInstall.commandReady &&
                 FFBaseModel.sharedInstall.mCountDownTimeState != 0 {
                 mPowerValueArray[6][2] = mCtrlPowerValueArray[6]
                 handle.writeData(mPowerValueArray[6])
             }
-            perform(#selector(handleMessage(what:)), with: MSG_SET_POWER8, afterDelay: 0.05)
+            perform(#selector(handleMessage(what:)), with: V_MSG_SET_POWER8, afterDelay: 0.05)
         } else if what == MSG_SET_POWER8 {
-            if FFBaseModel.sharedInstall.bleConnectStatus == 3 &&
+            if FFBaseModel.sharedInstall.bleConnectStatus == 2 &&
                 FFBaseModel.sharedInstall.commandReady &&
                 FFBaseModel.sharedInstall.mCountDownTimeState != 0 {
                 mPowerValueArray[7][2] = mCtrlPowerValueArray[7]
                 handle.writeData(mPowerValueArray[7])
             }
-            perform(#selector(handleMessage(what:)), with: MSG_SET_POWER9, afterDelay: 0.05)
+            perform(#selector(handleMessage(what:)), with: V_MSG_SET_POWER9, afterDelay: 0.05)
         } else if what == MSG_SET_POWER9 {
-            if FFBaseModel.sharedInstall.bleConnectStatus == 3 &&
+            if FFBaseModel.sharedInstall.bleConnectStatus == 2 &&
                 FFBaseModel.sharedInstall.commandReady &&
                 FFBaseModel.sharedInstall.mCountDownTimeState != 0 {
                 mPowerValueArray[8][2] = mCtrlPowerValueArray[8]
                 handle.writeData(mPowerValueArray[8])
             }
-            perform(#selector(handleMessage(what:)), with: MSG_SET_POWER10, afterDelay: 0.05)
+            perform(#selector(handleMessage(what:)), with: V_MSG_SET_POWER10, afterDelay: 0.05)
         } else if what == MSG_SET_POWER10 {
-            if FFBaseModel.sharedInstall.bleConnectStatus == 3 &&
+            if FFBaseModel.sharedInstall.bleConnectStatus == 2 &&
                 FFBaseModel.sharedInstall.commandReady &&
                 FFBaseModel.sharedInstall.mCountDownTimeState != 0 {
                 mPowerValueArray[9][2] = mCtrlPowerValueArray[9]
                 handle.writeData(mPowerValueArray[9])
             }
-            perform(#selector(handleMessage(what:)), with: MSG_SET_CTRL1, afterDelay: 0.05)
+            perform(#selector(handleMessage(what:)), with: V_MSG_SET_CTRL1, afterDelay: 0.05)
         } else if what == MSG_SET_CTRL1 {
             // 左侧5组打开/关闭状态
-            if FFBaseModel.sharedInstall.bleConnectStatus == 3 &&
+            if FFBaseModel.sharedInstall.bleConnectStatus == 2 &&
                 FFBaseModel.sharedInstall.commandReady &&
                 FFBaseModel.sharedInstall.mCountDownTimeState != 0 {
                 handle.writeData(mCtrlArray1)
             }
-            perform(#selector(handleMessage(what:)), with: MSG_SET_CTRL2, afterDelay: 0.05)
+            perform(#selector(handleMessage(what:)), with: V_MSG_SET_CTRL2, afterDelay: 0.05)
         } else if what == MSG_SET_CTRL2 {
             // 右侧5组打开/关闭状态
-            if FFBaseModel.sharedInstall.bleConnectStatus == 3 &&
+            if FFBaseModel.sharedInstall.bleConnectStatus == 2 &&
                 FFBaseModel.sharedInstall.commandReady &&
                 FFBaseModel.sharedInstall.mCountDownTimeState != 0 {
                 handle.writeData(mCtrlArray2)
             }
-            perform(#selector(handleMessage(what:)), with: MSG_INIT_EXTEND, afterDelay: 0.05)
+            perform(#selector(handleMessage(what:)), with: V_MSG_INIT_EXTEND, afterDelay: 0.05)
         } else if what == MSG_INIT_EXTEND {
             // 初始化完参数后通知设备端
-            if FFBaseModel.sharedInstall.bleConnectStatus == 3 &&
+            if FFBaseModel.sharedInstall.bleConnectStatus == 2 &&
                 FFBaseModel.sharedInstall.commandReady &&
                 FFBaseModel.sharedInstall.mCountDownTimeState != 0 {
                 handle.writeData(mInitExtend)
             }
             mStartTime = Int(Date().timeIntervalSince1970 * 1000)
-            perform(#selector(handleMessage(what:)), with: MSG_SHOW_TIME, afterDelay: 0.05)
+            perform(#selector(handleMessage(what:)), with: V_MSG_SHOW_TIME, afterDelay: 0.05)
         } else if what == MSG_STOP {
             // 倒计时完成
             onTimeStop()
@@ -681,14 +688,15 @@ extension FFExerciseModelService {
         }
     }
     
-    @objc func handleMessage2(what: Int) {
+    @objc func handleMessage2(what: V) {
+        let what: Int = what.value
         if (what == MSG_SET_CTRL2_EXTTEND) {
-            if FFBaseModel.sharedInstall.bleConnectStatus == 3 &&
+            if FFBaseModel.sharedInstall.bleConnectStatus == 2 &&
                 FFBaseModel.sharedInstall.commandReady {
                 handle.writeData(mCtrlArray2)
             }
         } else if (what == MSG_DEINIT_EXTEND) {
-            if FFBaseModel.sharedInstall.bleConnectStatus == 3 &&
+            if FFBaseModel.sharedInstall.bleConnectStatus == 2 &&
                 FFBaseModel.sharedInstall.commandReady {
                 handle.writeData(mDeInitExtend)
             }
@@ -704,12 +712,12 @@ extension FFExerciseModelService {
     // 电压缓慢上升或下降
     private func doSlowlyOnOff(_ value: Bool) {
         if value {
-            if FFBaseModel.sharedInstall.bleConnectStatus == 3 &&
+            if FFBaseModel.sharedInstall.bleConnectStatus == 2 &&
                 FFBaseModel.sharedInstall.commandReady {
                 handle.writeData(mSlowlyOn)
             }
         } else {
-            if FFBaseModel.sharedInstall.bleConnectStatus == 3 &&
+            if FFBaseModel.sharedInstall.bleConnectStatus == 2 &&
                 FFBaseModel.sharedInstall.commandReady {
                 handle.writeData(mSlowlyOff)
             }
@@ -720,7 +728,7 @@ extension FFExerciseModelService {
     ///
     /// - Parameter i: index
     private func doStrengthCmd(_ i: Int) {
-        if FFBaseModel.sharedInstall.bleConnectStatus == 3 &&
+        if FFBaseModel.sharedInstall.bleConnectStatus == 2 &&
             FFBaseModel.sharedInstall.commandReady &&
             FFBaseModel.sharedInstall.mCountDownTimeState != 0 {
             // 力量训练
@@ -793,7 +801,7 @@ extension FFExerciseModelService {
     ///   - i: index
     ///   - pauseAndresume: 中止或重新开始
     private func doStrengthCmdPause(_ i: Int, _ pauseAndresume: Bool) {
-        if FFBaseModel.sharedInstall.bleConnectStatus == 3 &&
+        if FFBaseModel.sharedInstall.bleConnectStatus == 2 &&
             FFBaseModel.sharedInstall.commandReady &&
             FFBaseModel.sharedInstall.mCountDownTimeState != 0 {
             // 力量训练
@@ -854,7 +862,7 @@ extension FFExerciseModelService {
     ///
     /// - Parameter i: index
     private func doNaiLiCmd(_ i: Int) {
-        if FFBaseModel.sharedInstall.bleConnectStatus == 3 &&
+        if FFBaseModel.sharedInstall.bleConnectStatus == 2 &&
             FFBaseModel.sharedInstall.commandReady &&
             FFBaseModel.sharedInstall.mCountDownTimeState != 0 {
             // 耐力训练
@@ -990,7 +998,7 @@ extension FFExerciseModelService {
     ///   - i: 需要
     ///   - pauseAndresume: 中止或重新开始
     private func doNaiLiCmdPause(_ i: Int, _ pauseAndresume: Bool) {
-        if FFBaseModel.sharedInstall.bleConnectStatus == 3 &&
+        if FFBaseModel.sharedInstall.bleConnectStatus == 2 &&
             FFBaseModel.sharedInstall.commandReady &&
             FFBaseModel.sharedInstall.mCountDownTimeState != 0 {
             // 耐力训练
@@ -1093,7 +1101,7 @@ extension FFExerciseModelService {
     ///
     /// - Parameter i: index
     private func doJiRouCmd(_ i: Int) {
-        if FFBaseModel.sharedInstall.bleConnectStatus == 3 &&
+        if FFBaseModel.sharedInstall.bleConnectStatus == 2 &&
             FFBaseModel.sharedInstall.commandReady &&
             FFBaseModel.sharedInstall.mCountDownTimeState != 0 {
             // 肌肉增长
@@ -1184,7 +1192,7 @@ extension FFExerciseModelService {
     ///   - i: index
     ///   - pauseAndresume: 暂停和重新
     private func doJiRouCmdPause(_ i: Int, _ pauseAndresume: Bool) {
-        if FFBaseModel.sharedInstall.bleConnectStatus == 3 &&
+        if FFBaseModel.sharedInstall.bleConnectStatus == 2 &&
             FFBaseModel.sharedInstall.commandReady &&
             FFBaseModel.sharedInstall.mCountDownTimeState != 0 {
             // 肌肉增长
@@ -1257,7 +1265,7 @@ extension FFExerciseModelService {
     ///
     /// - Parameter i: index
     private func doFatBurnCmd(_ i: Int) {
-        if FFBaseModel.sharedInstall.bleConnectStatus == 3 &&
+        if FFBaseModel.sharedInstall.bleConnectStatus == 2 &&
             FFBaseModel.sharedInstall.commandReady &&
             FFBaseModel.sharedInstall.mCountDownTimeState != 0 {
             // 全身燃烧脂肪
@@ -1357,7 +1365,7 @@ extension FFExerciseModelService {
     ///   - i: index
     ///   - pauseAndresume: 中止和重新
     private func doFatBurnCmdPause(_ i: Int, _ pauseAndresume: Bool) {
-        if FFBaseModel.sharedInstall.bleConnectStatus == 3 &&
+        if FFBaseModel.sharedInstall.bleConnectStatus == 2 &&
             FFBaseModel.sharedInstall.commandReady &&
             FFBaseModel.sharedInstall.mCountDownTimeState != 0 {
             // 全身燃烧脂肪
@@ -1436,7 +1444,7 @@ extension FFExerciseModelService {
     ///
     /// - Parameter i: index
     private func doRelaxCmd(_ i : Int) {
-        if FFBaseModel.sharedInstall.bleConnectStatus == 3 &&
+        if FFBaseModel.sharedInstall.bleConnectStatus == 2 &&
             FFBaseModel.sharedInstall.commandReady &&
             FFBaseModel.sharedInstall.mCountDownTimeState != 0 {
             // 放松身体
@@ -1518,7 +1526,7 @@ extension FFExerciseModelService {
     ///   - i: index
     ///   - pauseAndresume: 中止和重新
     private func doRelaxCmdPause(_ i: Int, _ pauseAndresume: Bool) {
-        if FFBaseModel.sharedInstall.bleConnectStatus == 3 &&
+        if FFBaseModel.sharedInstall.bleConnectStatus == 2 &&
             FFBaseModel.sharedInstall.commandReady &&
             FFBaseModel.sharedInstall.mCountDownTimeState != 0 {
             // 放松身体
@@ -1586,7 +1594,7 @@ extension FFExerciseModelService {
     /// - Returns: 信息
     private func sportName() -> String {
         if FFBaseModel.sharedInstall.mJsType >= 80 && (FFBaseModel.sharedInstall.mJsType - 80) < itemNames.count {
-            var name = "项目：\(itemNames[FFBaseModel.sharedInstall.mJsType])"
+            var name = "项目：\(itemNames[FFBaseModel.sharedInstall.mJsType - 80])"
             var minute = 0
             var second = 0
             minute = mFinishTime / 60
@@ -1595,5 +1603,13 @@ extension FFExerciseModelService {
             return name
         }
         return ""
+    }
+}
+
+class V: NSObject {
+    var value: Int = 0
+    
+    init(_ value: Int) {
+        self.value = value
     }
 }

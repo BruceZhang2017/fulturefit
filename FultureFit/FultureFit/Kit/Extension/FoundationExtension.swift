@@ -17,3 +17,9 @@ extension String {
         return NSLocalizedString(self, comment: "none")
     }
 }
+
+extension Data {
+    func hexEncodedString() -> String {
+        return map { String(format: "%02hhx ", $0) }.joined()
+    }
+}

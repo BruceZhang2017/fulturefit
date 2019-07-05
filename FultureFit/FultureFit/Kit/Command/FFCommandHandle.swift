@@ -14,22 +14,7 @@ import UIKit
 
 /// 封装指令
 class FFCommandHandle: NSObject {
-    
-//    /// 增加Power
-//    func powerAdd() {
-//        writeData(mAllPowerAddOne)
-//    }
-//    
-//    /// 减少Power
-//    func powerSub() {
-//        writeData(mAllPowerDecOne)
-//    }
-//    
-//    /// 开始运动
-//    func startSport() {
-//        writeData(mInit)
-//    }
-    
+
     /// 向设备端写数据
     ///
     /// - Parameter value: 数据

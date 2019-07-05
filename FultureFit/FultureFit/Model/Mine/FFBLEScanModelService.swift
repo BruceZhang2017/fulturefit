@@ -20,6 +20,7 @@ class FFBLEScanModelService: NSObject {
     var scanedBLEHideAlert: (() -> ())?
     var timer: Timer?
     let blePowerStatusKeyPath = "blePowerStatus"
+    let bleConnectStatusKeyPath = "bleConnectStatus"
  
     override init() {
         super.init()
@@ -59,9 +60,7 @@ class FFBLEScanModelService: NSObject {
     @objc private func handleTimer() {
         print("定时器被激活")
         endTimer()
-        if FFBaseModel.sharedInstall.blePowerStatus == .poweredOn {
-            FFBLEManager.sharedInstall.stopScan()
-        }
+        stopScan()
         scanedBLEFinished?()
     }
     
@@ -98,18 +97,26 @@ class FFBLEScanModelService: NSObject {
         FFBLEManager.sharedInstall.connect(index: index)
     }
     
+    public func stopScan() {
+        if FFBaseModel.sharedInstall.blePowerStatus == .poweredOn {
+            FFBLEManager.sharedInstall.stopScan()
+        }
+    }
+    
     // MARK: - Private
     
     /// 监听扫描到的设备数组
     private func startKVO() {
         FFBLEManager.sharedInstall.discoveredManager.addObserve(key: NSStringFromClass(self.classForCoder), pro: self)
         FFBaseModel.sharedInstall.addObserver(self, forKeyPath: blePowerStatusKeyPath, options: .new, context: nil)
+        FFBaseModel.sharedInstall.addObserver(self, forKeyPath: bleConnectStatusKeyPath, options: .new, context: nil)
     }
     
     /// 取消监听扫描到的设备数组
     private func endKVO() {
         FFBLEManager.sharedInstall.discoveredManager.removeObserve(key: NSStringFromClass(self.classForCoder))
         FFBaseModel.sharedInstall.removeObserver(self, forKeyPath: blePowerStatusKeyPath)
+        FFBaseModel.sharedInstall.removeObserver(self, forKeyPath: bleConnectStatusKeyPath)
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -127,6 +134,10 @@ class FFBLEScanModelService: NSObject {
                 }
             }
             
+        } else if keyPath == bleConnectStatusKeyPath {
+            if FFBaseModel.sharedInstall.bleConnectStatus == 2 {
+                endTimer()
+            }
         } else {
             super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
         }

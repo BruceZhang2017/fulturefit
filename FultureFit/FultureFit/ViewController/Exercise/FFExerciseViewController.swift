@@ -33,6 +33,7 @@ class FFExerciseViewController: BaseViewController {
     @IBOutlet weak var progressViewHeightLConstraint: NSLayoutConstraint! // 进度高度约束
     
     private var service: FFExerciseModelService!
+    //private var titleLabel: UILabel!
     var mFlagShowPowerSeekBar = true
     
     override func viewDidLoad() {
@@ -47,7 +48,7 @@ class FFExerciseViewController: BaseViewController {
         super.viewWillAppear(animated)
         if FFBaseModel.sharedInstall.mJsType >= 80 { // 刷新标题
             if FFBaseModel.sharedInstall.mJsType - 80 < itemNames.count {
-                title = itemNames[FFBaseModel.sharedInstall.mJsType - 80]
+                navigationItem.title = itemNames[FFBaseModel.sharedInstall.mJsType - 80]
             }
         }
     }
@@ -83,6 +84,11 @@ class FFExerciseViewController: BaseViewController {
         fitSettingsButton.layer.borderColor = "a0dc2f".ColorHex()!.cgColor
         let longTap = UILongPressGestureRecognizer(target: self, action: #selector(handleLongTap(_:)))
         playOrPauseButton.addGestureRecognizer(longTap)
+//        titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: screenWidth - 80, height: 44))
+//        titleLabel.textAlignment = .center
+//        titleLabel.textColor = UIColor.white
+//        titleLabel.font = UIFont.systemFont(ofSize: 20)
+//        navigationItem.titleView = titleLabel
     }
     
     // MARK: - Action
@@ -159,6 +165,13 @@ extension FFExerciseViewController: FFExerciseModelServiceDelegate {
                 self?.yellowLabel.isHidden = false
                 self?.yellowImageView.image = UIImage(named: imageName!)
                 self?.yellowLabel.text = time
+                if imageName?.contains("黄") == true {
+                    self?.yellowLabel.textColor = UIColor.yellow
+                } else if imageName?.contains("红") == true {
+                    self?.yellowLabel.textColor = UIColor.red
+                } else if imageName?.contains("绿") == true {
+                    self?.yellowLabel.textColor = UIColor.green
+                }
             }
         }
     }
