@@ -16,6 +16,17 @@ extension String {
     func localizable() -> String {
         return NSLocalizedString(self, comment: "none")
     }
+    
+    func invalidatePhone() -> Bool {
+        if count != 11 {
+            return false
+        }
+        let pattern = "^1[0-9]{10}$"
+        if NSPredicate(format: "SELF MATCHES %@", pattern).evaluate(with: self) {
+            return true
+        }
+        return false
+    }
 }
 
 extension Data {

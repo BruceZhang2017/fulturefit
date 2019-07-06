@@ -25,6 +25,7 @@ class FFTabBarController: UITabBarController {
     
     deinit {
         unregresiterNotification()
+        print("deinit FFTabBarController")
     }
     
     func regresiterNotification() {

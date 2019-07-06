@@ -48,7 +48,12 @@ class FFMineViewController: BaseViewController {
         }
         let alert = UIAlertController(title: nil, message: "mine_exit_alert_message".localizable(), preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK".localizable(), style: .default, handler: { (action) in
-            exit(0)
+            let storyboard = UIStoryboard(name: "User", bundle: nil)
+            let loginVC = storyboard.instantiateViewController(withIdentifier: "FFUserNavigationController") as? FFUserNavigationController
+            (UIApplication.shared.delegate as? AppDelegate)?.window?.rootViewController = loginVC
+            //self.navigationController?.tabBarController = nil
+            UserDefaults.standard.removeObject(forKey: "phone")
+            UserDefaults.standard.removeObject(forKey: "time")
         }))
         alert.addAction(UIAlertAction(title: "CANCEL".localizable(), style: .default, handler: { (action) in
             

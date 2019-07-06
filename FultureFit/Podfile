@@ -6,5 +6,8 @@ pod 'Toast-Swift'
 pod 'Alamofire'
 pod 'SnapKit'
 pod 'Then'
+pod 'IQKeyboardManagerSwift'
+pod 'PKHUD'
+pod 'iPhonesModel'
 
 end

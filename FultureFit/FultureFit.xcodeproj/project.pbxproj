@@ -3,10 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A1EBEF422CF290600D9801A /* FFNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1EBEF322CF290600D9801A /* FFNetworkManager.swift */; };
+		9A1EBEF622CFABEE00D9801A /* FFBaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1EBEF522CFABEE00D9801A /* FFBaseResponse.swift */; };
+		9A1EBEF822CFAE2F00D9801A /* FFCodeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1EBEF722CFAE2F00D9801A /* FFCodeResponse.swift */; };
+		9A1EBEFA22D0464200D9801A /* FFUserNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1EBEF922D0464200D9801A /* FFUserNavigationController.swift */; };
+		9A1EBEFC22D0510800D9801A /* FFForgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1EBEFB22D0510800D9801A /* FFForgetViewController.swift */; };
 		9A2971F322C310D80096BA9B /* FFExerciseModelService2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2971F222C310D80096BA9B /* FFExerciseModelService2.swift */; };
 		9A2971F522C310E60096BA9B /* FFExercisemodelServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2971F422C310E60096BA9B /* FFExercisemodelServiceDelegate.swift */; };
 		9A3FEFB022B3C81B008D9D0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FEFAF22B3C81B008D9D0F /* AppDelegate.swift */; };
@@ -70,6 +75,11 @@
 /* Begin PBXFileReference section */
 		37D34FC31F458EB6EA3833EA /* Pods-FultureFit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FultureFit.debug.xcconfig"; path = "Target Support Files/Pods-FultureFit/Pods-FultureFit.debug.xcconfig"; sourceTree = "<group>"; };
 		7CF0EA8BD717F1515884FF17 /* libPods-FultureFit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FultureFit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A1EBEF322CF290600D9801A /* FFNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFNetworkManager.swift; sourceTree = "<group>"; };
+		9A1EBEF522CFABEE00D9801A /* FFBaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFBaseResponse.swift; sourceTree = "<group>"; };
+		9A1EBEF722CFAE2F00D9801A /* FFCodeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFCodeResponse.swift; sourceTree = "<group>"; };
+		9A1EBEF922D0464200D9801A /* FFUserNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFUserNavigationController.swift; sourceTree = "<group>"; };
+		9A1EBEFB22D0510800D9801A /* FFForgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFForgetViewController.swift; sourceTree = "<group>"; };
 		9A2971F222C310D80096BA9B /* FFExerciseModelService2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFExerciseModelService2.swift; sourceTree = "<group>"; };
 		9A2971F422C310E60096BA9B /* FFExercisemodelServiceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFExercisemodelServiceDelegate.swift; sourceTree = "<group>"; };
 		9A3FEFAC22B3C81B008D9D0F /* FultureFit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FultureFit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,6 +162,16 @@
 				ADFD948BE9AD1CEE6D49D280 /* Pods-FultureFit.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		9A1EBEF222CF287F00D9801A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				9A1EBEF322CF290600D9801A /* FFNetworkManager.swift */,
+				9A1EBEF522CFABEE00D9801A /* FFBaseResponse.swift */,
+				9A1EBEF722CFAE2F00D9801A /* FFCodeResponse.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		9A3FEFA322B3C81B008D9D0F = {
@@ -240,6 +260,8 @@
 			children = (
 				9A3FEFB122B3C81B008D9D0F /* LoginViewController.swift */,
 				9A3FEFE322B3DA10008D9D0F /* RegisterViewController.swift */,
+				9A1EBEFB22D0510800D9801A /* FFForgetViewController.swift */,
+				9A1EBEF922D0464200D9801A /* FFUserNavigationController.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -264,6 +286,7 @@
 		9A3FEFED22B3E817008D9D0F /* Kit */ = {
 			isa = PBXGroup;
 			children = (
+				9A1EBEF222CF287F00D9801A /* Network */,
 				9AEB80B422BDFBD80090FAC3 /* Constant */,
 				9A3FF02B22B7C5CA008D9D0F /* Command */,
 				9A3FF01922B4E56F008D9D0F /* Extension */,
@@ -403,6 +426,7 @@
 				9A3FEFA822B3C81B008D9D0F /* Sources */,
 				9A3FEFA922B3C81B008D9D0F /* Frameworks */,
 				9A3FEFAA22B3C81B008D9D0F /* Resources */,
+				FB34199BB37AB127992319B2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -553,6 +577,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		FB34199BB37AB127992319B2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FultureFit/Pods-FultureFit-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FultureFit/Pods-FultureFit-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FultureFit/Pods-FultureFit-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -562,7 +603,10 @@
 			files = (
 				9A3FF01F22B5CBF8008D9D0F /* FFBLEDiscoveredManager.swift in Sources */,
 				9A3FF00322B47D70008D9D0F /* FFMineModelService.swift in Sources */,
+				9A1EBEF422CF290600D9801A /* FFNetworkManager.swift in Sources */,
+				9A1EBEF622CFABEE00D9801A /* FFBaseResponse.swift in Sources */,
 				9A3FEFF122B3E911008D9D0F /* FoundationExtension.swift in Sources */,
+				9A1EBEFC22D0510800D9801A /* FFForgetViewController.swift in Sources */,
 				9A3FF00122B47D41008D9D0F /* FFMineModel.swift in Sources */,
 				9A2971F322C310D80096BA9B /* FFExerciseModelService2.swift in Sources */,
 				9A2971F522C310E60096BA9B /* FFExercisemodelServiceDelegate.swift in Sources */,
@@ -572,7 +616,9 @@
 				9A3FF01D22B5C355008D9D0F /* FFBLEConfig.swift in Sources */,
 				9A3FF01B22B4E585008D9D0F /* FFBLEManager.swift in Sources */,
 				9A3FEFEC22B3E42F008D9D0F /* FFTabBarController.swift in Sources */,
+				9A1EBEFA22D0464200D9801A /* FFUserNavigationController.swift in Sources */,
 				9A3FEFB222B3C81B008D9D0F /* LoginViewController.swift in Sources */,
+				9A1EBEF822CFAE2F00D9801A /* FFCodeResponse.swift in Sources */,
 				9A3FEFF422B3FC1A008D9D0F /* FFExerciseViewController.swift in Sources */,
 				9A3FF01522B4DFF4008D9D0F /* FFItemsModelService.swift in Sources */,
 				9A3FF02D22B7C5F3008D9D0F /* FFCommandHandle.swift in Sources */,

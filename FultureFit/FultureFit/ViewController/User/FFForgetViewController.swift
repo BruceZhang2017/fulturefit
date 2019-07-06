@@ -1,21 +1,21 @@
 //
 // Copyright © 2015-2018 Anker Innovations Technology Limited All Rights Reserved.
 // The program and materials is not free. Without our permission, any use, including but not limited to reproduction, retransmission, communication, display, mirror, download, modification, is expressly prohibited. Otherwise, it will be pursued for legal liability.
-// 
+//
 //  RegisterViewController.swift
 //  FultureFit
 //
 //  Created by ANKER on 2019/6/14.
 //  Copyright © 2019 PDP-ACC. All rights reserved.
 //
-	
+
 
 import UIKit
 import Toast_Swift
 import PKHUD
 
-class RegisterViewController: BaseViewController {
-
+class FFForgetViewController: BaseViewController {
+    
     @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var codeTextField: UITextField!
     @IBOutlet weak var pwdTextField: UITextField!
@@ -86,7 +86,7 @@ class RegisterViewController: BaseViewController {
         }
         PKHUD.sharedHUD.show()
         let network = FFNetworkManager()
-        network.register(phone: phone, pwd: pwd, vcode: vcode) { [weak self] (response, error) in
+        network.resetPwd(phone: phone, pwd: pwd, vcode: vcode) { [weak self] (response, error) in
             PKHUD.sharedHUD.hide()
             if error != nil {
                 self?.view.makeToast("无网络，请检查网络")

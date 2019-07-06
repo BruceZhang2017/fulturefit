@@ -12,6 +12,7 @@
 
 import UIKit
 import CoreData
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,6 +26,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBarItem.appearance().setTitleTextAttributes([.foregroundColor: "a0dc2f".ColorHex()!], for: .selected)
         //UIBarButtonItem.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
         UINavigationBar.appearance().tintColor = UIColor.white
+        IQKeyboardManager.shared.enable = true
+        if let _ = UserDefaults.standard.string(forKey: "phone") {
+            if let timeInternal = UserDefaults.standard.object(forKey: "time") as? TimeInterval {
+                let now = Date().timeIntervalSince1970
+                let distance: TimeInterval = 7 * 24 * 60 * 60
+                if now - timeInternal < distance {
+                    let storybaord = UIStoryboard(name: "Tab", bundle: nil)
+                    let tabController = storybaord.instantiateViewController(withIdentifier: "FFTabBarController") as? FFTabBarController
+                    window?.rootViewController = tabController
+                    let network = FFNetworkManager()
+                    network.loginRecord()
+                } else {
+                    UserDefaults.standard.removeObject(forKey: "phone")
+                    UserDefaults.standard.removeObject(forKey: "time")
+                }
+            }
+        }
         return true
     }
 
