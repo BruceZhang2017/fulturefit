@@ -20,6 +20,7 @@ class FFMineViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.tableFooterView = UIView()
     }
 
     // MARK: - Private
@@ -31,8 +32,6 @@ class FFMineViewController: BaseViewController {
         switch item {
         case .bleConnection:
             performSegue(withIdentifier: "toBLEScan", sender: self)
-        case .registerSave:
-            print("save")
         case .versionInfo:
             showVersionInfo()
         case .exit:

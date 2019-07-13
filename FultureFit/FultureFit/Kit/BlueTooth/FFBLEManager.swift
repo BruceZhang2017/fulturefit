@@ -29,7 +29,16 @@ class FFBLEManager: NSObject {
     /// 开始扫描
     func scan() {
         discoveredManager.removePeriphrals()
+        addConnectedDevice() // 如果已经连接了设备，则先将已连接的设备加入队列中
         centralManager.scanForPeripherals(withServices: nil, options: [CBCentralManagerScanOptionAllowDuplicatesKey : false])
+    }
+    
+    private func addConnectedDevice() {
+        guard let peripheral = FFBLEManager.sharedInstall.activePeripheral else {
+            return
+        }
+        let uuid = peripheral.identifier.uuidString
+        FFBLEManager.sharedInstall.discoveredManager.addPeriphral(uuid: uuid, peripheral: peripheral, services: peripheral.services?.count ?? 0)
     }
     
     /// 停止扫描
@@ -116,7 +125,8 @@ extension FFBLEManager: CBCentralManagerDelegate {
         if discoveredManager.isHavenPeriphral(uuid: peripheral.identifier.uuidString) {
             return
         }
-        discoveredManager.addPeriphral(uuid: peripheral.identifier.uuidString, peripheral: peripheral)
+        let services = advertisementData["kCBAdvDataServiceUUIDs"] as? [Any]
+        discoveredManager.addPeriphral(uuid: peripheral.identifier.uuidString, peripheral: peripheral, services: services?.count ?? 0)
     }
     
     /// 连接成功

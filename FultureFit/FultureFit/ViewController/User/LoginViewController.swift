@@ -41,7 +41,8 @@ class LoginViewController: BaseViewController {
     
     // 登录账户
     @IBAction func loginUser(_ sender: Any) {
-        
+        phoneTextField.resignFirstResponder()
+        pwdTextField.resignFirstResponder()
         guard let phone = phoneTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else {
             view.makeToast("请输入手机号码")
             return
@@ -71,14 +72,6 @@ class LoginViewController: BaseViewController {
             } else {
                 self?.view.makeToast(response?.message ?? "服务器异常，请稍后重试")
             }
-        }
-    }
-    
-    private func pushToMain() {
-        let storyboard = UIStoryboard(name: "Tab", bundle: nil)
-        if let viewController = storyboard.instantiateViewController(withIdentifier: "FFTabBarController") as? FFTabBarController {
-            viewController.modalTransitionStyle = .crossDissolve
-            self.present(viewController, animated: true, completion: nil)
         }
     }
 }

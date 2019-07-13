@@ -689,22 +689,22 @@ extension FFExerciseModelService {
     }
     
     @objc func handleMessage2(what: V) {
-        let what: Int = what.value
-        if (what == MSG_SET_CTRL2_EXTTEND) {
+        let whatValue: Int = what.value
+        if (whatValue == MSG_SET_CTRL2_EXTTEND) {
             if FFBaseModel.sharedInstall.bleConnectStatus == 2 &&
                 FFBaseModel.sharedInstall.commandReady {
                 handle.writeData(mCtrlArray2)
             }
-        } else if (what == MSG_DEINIT_EXTEND) {
+        } else if (whatValue == MSG_DEINIT_EXTEND) {
             if FFBaseModel.sharedInstall.bleConnectStatus == 2 &&
                 FFBaseModel.sharedInstall.commandReady {
                 handle.writeData(mDeInitExtend)
             }
-        } else if (what == MSG_SET_PROGRESS_UP) {
+        } else if (whatValue == MSG_SET_PROGRESS_UP) {
             
-        } else if (what == MSG_SET_PROGRESS_DOWN) {
+        } else if (whatValue == MSG_SET_PROGRESS_DOWN) {
             
-        } else if (what == MSG_SET_SEEKBAR) {
+        } else if (whatValue == MSG_SET_SEEKBAR) {
             mFlagShowPowerSeekBar = false
         }
     }

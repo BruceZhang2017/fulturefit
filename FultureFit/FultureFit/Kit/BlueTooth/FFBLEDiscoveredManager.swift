@@ -36,11 +36,11 @@ class FFBLEDiscoveredManager: NSObject {
     /// - Parameters:
     ///   - uuid: 附件唯一表示
     ///   - peripheral: 附件
-    func addPeriphral(uuid: String, peripheral: CBPeripheral) {
+    func addPeriphral(uuid: String, peripheral: CBPeripheral, services: Int) {
         let per = Beripheral(uuid: peripheral.identifier.uuidString,
                              beripheral: peripheral,
                              name: peripheral.name ?? "未知设备",
-                             mac: "00:00:00:00:00:00")
+                             mac: "\(services > 0 ? "\(services)" : "No") services")
         peripherals.append(per)
         notifyAllObservser()
     }

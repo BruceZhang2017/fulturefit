@@ -202,7 +202,7 @@
                                     <action selector="playOrPause:" destination="Pym-3Y-r5K" eventType="touchUpInside" id="uy1-I7-qJu"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yey-yP-SzB">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yey-yP-SzB">
                                 <rect key="frame" x="127" y="427.5" width="160" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="160" id="3VZ-rS-SOR"/>
@@ -217,7 +217,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="fitSettings:" destination="Pym-3Y-r5K" eventType="touchUpInside" id="7E6-49-gGM"/>
                                     <segue destination="K6a-Bd-CFr" kind="show" id="bFq-yF-nwK"/>
                                 </connections>
                             </button>
@@ -240,7 +239,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eoe-Vc-2yM">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eoe-Vc-2yM">
                                 <rect key="frame" x="372" y="630" width="35" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="G65-fM-h2v"/>
@@ -253,7 +252,20 @@
                                     <action selector="addPower:" destination="Pym-3Y-r5K" eventType="touchUpInside" id="dPh-6g-Ksa"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YUY-Mv-cNm">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="032-RP-BtR">
+                                <rect key="frame" x="284" y="630" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="5gi-cd-MxF"/>
+                                    <constraint firstAttribute="height" constant="35" id="uAj-ho-APg"/>
+                                </constraints>
+                                <state key="normal" image="+"/>
+                                <state key="selected" image="+点击"/>
+                                <state key="highlighted" image="+点击"/>
+                                <connections>
+                                    <action selector="addShow:" destination="Pym-3Y-r5K" eventType="touchUpInside" id="skl-XL-EDb"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YUY-Mv-cNm">
                                 <rect key="frame" x="7" y="630" width="35" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="35" id="C78-wF-Vzc"/>
@@ -263,6 +275,18 @@
                                 <state key="highlighted" image="-点击"/>
                                 <connections>
                                     <action selector="reducePower:" destination="Pym-3Y-r5K" eventType="touchUpInside" id="5Qx-jl-rAd"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b5I-0U-DDx">
+                                <rect key="frame" x="95" y="630" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="qWH-Ri-NcN"/>
+                                    <constraint firstAttribute="height" constant="35" id="xwf-tj-IoA"/>
+                                </constraints>
+                                <state key="normal" image="-"/>
+                                <state key="highlighted" image="-点击"/>
+                                <connections>
+                                    <action selector="reduceShow:" destination="Pym-3Y-r5K" eventType="touchUpInside" id="592-KD-BMC"/>
                                 </connections>
                             </button>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="11黄" translatesAutoresizingMaskIntoConstraints="NO" id="UiN-G6-2LT">
@@ -292,16 +316,20 @@
                             <constraint firstItem="L6G-Pu-fM2" firstAttribute="leading" secondItem="ZIB-YK-gcN" secondAttribute="trailing" constant="5" id="0uI-P3-9XR"/>
                             <constraint firstItem="Yey-yP-SzB" firstAttribute="centerX" secondItem="712-a0-VWh" secondAttribute="centerX" id="6x9-5q-4rv"/>
                             <constraint firstItem="wGK-XM-kCR" firstAttribute="leading" secondItem="Jaw-UX-UD2" secondAttribute="leading" id="7kI-VL-I0X"/>
+                            <constraint firstItem="UiN-G6-2LT" firstAttribute="leading" secondItem="b5I-0U-DDx" secondAttribute="trailing" constant="10" id="ANc-yc-0uE"/>
                             <constraint firstItem="ZET-7i-sQJ" firstAttribute="centerX" secondItem="5NG-iG-2Un" secondAttribute="centerX" id="Chc-QN-5vX"/>
                             <constraint firstItem="UiN-G6-2LT" firstAttribute="centerY" secondItem="Jaw-UX-UD2" secondAttribute="centerY" id="Cnh-Ez-U31"/>
+                            <constraint firstItem="032-RP-BtR" firstAttribute="centerY" secondItem="UiN-G6-2LT" secondAttribute="centerY" id="GOo-Ju-ChG"/>
                             <constraint firstItem="dei-TX-iNb" firstAttribute="trailing" secondItem="Jaw-UX-UD2" secondAttribute="trailing" constant="50" id="KPL-u9-t5N"/>
                             <constraint firstItem="712-a0-VWh" firstAttribute="centerX" secondItem="5NG-iG-2Un" secondAttribute="centerX" id="LUE-NS-bIk"/>
                             <constraint firstItem="6Qf-J2-aof" firstAttribute="centerY" secondItem="bft-dN-NtH" secondAttribute="centerY" id="Men-wx-iUL"/>
                             <constraint firstItem="ZIB-YK-gcN" firstAttribute="centerX" secondItem="5NG-iG-2Un" secondAttribute="centerX" constant="-30" id="SuN-Fj-yNN"/>
+                            <constraint firstItem="b5I-0U-DDx" firstAttribute="centerY" secondItem="UiN-G6-2LT" secondAttribute="centerY" id="Ui2-n0-LNx"/>
                             <constraint firstAttribute="bottom" secondItem="5NG-iG-2Un" secondAttribute="bottom" id="VLt-hO-dSo"/>
                             <constraint firstItem="bft-dN-NtH" firstAttribute="centerX" secondItem="5NG-iG-2Un" secondAttribute="centerX" id="b7y-7G-o5O"/>
                             <constraint firstItem="eWh-KQ-uo0" firstAttribute="centerY" secondItem="UiN-G6-2LT" secondAttribute="centerY" id="bGh-wU-IDH"/>
                             <constraint firstItem="5NG-iG-2Un" firstAttribute="leading" secondItem="09g-gC-KAS" secondAttribute="leading" id="dHq-dn-Nle"/>
+                            <constraint firstItem="UiN-G6-2LT" firstAttribute="trailing" secondItem="032-RP-BtR" secondAttribute="leading" constant="-10" id="f9V-mh-eho"/>
                             <constraint firstItem="712-a0-VWh" firstAttribute="centerY" secondItem="5NG-iG-2Un" secondAttribute="centerY" id="fgq-mo-TIo"/>
                             <constraint firstItem="5NG-iG-2Un" firstAttribute="top" secondItem="09g-gC-KAS" secondAttribute="top" id="fpH-ir-0cF"/>
                             <constraint firstItem="L6G-Pu-fM2" firstAttribute="centerY" secondItem="ZIB-YK-gcN" secondAttribute="centerY" id="g6b-hG-rTY"/>
@@ -325,6 +353,7 @@
                     <navigationItem key="navigationItem" title="未选择健身项目" id="xod-MH-YXA"/>
                     <connections>
                         <outlet property="addPowerButton" destination="eoe-Vc-2yM" id="RyE-FL-af9"/>
+                        <outlet property="addShowButton" destination="032-RP-BtR" id="rvr-PP-7AM"/>
                         <outlet property="bleSatusImageView" destination="6Qf-J2-aof" id="LaG-Z0-N5o"/>
                         <outlet property="bleStatusLabel" destination="bft-dN-NtH" id="sWJ-AK-DmA"/>
                         <outlet property="countNumLabel" destination="L6G-Pu-fM2" id="bpc-Ra-co3"/>
@@ -336,6 +365,7 @@
                         <outlet property="progressViewHeightLConstraint" destination="FpY-OS-r94" id="yt0-Qj-xjf"/>
                         <outlet property="progressViewRightLConstraint" destination="wcH-aj-E4e" id="KEd-la-CkK"/>
                         <outlet property="reducePowerButton" destination="YUY-Mv-cNm" id="4uo-K7-e6K"/>
+                        <outlet property="reduceShowButton" destination="b5I-0U-DDx" id="p7b-wo-fAf"/>
                         <outlet property="timeLabel" destination="ZET-7i-sQJ" id="TQY-jb-IXs"/>
                         <outlet property="yellowImageView" destination="UiN-G6-2LT" id="UuT-1L-J8I"/>
                         <outlet property="yellowLabel" destination="eWh-KQ-uo0" id="eCk-sF-EWc"/>

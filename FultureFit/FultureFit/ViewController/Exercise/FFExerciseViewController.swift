@@ -26,14 +26,16 @@ class FFExerciseViewController: BaseViewController {
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var countNumLabel: UILabel!
     @IBOutlet weak var reducePowerButton: UIButton!
+    @IBOutlet weak var reduceShowButton: UIButton!
     @IBOutlet weak var addPowerButton: UIButton!
+    @IBOutlet weak var addShowButton: UIButton!
     @IBOutlet weak var yellowImageView: UIImageView!
     @IBOutlet weak var yellowLabel: UILabel!
     @IBOutlet weak var progressViewRightLConstraint: NSLayoutConstraint! // 进度右边约束
     @IBOutlet weak var progressViewHeightLConstraint: NSLayoutConstraint! // 进度高度约束
     
     private var service: FFExerciseModelService!
-    //private var titleLabel: UILabel!
+    private var titleLabel: UILabel! // 标题
     var mFlagShowPowerSeekBar = true
     
     override func viewDidLoad() {
@@ -48,7 +50,7 @@ class FFExerciseViewController: BaseViewController {
         super.viewWillAppear(animated)
         if FFBaseModel.sharedInstall.mJsType >= 80 { // 刷新标题
             if FFBaseModel.sharedInstall.mJsType - 80 < itemNames.count {
-                navigationItem.title = itemNames[FFBaseModel.sharedInstall.mJsType - 80]
+                titleLabel.text = itemNames[FFBaseModel.sharedInstall.mJsType - 80]
             }
         }
     }
@@ -75,8 +77,7 @@ class FFExerciseViewController: BaseViewController {
         fieldLayer.frame = rect
         fieldLayer.path = fieldPath.cgPath
         progressView.layer.mask = fieldLayer
-        progressViewRightLConstraint.constant = 50
-        progressView.isHidden = true
+        progressViewRightLConstraint.constant = screenWidth - 52
     }
     
     private func initializeUI() {
@@ -84,18 +85,45 @@ class FFExerciseViewController: BaseViewController {
         fitSettingsButton.layer.borderColor = "a0dc2f".ColorHex()!.cgColor
         let longTap = UILongPressGestureRecognizer(target: self, action: #selector(handleLongTap(_:)))
         playOrPauseButton.addGestureRecognizer(longTap)
-//        titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: screenWidth - 80, height: 44))
-//        titleLabel.textAlignment = .center
-//        titleLabel.textColor = UIColor.white
-//        titleLabel.font = UIFont.systemFont(ofSize: 20)
-//        navigationItem.titleView = titleLabel
+        titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: screenWidth - 80, height: 44))
+        titleLabel.textAlignment = .center
+        titleLabel.textColor = UIColor.white
+        titleLabel.text = "未选择健身项目"
+        titleLabel.font = UIFont.systemFont(ofSize: 20)
+        titleLabel.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(changeSportTile))
+        tap.numberOfTapsRequired = 1
+        titleLabel.addGestureRecognizer(tap)
+        navigationItem.titleView = titleLabel
+        bleStatusLabel.isUserInteractionEnabled = true
+        let tapScan = UITapGestureRecognizer(target: self, action: #selector(pushToScanDevice))
+        tapScan.numberOfTapsRequired = 1
+        bleStatusLabel.addGestureRecognizer(tapScan)
+    }
+    
+    private func handleTime(_ time: String) {
+        let array = time.split(separator: ":")
+        guard array.count == 2 else {
+            return
+        }
+        let minute = Int(array[0]) ?? 0
+        let second = Int(array[1]) ?? 0
+        if minute == 20 || (minute == 19 && second > 50) {
+            fitSettingsButton.isHidden = true
+            addShowButton.isHidden = true
+            reduceShowButton.isHidden = true
+        } else {
+            fitSettingsButton.isHidden = false
+            addShowButton.isHidden = false
+            reduceShowButton.isHidden = false
+        }
+        if minute == 20 { // 刷回原来状态
+            addPowerButton.isHidden = true
+            reducePowerButton.isHidden = true
+        }
     }
     
     // MARK: - Action
-    
-    @IBAction func fitSettings(_ sender: Any) {
-        
-    }
     
     /// 启动或者停止
     ///
@@ -112,12 +140,47 @@ class FFExerciseViewController: BaseViewController {
         service.reducePower()
     }
     
+    @IBAction func addShow(_ sender: Any) {
+        showProgress(true)
+    }
+    
+    @IBAction func reduceShow(_ sender: Any) {
+        showProgress(true)
+    }
+    
+    /// 长按
+    ///
+    /// - Parameter sender: 触发者
     @objc private func handleLongTap(_ sender: Any) {
         if let longTap = sender as? UILongPressGestureRecognizer {
             if longTap.state == UILongPressGestureRecognizer.State.ended {
                 service.onTimeStartLong()
             }
         }
+    }
+    
+    /// 跳转至选择健身项目
+    @objc private func changeSportTile() {
+        self.navigationController?.tabBarController?.selectedIndex = 1
+    }
+    
+    /// 跳转至蓝牙扫描界面
+    @objc private func pushToScanDevice() {
+        let storyboard = UIStoryboard(name: "BLE", bundle: nil)
+        if let viewController = storyboard.instantiateViewController(withIdentifier: "FFBLEScanViewController") as? FFBLEScanViewController {
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
+    }
+    
+    /// 判断是否显示进度条
+    ///
+    /// - Parameter value: 显示
+    private func showProgress(_ value: Bool) {
+        addShowButton.isHidden = value
+        reduceShowButton.isHidden = value
+        yellowLabel.isHidden = value
+        yellowImageView.isHidden = value
+        callbackForShowOrHidenProgress(value)
     }
 }
 
@@ -182,6 +245,9 @@ extension FFExerciseViewController: FFExerciseModelServiceDelegate {
             [weak self] in
             self?.bleSatusImageView.image = UIImage(named: value ? "蓝牙已连接" : "蓝牙未连接")
             self?.bleStatusLabel.text = value ? "蓝牙已连接" : "蓝牙已断开"
+            if value {
+                self?.navigationController?.tabBarController?.selectedIndex = 0
+            }
         }
     }
     
@@ -207,6 +273,9 @@ extension FFExerciseViewController: FFExerciseModelServiceDelegate {
         DispatchQueue.main.async {
             [weak self] in
             self?.timeLabel.text = value
+            if value.contains(":") { // 时间包含冒号
+                self?.handleTime(value)
+            }
         }
     }
     

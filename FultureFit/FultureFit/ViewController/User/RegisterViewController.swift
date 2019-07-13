@@ -93,7 +93,7 @@ class RegisterViewController: BaseViewController {
                 return
             }
             if response?.code == 200 {
-                self?.navigationController?.popViewController(animated: true)
+                self?.pushToMain()
             } else {
                 self?.view.makeToast(response?.message ?? "服务器异常，请稍后重试")
             }

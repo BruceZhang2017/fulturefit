@@ -17,7 +17,6 @@ class FFMineModelService: NSObject {
     func datasourceForMine() -> [FFMineModel] {
         var models : [FFMineModel] = []
         models.append(FFMineModel(icon: "蓝牙", title: "蓝牙连接"))
-        models.append(FFMineModel(icon: "存档", title: "注册存档"))
         models.append(FFMineModel(icon: "版本", title: "版本信息"))
         models.append(FFMineModel(icon: "设置", title: "退出"))
         return models

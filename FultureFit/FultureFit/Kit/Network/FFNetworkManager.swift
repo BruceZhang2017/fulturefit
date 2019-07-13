@@ -14,12 +14,12 @@ import UIKit
 import Alamofire
 import iPhonesModel
 
-class FFNetworkManager: NSObject {
+class FFNetworkManager: NSObject, iPhoneModelS {
     
     private let mac = "http://47.102.124.50/rest/"
     
     private func urlJoin(head: String) -> String {
-        let appId = "12345"
+        let appId = "123456"
         let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
         let channelCode = "official"
         let platform = "ios"
@@ -29,6 +29,21 @@ class FFNetworkManager: NSObject {
     
     func requestPost(url: String, param: [String : Any], callback: @escaping (Data?, Error?) -> ()) {
         Alamofire.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
+            print("返回的内容: \(response.result.value)")
+            if response.error != nil {
+                callback(nil, response.error)
+                return
+            }
+            guard let data = response.data else {
+                callback(nil, nil)
+                return
+            }
+            callback(data, nil)
+        }
+    }
+    
+    func requestGet(url: String, callback: @escaping (Data?, Error?) -> ()) {
+        Alamofire.request(url, method: .get).responseJSON { (response) in
             print("返回的内容: \(response.result.value)")
             if response.error != nil {
                 callback(nil, response.error)
@@ -59,6 +74,11 @@ class FFNetworkManager: NSObject {
         requestPost(url: url, param: ["phone": phone, "password": pwd, "vcode": vcode]) { (data, error) in
             if data != nil {
                 let model = try? JSONDecoder().decode(FFBaseResponse.self, from: data!)
+                if model?.code == 200 {
+                    UserDefaults.standard.set(phone, forKey: "phone")
+                    UserDefaults.standard.set(Date().timeIntervalSince1970, forKey: "time")
+                    UserDefaults.standard.synchronize()
+                }
                 callback(model, nil)
                 return
             }
@@ -71,6 +91,11 @@ class FFNetworkManager: NSObject {
         requestPost(url: url, param: ["phone": phone, "password": pwd, "vcode": vcode]) { (data, error) in
             if data != nil {
                 let model = try? JSONDecoder().decode(FFBaseResponse.self, from: data!)
+                if model?.code == 200 {
+                    UserDefaults.standard.set(phone, forKey: "phone")
+                    UserDefaults.standard.set(Date().timeIntervalSince1970, forKey: "time")
+                    UserDefaults.standard.synchronize()
+                }
                 callback(model, nil)
                 return
             }
@@ -95,13 +120,14 @@ class FFNetworkManager: NSObject {
         }
     }
     
+    /// 登录记录
     func loginRecord() {
         guard let phone = UserDefaults.standard.string(forKey: "phone") else {
             return
         }
         let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
         let url = urlJoin(head: mac + "u/report")
-        requestPost(url: url, param: ["phone": phone, "osVersion": version, "model": "X"]) { (data, error) in
+        requestPost(url: url, param: ["phone": phone, "osVersion": version, "model": iPhone().rawValue]) { (data, error) in
             if data != nil {
                 let model = try? JSONDecoder().decode(FFBaseResponse.self, from: data!)
                 if model?.code == 200 {
@@ -112,4 +138,15 @@ class FFNetworkManager: NSObject {
         }
     }
     
+    func updateInterface() {
+        let url = urlJoin(head: mac + "v")
+        requestGet(url: url) { (data, error) in
+            if data != nil {
+                let model = try? JSONDecoder().decode(FFBaseResponse.self, from: data!)
+                if model?.code == 200 {
+                    
+                }
+            }
+        }
+    }
 }

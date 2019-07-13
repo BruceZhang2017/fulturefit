@@ -101,6 +101,11 @@ extension FFBLEScanViewController: UITableViewDataSource, UITableViewDelegate {
         if let label = cell.viewWithTag(2) as? UILabel {
             label.text = service.getDiscoveredBLE(index: indexPath.row).mac
         }
+        if FFBLEManager.sharedInstall.activePeripheral != nil && indexPath.row == 0 {
+            cell.accessoryView = UIImageView(image: UIImage(named: "dagou"))
+        } else {
+            cell.accessoryView = nil
+        }
         return cell
     }
     
@@ -108,6 +113,9 @@ extension FFBLEScanViewController: UITableViewDataSource, UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         if FFBaseModel.sharedInstall.blePowerStatus != .poweredOn { // 如果蓝牙未开启
             showAlert()
+            return
+        }
+        if FFBLEManager.sharedInstall.activePeripheral != nil && indexPath.row == 0 {
             return
         }
         service.stopScan()

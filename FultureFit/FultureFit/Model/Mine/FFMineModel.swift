@@ -19,7 +19,6 @@ struct FFMineModel {
 
 enum MineItem: Int {
     case bleConnection
-    case registerSave
     case versionInfo
     case exit
 }

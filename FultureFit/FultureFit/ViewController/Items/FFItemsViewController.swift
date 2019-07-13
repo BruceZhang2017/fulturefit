@@ -47,8 +47,13 @@ extension FFItemsViewController: UITableViewDataSource, UITableViewDelegate {
             view.makeToast("您当前正在训练中，请先停止当前项目")
             return
         }
+        if FFBaseModel.sharedInstall.mJsType - 80 == indexPath.row {
+            navigationController?.tabBarController?.selectedIndex = 0
+            return
+        }
         let name = service.fitItem(index: indexPath.row).name
         view.makeToast("您选择了 \(name) 项目")
         FFBaseModel.sharedInstall.mJsType = 80 + indexPath.row
+        navigationController?.tabBarController?.selectedIndex = 0
     }
 }

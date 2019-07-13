@@ -44,6 +44,14 @@ extension UIViewController {
         }))
         present(alert, animated: true, completion: nil)
     }
+    
+    func pushToMain() {
+        let storyboard = UIStoryboard(name: "Tab", bundle: nil)
+        if let viewController = storyboard.instantiateViewController(withIdentifier: "FFTabBarController") as? FFTabBarController {
+            viewController.modalTransitionStyle = .crossDissolve
+            self.present(viewController, animated: true, completion: nil)
+        }
+    }
 }
 
 extension Date {
