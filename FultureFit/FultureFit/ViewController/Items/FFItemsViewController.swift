@@ -54,6 +54,8 @@ extension FFItemsViewController: UITableViewDataSource, UITableViewDelegate {
         let name = service.fitItem(index: indexPath.row).name
         navigationController?.tabBarController?.view?.makeToast("您选择了 \(name) 项目")
         FFBaseModel.sharedInstall.mJsType = 80 + indexPath.row
+        UserDefaults.standard.set(80 + indexPath.row, forKey: "JSType")
+        UserDefaults.standard.synchronize()
         navigationController?.tabBarController?.selectedIndex = 0
     }
 }

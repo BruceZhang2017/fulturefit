@@ -26,9 +26,7 @@ class FFExerciseViewController: BaseViewController {
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var countNumLabel: UILabel!
     @IBOutlet weak var reducePowerButton: UIButton!
-    @IBOutlet weak var reduceShowButton: UIButton!
     @IBOutlet weak var addPowerButton: UIButton!
-    @IBOutlet weak var addShowButton: UIButton!
     @IBOutlet weak var yellowImageView: UIImageView!
     @IBOutlet weak var yellowLabel: UILabel!
     @IBOutlet weak var progressViewRightLConstraint: NSLayoutConstraint! // 进度右边约束
@@ -88,7 +86,14 @@ class FFExerciseViewController: BaseViewController {
         titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: screenWidth - 80, height: 44))
         titleLabel.textAlignment = .center
         titleLabel.textColor = UIColor.white
-        titleLabel.text = "未选择健身项目"
+        let jsType = UserDefaults.standard.integer(forKey: "JSType")
+        if jsType >= 80 {
+            FFBaseModel.sharedInstall.mJsType = jsType
+            let service = FFItemsModelService()
+            titleLabel.text = service.fitItem(index: max(0, min(jsType - 80, service.fitItemsCount()))).name
+        } else {
+            titleLabel.text = "未选择健身项目"
+        }
         titleLabel.font = UIFont.systemFont(ofSize: 20)
         titleLabel.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(changeSportTile))
@@ -110,16 +115,12 @@ class FFExerciseViewController: BaseViewController {
         let second = Int(array[1]) ?? 0
         if minute == 20 || (minute == 19 && second > 50) {
             fitSettingsButton.isHidden = true
-            addShowButton.isHidden = true
-            reduceShowButton.isHidden = true
-        } else {
-            fitSettingsButton.isHidden = false
-            addShowButton.isHidden = false
-            reduceShowButton.isHidden = false
-        }
-        if minute == 20 { // 刷回原来状态
             addPowerButton.isHidden = true
             reducePowerButton.isHidden = true
+        } else {
+            fitSettingsButton.isHidden = false
+            addPowerButton.isHidden = false
+            reducePowerButton.isHidden = false
         }
     }
     
@@ -134,17 +135,11 @@ class FFExerciseViewController: BaseViewController {
     
     @IBAction func addPower(_ sender: Any) {
         service.addPower()
+        showProgress(true)
     }
     
     @IBAction func reducePower(_ sender: Any) {
         service.reducePower()
-    }
-    
-    @IBAction func addShow(_ sender: Any) {
-        showProgress(true)
-    }
-    
-    @IBAction func reduceShow(_ sender: Any) {
         showProgress(true)
     }
     
@@ -176,8 +171,6 @@ class FFExerciseViewController: BaseViewController {
     ///
     /// - Parameter value: 显示
     private func showProgress(_ value: Bool) {
-        addShowButton.isHidden = value
-        reduceShowButton.isHidden = value
         yellowLabel.isHidden = value
         yellowImageView.isHidden = value
         callbackForShowOrHidenProgress(value)
@@ -212,8 +205,6 @@ extension FFExerciseViewController: FFExerciseModelServiceDelegate {
             [weak self] in
             self?.progressView.isHidden = !value
             self?.progressBackgroundImageView.isHidden = !value
-            self?.addPowerButton.isHidden = !value
-            self?.reducePowerButton.isHidden = !value
         }
     }
     
