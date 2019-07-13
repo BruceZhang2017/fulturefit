@@ -46,10 +46,10 @@ class RegisterViewController: BaseViewController {
             view.makeToast("手机号码输入有误")
             return
         }
-        PKHUD.sharedHUD.show()
+        HUD.show(.progress)
         let network = FFNetworkManager()
         network.code(phone: phone) {[weak self] (response, error) in
-            PKHUD.sharedHUD.hide()
+            HUD.hide()
             if error != nil {
                 self?.view.makeToast("无网络，请检查网络")
                 return
@@ -84,10 +84,10 @@ class RegisterViewController: BaseViewController {
             view.makeToast("密码输入有误，长度只能6-16")
             return
         }
-        PKHUD.sharedHUD.show()
+        HUD.show(.progress)
         let network = FFNetworkManager()
         network.register(phone: phone, pwd: pwd, vcode: vcode) { [weak self] (response, error) in
-            PKHUD.sharedHUD.hide()
+            HUD.hide()
             if error != nil {
                 self?.view.makeToast("无网络，请检查网络")
                 return

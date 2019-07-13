@@ -1122,7 +1122,7 @@ class FFExerciseModelService: NSObject {
     var V_MSG_DEINIT_EXTEND : V!
     var V_MSG_INIT_EXTEND: V!
     var V_MSG_STOP : V!
-    
+    var V_MSG_SET_CTRL2_EXTTEND: V!
     
     init(delegate: FFExerciseModelServiceDelegate) {
         self.delegate = delegate
@@ -1148,6 +1148,7 @@ class FFExerciseModelService: NSObject {
         V_MSG_STOP = V(MSG_STOP)
         V_MSG_SET_CTRL2 = V(MSG_SET_CTRL2)
         V_MSG_INIT_EXTEND = V(MSG_INIT_EXTEND)
+        V_MSG_SET_CTRL2_EXTTEND = V(MSG_SET_CTRL2_EXTTEND)
     }
     
     deinit {
@@ -1202,8 +1203,8 @@ class FFExerciseModelService: NSObject {
                 FFBaseModel.sharedInstall.commandReady &&
                 FFBaseModel.sharedInstall.mCountDownTimeState != 0 {
                 handle.writeData(mCtrlArray1)
-                NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(handleMessage2(what:)), object: MSG_SET_CTRL2_EXTTEND)
-                perform(#selector(handleMessage2(what:)), with: MSG_SET_CTRL2_EXTTEND, afterDelay: 0.05)
+                NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(handleMessage2(what:)), object: V_MSG_SET_CTRL2_EXTTEND)
+                perform(#selector(handleMessage2(what:)), with: V_MSG_SET_CTRL2_EXTTEND, afterDelay: 0.05)
             }
         }
     }

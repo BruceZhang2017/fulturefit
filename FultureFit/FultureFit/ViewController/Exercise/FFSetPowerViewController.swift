@@ -53,7 +53,7 @@ class FFSetPowerViewController: BaseViewController {
     
     @objc private func handleLongTap(_ sender: Any) {
         if let longTap = sender as? UILongPressGestureRecognizer {
-            if longTap.state == UILongPressGestureRecognizer.State.ended {
+            if longTap.state == UILongPressGestureRecognizer.State.began {
                 if mIsAdjustMode {
                     mIsAdjustMode = false
                     if mCurAdjustIndex != 0 {
@@ -119,6 +119,36 @@ class FFSetPowerViewController: BaseViewController {
 
     @IBAction func tap(_ sender: Any) {
         guard let button = sender as? UIButton else {
+            return
+        }
+        if (mLeftCtrlValue & mCtrlBit1 == 0) && buttons[0] == button {
+            return
+        }
+        if (mLeftCtrlValue & mCtrlBit2 == 0) && buttons[1] == button {
+            return
+        }
+        if (mLeftCtrlValue & mCtrlBit3 == 0) && buttons[2] == button {
+            return
+        }
+        if (mLeftCtrlValue & mCtrlBit4 == 0) && buttons[3] == button {
+            return
+        }
+        if (mLeftCtrlValue & mCtrlBit5 == 0) && buttons[4] == button {
+            return
+        }
+        if buttons[0] == button && mCurAdjustIndex == 1 {
+            return
+        }
+        if buttons[1] == button && mCurAdjustIndex == 2 {
+            return
+        }
+        if buttons[2] == button && mCurAdjustIndex == 3 {
+            return
+        }
+        if buttons[3] == button && mCurAdjustIndex == 4 {
+            return
+        }
+        if buttons[4] == button && mCurAdjustIndex == 5 {
             return
         }
         if mCurAdjustIndex != 0 {

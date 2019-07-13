@@ -457,7 +457,7 @@ extension FFExerciseModelService {
                         let subLeftTime = subTotalTime - subSpendTime
                         let min = subLeftTime / 60000
                         let sec = (subLeftTime / 1000) % 60
-                        let subformatTime = String(format: "%.2f:%.2f", Float(min), Float(sec))
+                        let subformatTime = String(format: "%02.0f:%02.0f", Float(min), Float(sec))
                         // 子倒计时时间显示
                         delegate?.callbackForRefreshDurationLabel(subformatTime)
                         // 子倒计时当前步骤显示

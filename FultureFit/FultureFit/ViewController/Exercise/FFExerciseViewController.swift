@@ -153,7 +153,7 @@ class FFExerciseViewController: BaseViewController {
     /// - Parameter sender: 触发者
     @objc private func handleLongTap(_ sender: Any) {
         if let longTap = sender as? UILongPressGestureRecognizer {
-            if longTap.state == UILongPressGestureRecognizer.State.ended {
+            if longTap.state == UILongPressGestureRecognizer.State.began {
                 service.onTimeStartLong()
             }
         }
