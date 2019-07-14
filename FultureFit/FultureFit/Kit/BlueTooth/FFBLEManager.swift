@@ -52,9 +52,18 @@ class FFBLEManager: NSObject {
     ///
     /// - Parameter index: 数据列表中的index
     func connect(index: Int) {
+        if activePeripheral != nil && centralManager.state == .poweredOn {
+            centralManager.cancelPeripheralConnection(activePeripheral) // 断开已连接的设备
+            perform(#selector(connectDevice(index:)), with: V(index), afterDelay: 0.1)
+            return
+        }
+        connectDevice(index: index)
+    }
+    
+    private func connectDevice(index: V) {
         startConnectTimer()
         FFBaseModel.sharedInstall.bleConnectStatus = 1
-        let per = discoveredManager.peripheral(index: index)
+        let per = discoveredManager.peripheral(index: index.value)
         activePeripheral = per.beripheral
         centralManager.connect(per.beripheral, options: nil)
     }

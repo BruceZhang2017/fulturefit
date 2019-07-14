@@ -53,6 +53,15 @@ class FFExerciseViewController: BaseViewController {
         }
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        UIApplication.shared.isIdleTimerDisabled = false
+    }
+    
+    deinit {
+        //service?.kill()
+    }
+    
     // MARK: - PRIVATE
     
     /// 添加渐变色
@@ -130,6 +139,10 @@ class FFExerciseViewController: BaseViewController {
     ///
     /// - Parameter sender: 按钮
     @IBAction func playOrPause(_ sender: Any) {
+        if FFBLEManager.sharedInstall.activePeripheral == nil {
+            pushToScanDevice()
+            return
+        }
         service.onTimeStart()
     }
     

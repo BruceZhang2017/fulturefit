@@ -62,3 +62,5 @@ let mMaxPowerValue = 63
 // 注意：由于设备端限制，更改任何一组开关状态后都要发送2条指令，不要只发送其中1条指令
 var mCtrlArray1 = Data([0x74, 0x69, 0x1f, 0x75])
 var mCtrlArray2 = Data([0x74, 0x6a, 0x1f, 0x75])
+
+let mDeInit = Data([0x74, 0x66, 0x00, 0x75]) // 健身设备结束指令

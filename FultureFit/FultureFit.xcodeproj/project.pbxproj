@@ -12,6 +12,7 @@
 		9A1EBEF822CFAE2F00D9801A /* FFCodeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1EBEF722CFAE2F00D9801A /* FFCodeResponse.swift */; };
 		9A1EBEFA22D0464200D9801A /* FFUserNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1EBEF922D0464200D9801A /* FFUserNavigationController.swift */; };
 		9A1EBEFC22D0510800D9801A /* FFForgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1EBEFB22D0510800D9801A /* FFForgetViewController.swift */; };
+		9A1EBF3B22DB48CF00D9801A /* CMDQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1EBF3A22DB48CF00D9801A /* CMDQueue.swift */; };
 		9A2971F322C310D80096BA9B /* FFExerciseModelService2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2971F222C310D80096BA9B /* FFExerciseModelService2.swift */; };
 		9A2971F522C310E60096BA9B /* FFExercisemodelServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2971F422C310E60096BA9B /* FFExercisemodelServiceDelegate.swift */; };
 		9A3FEFB022B3C81B008D9D0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FEFAF22B3C81B008D9D0F /* AppDelegate.swift */; };
@@ -80,6 +81,7 @@
 		9A1EBEF722CFAE2F00D9801A /* FFCodeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFCodeResponse.swift; sourceTree = "<group>"; };
 		9A1EBEF922D0464200D9801A /* FFUserNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFUserNavigationController.swift; sourceTree = "<group>"; };
 		9A1EBEFB22D0510800D9801A /* FFForgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFForgetViewController.swift; sourceTree = "<group>"; };
+		9A1EBF3A22DB48CF00D9801A /* CMDQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CMDQueue.swift; sourceTree = "<group>"; };
 		9A2971F222C310D80096BA9B /* FFExerciseModelService2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFExerciseModelService2.swift; sourceTree = "<group>"; };
 		9A2971F422C310E60096BA9B /* FFExercisemodelServiceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFExercisemodelServiceDelegate.swift; sourceTree = "<group>"; };
 		9A3FEFAC22B3C81B008D9D0F /* FultureFit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FultureFit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -364,6 +366,7 @@
 		9A3FF01822B4E567008D9D0F /* BlueTooth */ = {
 			isa = PBXGroup;
 			children = (
+				9A1EBF3A22DB48CF00D9801A /* CMDQueue.swift */,
 				9A3FF01A22B4E585008D9D0F /* FFBLEManager.swift */,
 				9A3FF04522BA6D63008D9D0F /* FFPeripheralHandleData.swift */,
 				9A3FF01C22B5C355008D9D0F /* FFBLEConfig.swift */,
@@ -603,6 +606,7 @@
 			files = (
 				9A3FF01F22B5CBF8008D9D0F /* FFBLEDiscoveredManager.swift in Sources */,
 				9A3FF00322B47D70008D9D0F /* FFMineModelService.swift in Sources */,
+				9A1EBF3B22DB48CF00D9801A /* CMDQueue.swift in Sources */,
 				9A1EBEF422CF290600D9801A /* FFNetworkManager.swift in Sources */,
 				9A1EBEF622CFABEE00D9801A /* FFBaseResponse.swift in Sources */,
 				9A3FEFF122B3E911008D9D0F /* FoundationExtension.swift in Sources */,

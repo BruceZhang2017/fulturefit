@@ -11,15 +11,8 @@
 	
 
 import UIKit
-import AudioToolbox
 
 extension FFExerciseModelService {
-    
-    /// 实现震动功能
-    private func vibrator() {
-        let soundID = SystemSoundID(kSystemSoundID_Vibrate)
-        AudioServicesPlaySystemSound(soundID)
-    }
     
     /// 开始
     func onTimeStart() {
@@ -179,7 +172,7 @@ extension FFExerciseModelService {
             if (FFBaseModel.sharedInstall.mCountDownTimeState != 0) {
                 perform(#selector(handleMessage2(what:)), with: V_MSG_SET_SEEKBAR, afterDelay: 1)
             }
-            vibrator()
+            
             if FFBaseModel.sharedInstall.bleConnectStatus == 2 &&
                 FFBaseModel.sharedInstall.commandReady &&
                 FFBaseModel.sharedInstall.mCountDownTimeState != 0 {
@@ -211,8 +204,6 @@ extension FFExerciseModelService {
             if (FFBaseModel.sharedInstall.mCountDownTimeState != 0) {
                 perform(#selector(handleMessage2(what:)), with: V_MSG_SET_SEEKBAR, afterDelay: 1)
             }
-            
-            vibrator()
             
             if FFBaseModel.sharedInstall.bleConnectStatus == 2 &&
                 FFBaseModel.sharedInstall.commandReady &&
@@ -1603,6 +1594,12 @@ extension FFExerciseModelService {
             return name
         }
         return ""
+    }
+    
+    public func kill() {
+        if FFBaseModel.sharedInstall.bleConnectStatus == 2 && FFBaseModel.sharedInstall.commandReady {
+            handle.writeData(mDeInit)
+        }
     }
 }
 

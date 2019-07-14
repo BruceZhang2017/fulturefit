@@ -40,18 +40,18 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jwq-3N-5xg">
-                                <rect key="frame" x="195" y="309.5" width="24" height="24"/>
+                                <rect key="frame" x="192" y="309.5" width="30" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.59815140845070425" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="24" id="Blj-cH-8sz"/>
-                                    <constraint firstAttribute="height" constant="24" id="qrz-1H-GDu"/>
+                                    <constraint firstAttribute="width" constant="30" id="Blj-cH-8sz"/>
+                                    <constraint firstAttribute="height" constant="30" id="qrz-1H-GDu"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="12"/>
+                                        <integer key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
@@ -67,18 +67,18 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CIO-AZ-y40">
-                                <rect key="frame" x="195" y="349.5" width="24" height="24"/>
+                                <rect key="frame" x="192" y="349.5" width="30" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.59815140850000004" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="fNn-Cg-RhS"/>
-                                    <constraint firstAttribute="width" constant="24" id="zr9-zr-sev"/>
+                                    <constraint firstAttribute="height" constant="30" id="fNn-Cg-RhS"/>
+                                    <constraint firstAttribute="width" constant="30" id="zr9-zr-sev"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="12"/>
+                                        <integer key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
@@ -94,18 +94,18 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f5l-YC-YsM">
-                                <rect key="frame" x="195" y="449.5" width="24" height="24"/>
+                                <rect key="frame" x="192" y="449.5" width="30" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.59815140850000004" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="Qed-bD-2rk"/>
-                                    <constraint firstAttribute="width" constant="24" id="ur3-GE-r4U"/>
+                                    <constraint firstAttribute="height" constant="30" id="Qed-bD-2rk"/>
+                                    <constraint firstAttribute="width" constant="30" id="ur3-GE-r4U"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="12"/>
+                                        <integer key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
@@ -121,18 +121,18 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0QS-f3-jjc">
-                                <rect key="frame" x="195" y="494.5" width="24" height="24"/>
+                                <rect key="frame" x="192" y="494.5" width="30" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.59815140850000004" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="24" id="hz8-gx-Fud"/>
-                                    <constraint firstAttribute="height" constant="24" id="rC9-Jt-dQa"/>
+                                    <constraint firstAttribute="width" constant="30" id="hz8-gx-Fud"/>
+                                    <constraint firstAttribute="height" constant="30" id="rC9-Jt-dQa"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="12"/>
+                                        <integer key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
@@ -148,18 +148,18 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SJV-G8-UGR">
-                                <rect key="frame" x="195" y="574.5" width="24" height="24"/>
+                                <rect key="frame" x="192" y="574.5" width="30" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.59815140850000004" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="24" id="oAy-sB-yZz"/>
-                                    <constraint firstAttribute="height" constant="24" id="qLe-9B-sWc"/>
+                                    <constraint firstAttribute="width" constant="30" id="oAy-sB-yZz"/>
+                                    <constraint firstAttribute="height" constant="30" id="qLe-9B-sWc"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="12"/>
+                                        <integer key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
@@ -257,16 +257,16 @@
                         <outlet property="calculateView" destination="kr6-p3-63o" id="vO5-k5-Mlp"/>
                         <outlet property="reduceButton" destination="P2u-vf-V8Z" id="2Ky-m6-702"/>
                         <outlet property="valueLabel" destination="pmI-3f-fZA" id="YR3-bw-KJK"/>
-                        <outletCollection property="buttons" destination="nhc-rb-nMn" collectionClass="NSMutableArray" id="HgT-uI-101"/>
-                        <outletCollection property="buttons" destination="TsZ-ag-A3r" collectionClass="NSMutableArray" id="OlD-KB-wQg"/>
-                        <outletCollection property="buttons" destination="yOJ-yM-iIG" collectionClass="NSMutableArray" id="LQK-Cl-3im"/>
-                        <outletCollection property="buttons" destination="Fpy-jJ-bST" collectionClass="NSMutableArray" id="VZj-dm-Ava"/>
-                        <outletCollection property="buttons" destination="Yab-eh-zUa" collectionClass="NSMutableArray" id="9ka-QY-pgC"/>
-                        <outletCollection property="labels" destination="Jwq-3N-5xg" collectionClass="NSMutableArray" id="l33-Va-faE"/>
-                        <outletCollection property="labels" destination="CIO-AZ-y40" collectionClass="NSMutableArray" id="T3O-lc-mCR"/>
-                        <outletCollection property="labels" destination="f5l-YC-YsM" collectionClass="NSMutableArray" id="RZf-dU-7PC"/>
-                        <outletCollection property="labels" destination="0QS-f3-jjc" collectionClass="NSMutableArray" id="Ec5-K2-LIu"/>
-                        <outletCollection property="labels" destination="SJV-G8-UGR" collectionClass="NSMutableArray" id="7JO-SG-TJO"/>
+                        <outletCollection property="buttons" destination="TsZ-ag-A3r" collectionClass="NSMutableArray" id="j3Q-Ka-cIr"/>
+                        <outletCollection property="buttons" destination="nhc-rb-nMn" collectionClass="NSMutableArray" id="BkM-yi-TFH"/>
+                        <outletCollection property="buttons" destination="yOJ-yM-iIG" collectionClass="NSMutableArray" id="KGy-Fs-sJv"/>
+                        <outletCollection property="buttons" destination="Fpy-jJ-bST" collectionClass="NSMutableArray" id="wzy-KV-XWS"/>
+                        <outletCollection property="buttons" destination="Yab-eh-zUa" collectionClass="NSMutableArray" id="3IY-tB-TN5"/>
+                        <outletCollection property="labels" destination="CIO-AZ-y40" collectionClass="NSMutableArray" id="3ah-cq-hXL"/>
+                        <outletCollection property="labels" destination="Jwq-3N-5xg" collectionClass="NSMutableArray" id="nJW-dm-8bi"/>
+                        <outletCollection property="labels" destination="f5l-YC-YsM" collectionClass="NSMutableArray" id="IQt-8J-4F7"/>
+                        <outletCollection property="labels" destination="0QS-f3-jjc" collectionClass="NSMutableArray" id="NE6-LA-BD9"/>
+                        <outletCollection property="labels" destination="SJV-G8-UGR" collectionClass="NSMutableArray" id="04p-2p-Oou"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N9n-v7-J7x" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -303,18 +303,18 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ruv-aH-ENX">
-                                <rect key="frame" x="195" y="304.5" width="24" height="24"/>
+                                <rect key="frame" x="192" y="304.5" width="30" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.59815140850000004" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="NKS-z0-9Qd"/>
-                                    <constraint firstAttribute="width" constant="24" id="WCI-PK-2La"/>
+                                    <constraint firstAttribute="height" constant="30" id="NKS-z0-9Qd"/>
+                                    <constraint firstAttribute="width" constant="30" id="WCI-PK-2La"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="12"/>
+                                        <integer key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
@@ -330,18 +330,18 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Odz-j7-w6s">
-                                <rect key="frame" x="195" y="414.5" width="24" height="24"/>
+                                <rect key="frame" x="192" y="409.5" width="30" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.59815140850000004" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="24" id="65j-kC-4VF"/>
-                                    <constraint firstAttribute="height" constant="24" id="7hm-fh-gKb"/>
+                                    <constraint firstAttribute="width" constant="30" id="65j-kC-4VF"/>
+                                    <constraint firstAttribute="height" constant="30" id="7hm-fh-gKb"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="12"/>
+                                        <integer key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
@@ -357,18 +357,18 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9H-x2-Rle">
-                                <rect key="frame" x="195" y="444.5" width="24" height="24"/>
+                                <rect key="frame" x="192" y="444.5" width="30" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.59815140850000004" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="8oy-fq-8xh"/>
-                                    <constraint firstAttribute="width" constant="24" id="NLR-YX-GdB"/>
+                                    <constraint firstAttribute="height" constant="30" id="8oy-fq-8xh"/>
+                                    <constraint firstAttribute="width" constant="30" id="NLR-YX-GdB"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="12"/>
+                                        <integer key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
@@ -384,18 +384,18 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XtH-ie-JfI">
-                                <rect key="frame" x="195" y="479.5" width="24" height="24"/>
+                                <rect key="frame" x="192" y="479.5" width="30" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.59815140850000004" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="h3G-pe-lzF"/>
-                                    <constraint firstAttribute="width" constant="24" id="rlw-9D-YGW"/>
+                                    <constraint firstAttribute="height" constant="30" id="h3G-pe-lzF"/>
+                                    <constraint firstAttribute="width" constant="30" id="rlw-9D-YGW"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="12"/>
+                                        <integer key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
@@ -411,18 +411,18 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AoS-xu-qmN">
-                                <rect key="frame" x="195" y="554.5" width="24" height="24"/>
+                                <rect key="frame" x="192" y="554.5" width="30" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.59815140850000004" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="5Ec-8q-yMp"/>
-                                    <constraint firstAttribute="width" constant="24" id="RWi-Zh-v6Y"/>
+                                    <constraint firstAttribute="height" constant="30" id="5Ec-8q-yMp"/>
+                                    <constraint firstAttribute="width" constant="30" id="RWi-Zh-v6Y"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="12"/>
+                                        <integer key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
@@ -497,7 +497,7 @@
                             <constraint firstItem="6iI-g8-Ptl" firstAttribute="top" secondItem="5md-ky-76W" secondAttribute="top" constant="120" id="LlI-YL-VMd"/>
                             <constraint firstItem="3UA-zl-jgj" firstAttribute="top" secondItem="Ple-g3-xcS" secondAttribute="top" constant="30" id="Qfs-Uu-YTP"/>
                             <constraint firstItem="7Mi-eL-qbi" firstAttribute="centerX" secondItem="n6q-aD-Ngt" secondAttribute="centerX" id="QtR-8T-QgY"/>
-                            <constraint firstItem="Odz-j7-w6s" firstAttribute="top" secondItem="5md-ky-76W" secondAttribute="top" constant="205" id="XH4-5m-FTC"/>
+                            <constraint firstItem="Odz-j7-w6s" firstAttribute="top" secondItem="5md-ky-76W" secondAttribute="top" constant="200" id="XH4-5m-FTC"/>
                             <constraint firstItem="7Mi-eL-qbi" firstAttribute="top" secondItem="5md-ky-76W" secondAttribute="top" constant="200" id="Y3h-h9-PDD"/>
                             <constraint firstItem="ruv-aH-ENX" firstAttribute="top" secondItem="5md-ky-76W" secondAttribute="top" constant="95" id="cyC-ay-dJ0"/>
                             <constraint firstItem="n6q-aD-Ngt" firstAttribute="trailing" secondItem="KdV-i5-J5L" secondAttribute="trailing" id="etD-DH-NhS"/>

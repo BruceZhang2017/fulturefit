@@ -54,7 +54,6 @@ class FFExerciseModelService: NSObject {
     
     
     let mInit = Data([0x74, 0x65, 0x00, 0x75]) // 健身设备启动指令
-    let mDeInit = Data([0x74, 0x66, 0x00, 0x75]) // 健身设备结束指令
     let mInitExtend = Data([0x74, 0x67, 0x00, 0x75]) // 健身设备启动并发送完各种参数之后的通知指令
     let mDeInitExtend = Data([0x74, 0x68, 0x00, 0x75]) // 健身设备结束指令2，和通知指令对应
     let mAllPowerAddOne = Data([0x74, 0x51, 0x00, 0x75]) // 10组电压整体加1发送到设备端的指令

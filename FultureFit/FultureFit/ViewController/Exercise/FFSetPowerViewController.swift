@@ -256,15 +256,15 @@ class FFSetPowerViewController: BaseViewController {
     
     private func normalModeUI() {
         if mLeftCtrlValue & mCtrlBit1 == 0 {
-            buttons[0].setImage(UIImage(named: "4444关闭"), for: .normal)
+            buttons[0].setImage(UIImage(named: "1111关闭"), for: .normal)
         } else {
-            buttons[0].setImage(UIImage(named: "4444"), for: .normal)
+            buttons[0].setImage(UIImage(named: "1111"), for: .normal)
         }
 
         if mLeftCtrlValue & mCtrlBit2 == 0 {
-            buttons[1].setImage(UIImage(named: "1111关闭"), for: .normal)
+            buttons[1].setImage(UIImage(named: "4444关闭"), for: .normal)
         } else {
-            buttons[1].setImage(UIImage(named: "1111"), for: .normal)
+            buttons[1].setImage(UIImage(named: "4444"), for: .normal)
         }
 
         if mLeftCtrlValue & mCtrlBit3 == 0 {

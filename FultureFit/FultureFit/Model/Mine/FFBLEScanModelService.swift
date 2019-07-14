@@ -44,7 +44,7 @@ class FFBLEScanModelService: NSObject {
     private func startTimer() {
         print("启动定时器")
         if timer == nil {
-            timer = Timer.scheduledTimer(timeInterval: 20, target: self, selector: #selector(handleTimer), userInfo: nil, repeats: false)
+            timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(handleTimer), userInfo: nil, repeats: false)
             RunLoop.current.add(timer!, forMode: .common)
         }
     }
