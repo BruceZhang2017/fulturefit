@@ -57,10 +57,10 @@ class FFBLEManager: NSObject {
             perform(#selector(connectDevice(index:)), with: V(index), afterDelay: 0.1)
             return
         }
-        connectDevice(index: index)
+        connectDevice(index: V(index))
     }
     
-    private func connectDevice(index: V) {
+    @objc private func connectDevice(index: V) {
         startConnectTimer()
         FFBaseModel.sharedInstall.bleConnectStatus = 1
         let per = discoveredManager.peripheral(index: index.value)
