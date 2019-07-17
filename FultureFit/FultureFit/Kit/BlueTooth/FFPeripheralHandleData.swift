@@ -28,15 +28,17 @@ class FFPeripheralHandleData: NSObject {
                 let start = i * 20
                 let end = (i + 1) * 20
                 let subData = data.subdata(in: start..<end)
-                FFBLEManager.sharedInstall.write(data: subData)
-                Thread.sleep(forTimeInterval: 0.02)
+//                FFBLEManager.sharedInstall.write(data: subData)
+//                Thread.sleep(forTimeInterval: 0.02)
+                CMDQueue.sharedInstance.AddCmdQueue(param: subData)
             }
             if extra > 0 {
                 let start = count * 20
                 let end = data.count
                 let subData = data.subdata(in: start..<end)
-                FFBLEManager.sharedInstall.write(data: subData)
-                Thread.sleep(forTimeInterval: 0.02)
+//                FFBLEManager.sharedInstall.write(data: subData)
+//                Thread.sleep(forTimeInterval: 0.02)
+                CMDQueue.sharedInstance.AddCmdQueue(param: subData)
             }
         }
     }

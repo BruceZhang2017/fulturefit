@@ -16,7 +16,7 @@ import iPhonesModel
 
 class FFNetworkManager: NSObject, iPhoneModelS {
     
-    private let mac = "http://47.102.124.50/rest/"
+    private let mac = "http://api.futurefit.cn/rest/"
     
     private func urlJoin(head: String) -> String {
         let appId = "123456"

@@ -88,7 +88,7 @@ class CMDQueueThread {
     }
     
     func excuteCmd(parameter: Data) {
-        
+        FFBLEManager.sharedInstall.write(data: parameter)
     }
     
     func start() {
