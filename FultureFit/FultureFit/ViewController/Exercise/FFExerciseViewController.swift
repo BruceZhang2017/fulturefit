@@ -222,6 +222,9 @@ extension FFExerciseViewController: FFExerciseModelServiceDelegate {
     }
     
     func callbackForShowOrHidenYellow(_ imageName: String?, time: String) {
+        if UIApplication.shared.applicationState == .background {
+            return
+        }
         DispatchQueue.main.async {
             [weak self] in
             if imageName == nil {
@@ -274,6 +277,9 @@ extension FFExerciseViewController: FFExerciseModelServiceDelegate {
     }
     
     func callbackForRefreshTimeLabel(_ value: String) {
+        if UIApplication.shared.applicationState == .background {
+            return
+        }
         DispatchQueue.main.async {
             [weak self] in
             self?.timeLabel.text = value
@@ -284,6 +290,9 @@ extension FFExerciseViewController: FFExerciseModelServiceDelegate {
     }
     
     func callbackForRefreshDurationLabel(_ value: String) {
+        if UIApplication.shared.applicationState == .background {
+            return
+        }
         DispatchQueue.main.async {
             [weak self] in
             self?.durationLabel.text = value
@@ -291,6 +300,9 @@ extension FFExerciseViewController: FFExerciseModelServiceDelegate {
     }
     
     func callbackForCountNumLabel(_ value: String) {
+        if UIApplication.shared.applicationState == .background {
+            return
+        }
         DispatchQueue.main.async {
             [weak self] in
             self?.countNumLabel.text = value
