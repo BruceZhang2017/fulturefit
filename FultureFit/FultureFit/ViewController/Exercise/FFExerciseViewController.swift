@@ -222,7 +222,8 @@ extension FFExerciseViewController: FFExerciseModelServiceDelegate {
     }
     
     func callbackForShowOrHidenYellow(_ imageName: String?, time: String) {
-        if UIApplication.shared.applicationState == .background {
+        if UIApplication.shared.applicationState != .active {
+            print("callbackForShowOrHidenYellow background")
             return
         }
         DispatchQueue.main.async {
@@ -277,7 +278,8 @@ extension FFExerciseViewController: FFExerciseModelServiceDelegate {
     }
     
     func callbackForRefreshTimeLabel(_ value: String) {
-        if UIApplication.shared.applicationState == .background {
+        if UIApplication.shared.applicationState != .active {
+            print("callbackForRefreshTimeLabel background")
             return
         }
         DispatchQueue.main.async {
@@ -290,7 +292,8 @@ extension FFExerciseViewController: FFExerciseModelServiceDelegate {
     }
     
     func callbackForRefreshDurationLabel(_ value: String) {
-        if UIApplication.shared.applicationState == .background {
+        if UIApplication.shared.applicationState != .active {
+            print("callbackForRefreshDurationLabel background")
             return
         }
         DispatchQueue.main.async {
@@ -300,7 +303,8 @@ extension FFExerciseViewController: FFExerciseModelServiceDelegate {
     }
     
     func callbackForCountNumLabel(_ value: String) {
-        if UIApplication.shared.applicationState == .background {
+        if UIApplication.shared.applicationState != .active {
+            print("callbackForCountNumLabel background")
             return
         }
         DispatchQueue.main.async {

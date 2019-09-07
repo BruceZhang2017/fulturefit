@@ -18,6 +18,7 @@ class FFPeripheralHandleData: NSObject {
     ///
     /// - Parameter data: 数据
     func write(data: Data) {
+        handleBackgroundTask()
         DispatchQueue.global().async {
             if data.count == 0 {
                 return
@@ -28,16 +29,12 @@ class FFPeripheralHandleData: NSObject {
                 let start = i * 20
                 let end = (i + 1) * 20
                 let subData = data.subdata(in: start..<end)
-//                FFBLEManager.sharedInstall.write(data: subData)
-//                Thread.sleep(forTimeInterval: 0.02)
                 CMDQueue.sharedInstance.AddCmdQueue(param: subData)
             }
             if extra > 0 {
                 let start = count * 20
                 let end = data.count
                 let subData = data.subdata(in: start..<end)
-//                FFBLEManager.sharedInstall.write(data: subData)
-//                Thread.sleep(forTimeInterval: 0.02)
                 CMDQueue.sharedInstance.AddCmdQueue(param: subData)
             }
         }
@@ -48,5 +45,14 @@ class FFPeripheralHandleData: NSObject {
     /// - Parameter data: 数据
     func handle(data: Data) {
         
+    }
+    
+    func handleBackgroundTask() {
+        if UIApplication.shared.applicationState != .active {
+            guard let appdelegate = UIApplication.shared.delegate as? AppDelegate else {
+                return
+            }
+            appdelegate.checkActive()
+        }
     }
 }
