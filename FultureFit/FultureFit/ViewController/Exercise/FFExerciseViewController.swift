@@ -42,6 +42,7 @@ class FFExerciseViewController: BaseViewController {
         addGradient() // 添加渐变图片
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         initializeUI()
+        NotificationCenter.default.addObserver(self, selector: #selector(handleNotification), name: UIApplication.willEnterForegroundNotification, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,6 +61,13 @@ class FFExerciseViewController: BaseViewController {
     
     deinit {
         //service?.kill()
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func handleNotification() {
+        if FFBaseModel.sharedInstall.commandReady == false {
+            service?.onTimeStop()
+        }
     }
     
     // MARK: - PRIVATE
@@ -222,7 +230,7 @@ extension FFExerciseViewController: FFExerciseModelServiceDelegate {
     }
     
     func callbackForShowOrHidenYellow(_ imageName: String?, time: String) {
-        if UIApplication.shared.applicationState != .active {
+        if UIApplication.shared.applicationState != .active && imageName != nil {
             print("callbackForShowOrHidenYellow background")
             return
         }
@@ -278,8 +286,8 @@ extension FFExerciseViewController: FFExerciseModelServiceDelegate {
     }
     
     func callbackForRefreshTimeLabel(_ value: String) {
-        if UIApplication.shared.applicationState != .active {
-            print("callbackForRefreshTimeLabel background")
+        if UIApplication.shared.applicationState != .active && value != "20:00" {
+            print("callbackForRefreshDurationLabel background")
             return
         }
         DispatchQueue.main.async {
@@ -292,7 +300,7 @@ extension FFExerciseViewController: FFExerciseModelServiceDelegate {
     }
     
     func callbackForRefreshDurationLabel(_ value: String) {
-        if UIApplication.shared.applicationState != .active {
+        if UIApplication.shared.applicationState != .active && value != "00:00" {
             print("callbackForRefreshDurationLabel background")
             return
         }
@@ -303,7 +311,7 @@ extension FFExerciseViewController: FFExerciseModelServiceDelegate {
     }
     
     func callbackForCountNumLabel(_ value: String) {
-        if UIApplication.shared.applicationState != .active {
+        if UIApplication.shared.applicationState != .active && value != "(0/0)" {
             print("callbackForCountNumLabel background")
             return
         }

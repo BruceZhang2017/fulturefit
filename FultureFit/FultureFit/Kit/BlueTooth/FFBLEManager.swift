@@ -120,6 +120,10 @@ extension FFBLEManager: CBCentralManagerDelegate {
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         print("蓝牙状态：\(central.state.rawValue)")
         FFBaseModel.sharedInstall.blePowerStatus = central.state
+        if activePeripheral != nil && central.state != .poweredOn {
+            centralManager.cancelPeripheralConnection(activePeripheral) // 断开已连接的设备
+            activePeripheral = nil
+        }
     }
     
     /// 发送设备

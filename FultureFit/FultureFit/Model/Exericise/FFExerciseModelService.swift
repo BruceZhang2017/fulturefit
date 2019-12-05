@@ -15,6 +15,7 @@ import UIKit
 class FFExerciseModelService: NSObject {
     
     let bleConnectStatusKeyPath = "bleConnectStatus" // BLE连接状态
+    let blePowerStatusKeyPath = "blePowerStatus"
     weak var delegate: FFExerciseModelServiceDelegate!
     var mStartTime = 0
     var mSpendTime = 0
@@ -1157,17 +1158,31 @@ class FFExerciseModelService: NSObject {
     
     /// 开始KVO监听BLE连接状态
     private func startKVO() {
+        FFBaseModel.sharedInstall.addObserver(self, forKeyPath: blePowerStatusKeyPath, options: .new, context: nil)
         FFBaseModel.sharedInstall.addObserver(self, forKeyPath: bleConnectStatusKeyPath, options: .new, context: nil)
     }
     
     /// 结束KVO监听BLE连接状态
     private func endKVO() {
+        FFBaseModel.sharedInstall.removeObserver(self, forKeyPath: blePowerStatusKeyPath)
         FFBaseModel.sharedInstall.removeObserver(self, forKeyPath: bleConnectStatusKeyPath)
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == bleConnectStatusKeyPath {
             delegate?.callbackForBLEState(FFBaseModel.sharedInstall.bleConnectStatus >= 2)
+            if FFBaseModel.sharedInstall.mCountDownTimeState != 0 {
+                onTimeStop()
+                handleMessage(what:V(MSG_TOAST))
+            }
+        } else if keyPath == blePowerStatusKeyPath {
+            DispatchQueue.main.async {
+                if FFBaseModel.sharedInstall.blePowerStatus != .poweredOn {
+                    FFBaseModel.sharedInstall.bleConnectStatus = 0
+                    FFBaseModel.sharedInstall.commandReady = false
+                }
+            }
+            
         } else {
             super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
         }
